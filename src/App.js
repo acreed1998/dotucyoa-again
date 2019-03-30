@@ -31,19 +31,15 @@ class App extends Component {
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/about/">About</Link>
-                </li>
-                <li>
-                  <Link to="/users/">Users</Link>
+                  <Link to="/special/">About</Link>
                 </li>
               </ul>
             </nav>
-
+            <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
             <Route path="/" exact component={Opening} />
-            <Route path="/about/" component={Special} />
+            <Route path="/special/" component={Special} />
           </div>
         </Router>
-        <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
       </div>
     );
   }
