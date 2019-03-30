@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CYOAData from './data/json_for_index.json';
 import BottomNavigation from './components/BottomNavigation';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Opening from './routes/Opening';
+import Special from './routes/Special';
 
 class App extends Component {
   constructor(props) {
@@ -9,6 +13,7 @@ class App extends Component {
     this.state = {
       currentTab: 'Opening',
     };
+    console.log(CYOAData);
   }
 
   setBottomTab(value) {
@@ -18,20 +23,26 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Router>
+          <div>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/about/">About</Link>
+                </li>
+                <li>
+                  <Link to="/users/">Users</Link>
+                </li>
+              </ul>
+            </nav>
+
+            <Route path="/" exact component={Opening} />
+            <Route path="/about/" component={Special} />
+          </div>
+        </Router>
         <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
       </div>
     );
