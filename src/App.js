@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import CYOAData from './data/json_for_index.json';
 import BottomNavigation from './components/BottomNavigation';
@@ -37,6 +37,12 @@ class App extends Component {
     this.setState({currentTab: value});
   }
 
+  changeSpecial(specialArray) {
+    const user = this.state.user;
+    user.special = specialArray;
+    this.setState({user: user});
+  }
+
   render() {
     return (
       <div className="App">
@@ -54,7 +60,10 @@ class App extends Component {
             </nav>
             <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
             <Route path="/" exact render={() => <Opening openingText={CYOAData.opening} />} />
-            <Route path="/special/" render={() => <Special special={CYOAData.special} />} />
+            <Route path="/special/" render={() => <Special
+            special={CYOAData.special}
+            user={this.state.user}
+            changeSpecial={this.changeSpecial.bind(this)} />} />
           </div>
         </Router>
       </div>

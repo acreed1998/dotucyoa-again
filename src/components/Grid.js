@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 // import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
-import Card from './ChoiceCard';
+import ChoiceCard from './ChoiceCard';
 
 const styles = theme => ({
   root: {
@@ -25,7 +25,7 @@ function AutoGrid(props) {
         {_.map(props.choices, (choice, index) => {
           return (
             <Grid item xs>
-              <Card cardText={choice} special={index} changeSpecial={props.changeSpecial} />
+              <ChoiceCard cardText={choice} special={index} changeSpecial={props.changeSpecial} />
             </Grid>
           );
         })}
