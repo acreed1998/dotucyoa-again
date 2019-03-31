@@ -53,6 +53,7 @@ const styles = {
   stickToBottom: {
     width: '100%',
     position: 'fixed',
+    overflow: 'hidden',
     bottom: 0,
   },
 };

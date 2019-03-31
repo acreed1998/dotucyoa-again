@@ -3,6 +3,7 @@ import NoChoiceCard from '../components/NoChoiceCard';
 import ChoiceCard from '../components/ChoiceCard';
 import _ from 'lodash';
 import GridItem from '@material-ui/core/Grid';
+import { GiConsoleController } from "react-icons/gi";
 
 export default class RaceAndAbilities extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class RaceAndAbilities extends Component {
 
     };
     this.changeRace = this.changeRace.bind(this);
+    this.chooseAbility = this.chooseAbility.bind(this);
   }
 
   changeRace(userRace) {
@@ -32,6 +34,10 @@ export default class RaceAndAbilities extends Component {
         this.props.changeRace(races);
       }
     }
+  }
+
+  chooseAbility(abilityObject) {
+    console.log(abilityObject);
   }
 
   render() {
@@ -62,7 +68,7 @@ export default class RaceAndAbilities extends Component {
                   special={index}
                   chooseAbility={this.props.chooseAbility}
                   picked={_.includes(this.props.user.abilities, index)}
-                  onClick={() => { this.chooseAbility(index) }} />
+                  onClick={() => { this.chooseAbility(choice) }} />
               </GridItem>
             );
           })}

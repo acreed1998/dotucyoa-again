@@ -113,7 +113,10 @@
       "special_ops": {
         "ability": "Special Ops",
         "points": 4,
-        "text": "<b>Special Ops (Cost: 4 Points)<br> Requires Combat Training</b><br> You are one of the elite.<br> You have been heavily trained in unconventional warfare.<br> You are a master of sabotage, assassination, espionage, and you excel in high-risk combat situations."
+        "text": "<b>Special Ops (Cost: 4 Points)<br> Requires Combat Training</b><br> You are one of the elite.<br> You have been heavily trained in unconventional warfare.<br> You are a master of sabotage, assassination, espionage, and you excel in high-risk combat situations.",
+        "restriction": {
+          "abilities": "Combat Training"
+        }
       },
       "peak_physical_fitness": {
         "ability": "Peak Physical Fitness",
@@ -143,12 +146,18 @@
       "hidden_weapon": {
         "ability": "Hidden Weapon",
         "points": 2,
-        "text": "<b>Hidden Weapons (Cost: 2 Points)<br> Requires Cybernetics</b><br> For each cybernetic limb you have, you can hide one of the following retractable weapons in it:<br> a pistol<br> a hyper-durable blade<br> a short-range flamethrower<br> a buzz saw"
+        "text": "<b>Hidden Weapons (Cost: 2 Points)<br> Requires Cybernetics</b><br> For each cybernetic limb you have, you can hide one of the following retractable weapons in it:<br> a pistol<br> a hyper-durable blade<br> a short-range flamethrower<br> a buzz saw",
+        "restriction": {
+          "abilities": "Cybernetics"
+        }
       },
       "psionic_enhancement": {
         "ability": "Psionic Enhancement",
         "points": 2,
-        "text": "<b>Psionic Enhancement (Cost: 2 Points)<br> (Requires: Psionics)</b><br> Your psionics can now boost your running speed by 10 mph, you can jump twice as far and high, and you can use psionics to temporarily boost your healing by up to 50%."
+        "text": "<b>Psionic Enhancement (Cost: 2 Points)<br> (Requires: Psionics)</b><br> Your psionics can now boost your running speed by 10 mph, you can jump twice as far and high, and you can use psionics to temporarily boost your healing by up to 50%.",
+        "restriction": {
+          "abilities": "Psionics"
+        }
       },
       "elementalism": {
         "ability": "Elementalism",
@@ -168,22 +177,32 @@
       "super_soldier": {
         "ability": "Super Soldier",
         "points": 6,
-        "text": "<b>Super Soldier (Restriction:You) (Cost: 6 Points)</b><br> You can now lift over 5x your races max lifting strength, run at over 55 mph, and you heal 2x faster than normal.You are also now an expert marksman, your skin is tougher, and your reflexes are faster. If you lose a limb, a tooth, or an organ, it will slowly regrow and repair."
+        "text": "<b>Super Soldier (Restriction:You) (Cost: 6 Points)</b><br> You can now lift over 5x your races max lifting strength, run at over 55 mph, and you heal 2x faster than normal.You are also now an expert marksman, your skin is tougher, and your reflexes are faster. If you lose a limb, a tooth, or an organ, it will slowly regrow and repair.",
+        "restriction": {
+          "special": "you"
+        }
       },
       "superhuman": {
         "ability": "Superhuman",
         "points": 6,
-        "text": "<b>Superhuman (Restriction:You) (Cost: 6 Points)</b><br> Requires Psionics Your psionic powers are now so intense that you can lift up to 25 tons with them.<br> You can generate barriers so large they encompass ships, crush normal people into paste, and you can even fly using your telekinesis."
+        "text": "<b>Superhuman (Restriction:You) (Cost: 6 Points)</b><br> Requires Psionics Your psionic powers are now so intense that you can lift up to 25 tons with them.<br> You can generate barriers so large they encompass ships, crush normal people into paste, and you can even fly using your telekinesis.",
+        "restriction": {
+          "special": "you"
+        }
       },
       "armored": {
         "ability": "Armored",
         "points": 6,
-        "text": "<b>Armored (Restriction:You) (Cost: 6 Points)</b><br> Most of your chest and head have been replaced with unique, alien cybernetics, and nanobots flow through your blood. All of your mechanical parts automatically and rapidly repair, and your healing is boosted to 5x faster than normal.<br> All of your cybernetics are now tough enough to stop bullets."
+        "text": "<b>Armored (Restriction:You) (Cost: 6 Points)</b><br> Most of your chest and head have been replaced with unique, alien cybernetics, and nanobots flow through your blood. All of your mechanical parts automatically and rapidly repair, and your healing is boosted to 5x faster than normal.<br> All of your cybernetics are now tough enough to stop bullets.",
+        "restriction": { "special": "you"}
       },
       "synergy": {
         "ability": "Synergy",
         "points": 5,
-        "text": "<b>Synergy (Restriction:Team) (Cost: 5 Points)</b><br> You and your teammates somehow have an unconscious psychic link; you all seem to know where the others are, even across light years.<br> You also sync up unbelievably well; you all can come up with and follow unspoken plans on the fly. Your team is unspeakably loyal to you, and you can sense each other’s injures."
+        "text": "<b>Synergy (Restriction:Team) (Cost: 5 Points)</b><br> You and your teammates somehow have an unconscious psychic link; you all seem to know where the others are, even across light years.<br> You also sync up unbelievably well; you all can come up with and follow unspoken plans on the fly. Your team is unspeakably loyal to you, and you can sense each other’s injures.",
+        "restriction": {
+          "special": "your_team"
+        }
       }
     }
   },
