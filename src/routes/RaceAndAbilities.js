@@ -4,6 +4,7 @@ import ChoiceCard from '../components/ChoiceCard';
 import _ from 'lodash';
 import GridItem from '@material-ui/core/Grid';
 import { GiConsoleController } from "react-icons/gi";
+import MultiChoiceCard from '../components/MultiChoiceCard';
 
 export default class RaceAndAbilities extends Component {
   constructor(props) {
@@ -61,16 +62,32 @@ export default class RaceAndAbilities extends Component {
         <NoChoiceCard cardText={this.props.abilities.opening} />
         <GridItem container spacing={24} justify='space-evenly'>
           {_.map(this.props.abilities.choices, (choice, index) => {
-            return (
-              <GridItem key={`special-grid-${index}`} item xs>
-                <ChoiceCard
-                  cardText={choice.text}
-                  special={index}
-                  chooseAbility={this.props.chooseAbility}
-                  picked={_.includes(this.props.user.abilities, index)}
-                  onClick={() => { this.chooseAbility(choice) }} />
-              </GridItem>
-            );
+            if (choice['multi-pick']) {
+              return (
+                <GridItem key={`special-grid-${index}`} item xs>
+                  <MultiChoiceCard
+                    cardText={choice.text}
+                    special={index}
+                    chooseAbility={this.props.chooseAbility}
+                    picked={_.includes(this.props.user.abilities, index)}
+                    ammountPicked={_.filter(this.props.user.abilities, ability => ability.ability === choice.ability).length}
+                    onPlus={() => { this.chooseAbility(choice) }}
+                    onMinus={() => { this.chooseAbility(choice) }} />
+                </GridItem>
+              );
+
+            } else {
+              return (
+                <GridItem key={`special-grid-${index}`} item xs>
+                  <ChoiceCard
+                    cardText={choice.text}
+                    special={index}
+                    chooseAbility={this.props.chooseAbility}
+                    picked={_.includes(this.props.user.abilities, index)}
+                    onClick={() => { this.chooseAbility(choice) }} />
+                </GridItem>
+              );
+            }
           })}
         </GridItem>
       </div>
