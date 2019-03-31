@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import NoChoiceCard from '../components/NoChoiceCard';
 import ChoiceCard from '../components/ChoiceCard';
-import Grid from '../components/Grid';
 import _ from 'lodash';
 import GridItem from '@material-ui/core/Grid';
 
@@ -15,6 +14,7 @@ export default class Special extends Component {
   }
 
   changeSpecial(userSpecial) {
+    // const twoSpecials = _.includes(_.map(this.props.user.boons, boon => boon.name), 'The Chosen One');
     const twoSpecials = _.includes(_.map(this.props.user.boons, boon => boon.name), 'The Chosen One');
     const specials = this.props.user.special;
     console.log(twoSpecials, userSpecial);
@@ -27,7 +27,7 @@ export default class Special extends Component {
       } else if (twoSpecials === false && specials.length < 1) {
         specials.push(userSpecial);
         this.props.changeSpecial(specials);
-      } else {
+      } else if (twoSpecials === false && specials.length === 1) {
         specials[0] = userSpecial;
         this.props.changeSpecial(specials);
       }
@@ -36,20 +36,23 @@ export default class Special extends Component {
 
   render() {
     return(
-      <GridItem container spacing={24} justify='space-evenly'>
-        {_.map(this.props.special.choices, (choice, index) => {
-          return (
-            <GridItem key={`special-grid-${index}`} item xs>
-              <ChoiceCard
-              cardText={choice}
-              special={index}
-              changeSpecial={this.props.changeSpecial}
-              picked={_.includes(this.props.user.special, index)}
-              onClick={() => { this.changeSpecial(index) }}/>
-            </GridItem>
-          );
-        })}
-      </GridItem>
+      <div>
+        <NoChoiceCard cardText={this.props.special.opening}/>
+        <GridItem container spacing={24} justify='space-evenly'>
+          {_.map(this.props.special.choices, (choice, index) => {
+            return (
+              <GridItem key={`special-grid-${index}`} item xs>
+                <ChoiceCard
+                cardText={choice}
+                special={index}
+                changeSpecial={this.props.changeSpecial}
+                picked={_.includes(this.props.user.special, index)}
+                onClick={() => { this.changeSpecial(index) }}/>
+              </GridItem>
+            );
+          })}
+        </GridItem>
+      </div>
     );
   }
 }

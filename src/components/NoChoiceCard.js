@@ -38,7 +38,7 @@ function ChoiceCard(props) {
   const { classes } = props;
 
   return (
-    <Card className={classes.card} raised>
+    <Card className={classes.card} raised style={{marginBottom: 25}}>
       <CardContent>
         <Typography component="div">
           {Parser(props.cardText)}
