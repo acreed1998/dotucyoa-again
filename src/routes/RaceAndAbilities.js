@@ -10,8 +10,29 @@ export default class RaceAndAbilities extends Component {
     this.state = {
 
     };
+    this.changeRace = this.changeRace.bind(this);
   }
 
+  changeRace(userRace) {
+    // const twoSpecials = _.includes(_.map(this.props.user.boons, boon => boon.name), 'The Chosen One');
+    const twoRaces = _.includes(_.map(this.props.user.boons, boon => boon.name), 'Born This Way');
+    const races = this.props.user.race;
+    console.log(twoRaces, userRace);
+    if (_.includes(races, userRace)) {
+      this.props.changeRace(_.filter(races, Race => Race !== userRace));
+    } else {
+      if (twoRaces === true && races.length < 2) {
+        races.push(userRace);
+        this.props.changeRace(races);
+      } else if (twoRaces === false && races.length < 1) {
+        races.push(userRace);
+        this.props.changeRace(races);
+      } else if (twoRaces === false && races.length === 1) {
+        races[0] = userRace;
+        this.props.changeRace(races);
+      }
+    }
+  }
 
   render() {
     return (

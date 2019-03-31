@@ -18,7 +18,7 @@ class App extends Component {
         special: [],
         race: [],
         abilities: [],
-        armor: '',
+        armor: [],
         weapons: [],
         ship_type: '',
         ship_style: '',
