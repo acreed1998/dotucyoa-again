@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NoChoiceCard from '../components/NoChoiceCard';
 
 export default class Opening extends Component {
   constructor(props) {
@@ -10,7 +11,9 @@ export default class Opening extends Component {
 
   render() {
     return (
-      <div>Jump</div>
+      <div>
+        <NoChoiceCard cardText={this.props.openingText} />
+      </div>
     );
   }
 }

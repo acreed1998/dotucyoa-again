@@ -12,6 +12,23 @@ class App extends Component {
     super(props);
     this.state = {
       currentTab: 'Opening',
+      user: {
+        points: 75,
+        special: [],
+        race: [],
+        abilities: [],
+        armor: '',
+        weapons: [],
+        ship_type: '',
+        ship_style: '',
+        ship_traits: [],
+        team_members: [],
+        boons: [],
+        drawbacks: [],
+        events: [],
+        rewards: [],
+        section: 'Opening'
+      },
     };
     console.log(CYOAData);
   }
@@ -36,8 +53,8 @@ class App extends Component {
               </ul>
             </nav>
             <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
-            <Route path="/" exact component={Opening} />
-            <Route path="/special/" component={Special} />
+            <Route path="/" exact render={() => <Opening openingText={CYOAData.opening} />} />
+            <Route path="/special/" render={() => <Special special={CYOAData.special} />} />
           </div>
         </Router>
       </div>
