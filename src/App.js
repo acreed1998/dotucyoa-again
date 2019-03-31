@@ -6,6 +6,7 @@ import BottomNavigation from './components/BottomNavigation';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Opening from './routes/Opening';
 import Special from './routes/Special';
+import RaceAndAbilities from './routes/RaceAndAbilities';
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +41,13 @@ class App extends Component {
   changeSpecial(specialArray) {
     const user = this.state.user;
     user.special = specialArray;
-    this.setState({user: user});
+    this.setState({ user: user });
+  }
+
+  changeRace(raceArray) {
+    const user = this.state.user;
+    user.race = raceArray;
+    this.setState({ user: user });
   }
 
   render() {
@@ -48,22 +55,19 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/special/">About</Link>
-                </li>
-              </ul>
-            </nav>
+            <div>Defender of the Universe</div>
             <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
             <Route path="/" exact render={() => <Opening openingText={CYOAData.opening} />} />
             <Route path="/special/" render={() => <Special
             special={CYOAData.special}
             user={this.state.user}
             changeSpecial={this.changeSpecial.bind(this)} />} />
+            <Route path="/randa/" render={() => <RaceAndAbilities
+            user={this.state.user}
+            races={CYOAData.race}
+            abilities={CYOAData.abilities}
+            changeRace={this.changeRace.bind(this)}
+            />} />
           </div>
         </Router>
       </div>

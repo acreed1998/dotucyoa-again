@@ -5,7 +5,7 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import { GiBookCover } from "react-icons/gi";
 import { GiRoundStar } from "react-icons/gi";
-// import { GiChecklist } from "react-icons/gi";
+import { GiChecklist } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 class SimpleBottomNavigation extends React.Component {
@@ -13,7 +13,7 @@ class SimpleBottomNavigation extends React.Component {
     super(props);
     this.state = {
       value: 0,
-      sections: ['Opening', 'Special'], 
+      sections: ['Opening', 'Special', 'Race & Abilitiess'], 
     }
   }
 
@@ -36,6 +36,7 @@ class SimpleBottomNavigation extends React.Component {
       >
         <BottomNavigationAction label="Opening" icon={<GiBookCover size={'2em'} onClick={() => { console.log(this.state.value) }} />} component={Link} to={"/"}/>
         <BottomNavigationAction label="Special" icon={<GiRoundStar size={'2em'} />} component={Link} to={"/special/"} />
+        <BottomNavigationAction label={"Race & Abilities"} icon={<GiChecklist size={'2em'} />} component={Link} to={"/randa/"} />
       </BottomNavigation>
     );
   }
