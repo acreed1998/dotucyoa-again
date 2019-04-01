@@ -47,21 +47,18 @@ export default class RaceAndAbilities extends Component {
         if (points - abilityObject.points > -1) {
           abilities.push(abilityObject);
           this.props.modifyAbilities(abilities);
-          this.props.modifyPoints(points - abilityObject.points);
         }
       } else {
         if (_.includes(_.concat(abilityNames, this.props.user.special), _.values(abilityObject.restriction)[0])) {
           if (points - abilityObject.points > -1) {
             abilities.push(abilityObject);
             this.props.modifyAbilities(abilities);
-            this.props.modifyPoints(points - abilityObject.points);
           }
         }
       }
     } else {
       _.pullAt(abilities, _.indexOf(abilities, abilityObject));
       this.props.modifyAbilities(abilities);
-      this.props.modifyPoints(points + abilityObject.points);
     }
   }
 
@@ -72,7 +69,6 @@ export default class RaceAndAbilities extends Component {
     if (this.props.user.points - abilityObject.points > -1 && multiNum < abilityObject.max) {
       abilities.push(abilityObject);
       this.props.modifyAbilities(abilities);
-      this.props.modifyPoints(points - abilityObject.points);
     }
   }
 
@@ -82,7 +78,6 @@ export default class RaceAndAbilities extends Component {
     let points = this.props.user.points;
     _.pullAt(abilities, _.indexOf(abilities, abilityObject));
     this.props.modifyAbilities(abilities);
-    this.props.modifyPoints(points + abilityObject.points);
   }
 
   render() {

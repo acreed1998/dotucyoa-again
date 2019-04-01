@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Opening from './routes/Opening';
 import Special from './routes/Special';
 import RaceAndAbilities from './routes/RaceAndAbilities';
+import _ from 'lodash';
 
 class App extends Component {
   constructor(props) {
@@ -53,7 +54,9 @@ class App extends Component {
   modifyAbilities(abilitiesArray) {
     const user = this.state.user;
     user.abilities = abilitiesArray;
+    const points = 75 - _.sum(_.map(abilitiesArray, ability => ability.points));
     this.setState({ user: user });
+    this.modifyPoints(points);
   }
 
   modifyPoints(points) {
