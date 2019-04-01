@@ -39,7 +39,30 @@ export default class RaceAndAbilities extends Component {
   }
 
   chooseAbility(abilityObject) {
-    console.log(abilityObject);
+    const abilities = this.props.user.abilities;
+    let points = this.props.user.points;
+    const abilityNames = _.map(abilities, ability => ability.ability);
+    if (!_.includes(abilities, abilityObject)) {
+      if (!abilityObject.restriction) {
+        if (points - abilityObject.points > -1) {
+          abilities.push(abilityObject);
+          this.props.modifyAbilities(abilities);
+          this.props.modifyPoints(points - abilityObject.points);
+        }
+      } else {
+        if (_.includes(_.concat(abilityNames, this.props.user.special), _.values(abilityObject.restriction)[0])) {
+          if (points - abilityObject.points > -1) {
+            abilities.push(abilityObject);
+            this.props.modifyAbilities(abilities);
+            this.props.modifyPoints(points - abilityObject.points);
+          }
+        }
+      }
+    } else {
+      _.pullAt(abilities, _.indexOf(abilities, abilityObject));
+      this.props.modifyAbilities(abilities);
+      this.props.modifyPoints(points + abilityObject.points);
+    }
   }
 
   addMulti(abilityObject) {
@@ -103,7 +126,7 @@ export default class RaceAndAbilities extends Component {
                     cardText={choice.text}
                     special={index}
                     chooseAbility={this.props.chooseAbility}
-                    picked={_.includes(this.props.user.abilities, index)}
+                    picked={_.includes(this.props.user.abilities, choice)}
                     onClick={() => { this.chooseAbility(choice) }} />
                 </GridItem>
               );
