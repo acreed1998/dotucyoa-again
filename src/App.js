@@ -50,6 +50,18 @@ class App extends Component {
     this.setState({ user: user });
   }
 
+  modifyAbilities(abilitiesArray) {
+    const user = this.state.user;
+    user.abilities = abilitiesArray;
+    this.setState({ user: user });
+  }
+
+  modifyPoints(points) {
+    const user = this.state.user;
+    user.points = points;
+    this.setState({ user: user });
+  }
+
   render() {
     return (
       <div className="App">
@@ -67,6 +79,8 @@ class App extends Component {
             races={CYOAData.race}
             abilities={CYOAData.abilities}
             changeRace={this.changeRace.bind(this)}
+            modifyAbilities={this.modifyAbilities.bind(this)}
+            modifyPoints={this.modifyPoints.bind(this)}
             />} />
           </div>
         </Router>

@@ -94,7 +94,8 @@
         "ability": "Cybernetics",
         "points": 1,
         "text": "<b>Cybernetics (Cost: 1 Point)</b><br> One of your limbs has been replaced with a cybernetic prosthetic.<br> This cybernetic limb can exert twice as much force as a standard limb. However, these limbs need to be repaired regularly, and unless you upgrade, you can’t get stronger. This can be taken up to 4 times.",
-        "multi-pick": true
+        "multi-pick": true,
+        "max": 4
       },
       "enhanced_senses": {
         "ability": "Enhanced Senses",

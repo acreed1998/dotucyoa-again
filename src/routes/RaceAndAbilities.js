@@ -3,7 +3,6 @@ import NoChoiceCard from '../components/NoChoiceCard';
 import ChoiceCard from '../components/ChoiceCard';
 import _ from 'lodash';
 import GridItem from '@material-ui/core/Grid';
-import { GiConsoleController } from "react-icons/gi";
 import MultiChoiceCard from '../components/MultiChoiceCard';
 
 export default class RaceAndAbilities extends Component {
@@ -14,6 +13,8 @@ export default class RaceAndAbilities extends Component {
     };
     this.changeRace = this.changeRace.bind(this);
     this.chooseAbility = this.chooseAbility.bind(this);
+    this.addMulti = this.addMulti.bind(this);
+    this.removeMulti = this.removeMulti.bind(this);
   }
 
   changeRace(userRace) {
@@ -39,6 +40,26 @@ export default class RaceAndAbilities extends Component {
 
   chooseAbility(abilityObject) {
     console.log(abilityObject);
+  }
+
+  addMulti(abilityObject) {
+    const multiNum = _.filter(this.props.user.abilities, ability => ability.ability === abilityObject.ability).length;
+    const abilities = this.props.user.abilities;
+    let points = this.props.user.points;
+    if (this.props.user.points - abilityObject.points > -1 && multiNum < abilityObject.max) {
+      abilities.push(abilityObject);
+      this.props.modifyAbilities(abilities);
+      this.props.modifyPoints(points - abilityObject.points);
+    }
+  }
+
+  removeMulti(abilityObject) {
+    const multiNum = _.filter(this.props.user.abilities, ability => ability.ability === abilityObject.ability).length;
+    const abilities = this.props.user.abilities;
+    let points = this.props.user.points;
+    _.pullAt(abilities, _.indexOf(abilities, abilityObject));
+    this.props.modifyAbilities(abilities);
+    this.props.modifyPoints(points + abilityObject.points);
   }
 
   render() {
@@ -69,13 +90,12 @@ export default class RaceAndAbilities extends Component {
                     cardText={choice.text}
                     special={index}
                     chooseAbility={this.props.chooseAbility}
-                    picked={_.includes(this.props.user.abilities, index)}
+                    picked={_.filter(this.props.user.abilities, ability => ability.ability === choice.ability).length > 0}
                     ammountPicked={_.filter(this.props.user.abilities, ability => ability.ability === choice.ability).length}
-                    onPlus={() => { this.chooseAbility(choice) }}
-                    onMinus={() => { this.chooseAbility(choice) }} />
+                    onPlus={() => { this.addMulti(choice) }}
+                    onMinus={() => { this.removeMulti(choice) }} />
                 </GridItem>
               );
-
             } else {
               return (
                 <GridItem key={`special-grid-${index}`} item xs>
