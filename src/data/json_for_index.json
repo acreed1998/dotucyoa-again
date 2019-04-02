@@ -33,7 +33,7 @@
         "lifespan": 950,
         "lift_str": 1000,
         "speed": 28,
-        "text": "<b>Asari</b><br>Bipedal Mono-sexed psionics.<br>Max Lifespan of 900-1000 years.<br>Max Lifting Strength of 1000 lbs.<br>Max Speed of 28 mph.<br>Natural Environment is Tropical, but are almost as adaptable as humans.<br><br>-Gain Beautiful for Free.<br>-Gain Psionic for Free.<br>",
+        "text": "<b>Asari</b><br>Bipedal Mono-sexed psionics.<br>Max Lifespan of 900-1000 years.<br>Max Lifting Strength of 1000 lbs.<br>Max Speed of 28 mph.<br>Natural Environment is Tropical, but are almost as adaptable as humans.<br><br>-Gain Beautiful for Free.<br>-Gain Psionics for Free.<br>",
         "free_skill": {
           "0" : "Beautiful",
           "1" : "Psionics"
@@ -79,44 +79,52 @@
       "psionics": {
         "ability": "Psionics",
         "points": 4,
-        "text": "<b>Psionics (Cost: 4 Points)</b><br>You can telekinetically lift and move objects up to 3x your race's max lifting strength. You can also form a psychic link through physical contact, allowing you to share emotions and memories with a person, and you can generate psionic barriers that protect against attacks."
+        "text": "<b>Psionics (Cost: 4 Points)</b><br>You can telekinetically lift and move objects up to 3x your race's max lifting strength. You can also form a psychic link through physical contact, allowing you to share emotions and memories with a person, and you can generate psionic barriers that protect against attacks.",
+        "free": "Asari"
       },
       "combat_training": {
         "ability": "Combat Training",
         "points": 3,
-        "text": "<b>Combat Training (Cost: 3 Points)</b><br>You have gone through the best your race has to offer in standard combat training.You know how to fire, clean, and maintain any firearm, drive any vehicle, and survive in prolonged combat.Also, your current strength is boosted to l/2 of your race's max strength, if it wasn't already."
+        "text": "<b>Combat Training (Cost: 3 Points)</b><br>You have gone through the best your race has to offer in standard combat training.You know how to fire, clean, and maintain any firearm, drive any vehicle, and survive in prolonged combat.Also, your current strength is boosted to l/2 of your race's max strength, if it wasn't already.",
+        "free": "Qunari"
       },
       "endurance": {
         "ability": "Endurance",
         "points": 2,
-        "text": "<b>Endurance (Cost: 2 Points)</b><br> You have some of the best endurance in the galaxy.<br> You could jog for dozens of miles without a break, go days without sleep, food, or water, and you only need to sleep for about 4-5 hours a night."
+        "text": "<b>Endurance (Cost: 2 Points)</b><br> You have some of the best endurance in the galaxy.<br> You could jog for dozens of miles without a break, go days without sleep, food, or water, and you only need to sleep for about 4-5 hours a night.",
+        "free": "Human"
       },
       "tech_skills": {
         "ability": "Tech Skills",
         "points": 2,
-        "text": "<b>Tech Skills (Cost: 2 Points)</b><br> You are naturally skilled with electronics and technology.<br> You’re an expert hacker, you have advanced knowledge in and experience with engineering, and you’re far more skilled with energy weapons."
+        "text": "<b>Tech Skills (Cost: 2 Points)</b><br> You are naturally skilled with electronics and technology.<br> You’re an expert hacker, you have advanced knowledge in and experience with engineering, and you’re far more skilled with energy weapons.",
+        "free": "Android"
       },
       "cybernetics": {
         "ability": "Cybernetics",
         "points": 1,
         "text": "<b>Cybernetics (Cost: 1 Point)</b><br> One of your limbs has been replaced with a cybernetic prosthetic.<br> This cybernetic limb can exert twice as much force as a standard limb. However, these limbs need to be repaired regularly, and unless you upgrade, you can’t get stronger. This can be taken up to 4 times.",
         "multi-pick": true,
-        "max": 4
+        "max": 4,
+        "free": "Android"
       },
       "enhanced_senses": {
         "ability": "Enhanced Senses",
         "points": 2,
-        "text": "<b>Enhanced Senses (Cost: 2 Points)</b><br> With genetic and/or cybernetic engineering, your senses have been boosted.You can now see in the dark, your vision can pick out details from dozens of meters away, and you could hear a pin drop in a crowded room."
+        "text": "<b>Enhanced Senses (Cost: 2 Points)</b><br> With genetic and/or cybernetic engineering, your senses have been boosted.You can now see in the dark, your vision can pick out details from dozens of meters away, and you could hear a pin drop in a crowded room.",
+        "free": "Aquoid"
       },
       "intelligence": {
         "ability": "Intelligence",
         "points": 3,
-        "text": "<b>Intelligence (Cost: 3 Points)</b><br> You are a natural genius. In human terms, you have an I.Q. of around 150, and you have a photographic memory.<br> You are also naturally inventive, and you have a natural talent for theoretical physics and advanced mathematics."
+        "text": "<b>Intelligence (Cost: 3 Points)</b><br> You are a natural genius. In human terms, you have an I.Q. of around 150, and you have a photographic memory.<br> You are also naturally inventive, and you have a natural talent for theoretical physics and advanced mathematics.",
+        "free": "Gray"
       },
       "beautiful": {
         "ability": "Beautiful",
         "points": 2,
-        "text": "<b>Beautiful (Cost: 2 Points)</b><br> Your physical appearance turns heads everywhere you go.<br> Even people who aren't your own species are usually attracted to you.<br> For Androids; you look and feel far more lifelike.You could even have some of the right..‘parts’ installed."
+        "text": "<b>Beautiful (Cost: 2 Points)</b><br> Your physical appearance turns heads everywhere you go.<br> Even people who aren't your own species are usually attracted to you.<br> For Androids; you look and feel far more lifelike.You could even have some of the right..‘parts’ installed.",
+        "free": "Asari"
       },
       "special_ops": {
         "ability": "Special Ops",
@@ -134,7 +142,8 @@
       "immune": {
         "ability": "Immune",
         "points": 2,
-        "text": "<b>Immune (Cost: 2 Points)</b><br> Thanks to genetic engineering, you heal 30% faster than normal people, and your immune system is much tougher.<br> You also have no genetic or birth defects.<br> Cannot be taken by androids."
+        "text": "<b>Immune (Cost: 2 Points)</b><br> Thanks to genetic engineering, you heal 30% faster than normal people, and your immune system is much tougher.<br> You also have no genetic or birth defects.<br> Cannot be taken by androids.",
+        "free": "Aquoid"
       },
       "medical_expert": {
         "ability": "Medical Expert",
