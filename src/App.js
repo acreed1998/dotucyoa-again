@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Opening from './routes/Opening';
 import Special from './routes/Special';
 import RaceAndAbilities from './routes/RaceAndAbilities';
+import ArmorAndWeapons from './routes/ArmorAndWeapons';
 import _ from 'lodash';
 
 class App extends Component {
@@ -106,6 +107,12 @@ class App extends Component {
             changeRace={this.changeRace.bind(this)}
             modifyAbilities={this.modifyAbilities.bind(this)}
             modifyPoints={this.modifyPoints.bind(this)}
+            />} />
+            <Route path="/arandw/" render={() => <ArmorAndWeapons
+            user={this.state.user}
+            armor={CYOAData.armor}
+            armor_traits={CYOAData.armor_traits}
+            weapons={CYOAData.weapons}
             />} />
           </div>
         </Router>
