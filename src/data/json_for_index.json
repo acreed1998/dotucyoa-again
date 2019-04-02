@@ -13,6 +13,7 @@
     "opening" : "<b>Race</b><br>Choose One",
     "choices" : {
       "human" : {
+        "race": "Human",
         "lifespan" : 135,
         "lift_str" : 1100,
         "speed" : 30,
@@ -20,6 +21,7 @@
         "free_skill" : "Endurance"
       },
       "android": {
+        "race": "Android",
         "lifespan": "Potentially Limitless",
         "lift_str": 1800,
         "speed": 40,
@@ -27,6 +29,7 @@
         "free_skill": "Cybernetics"
       },
       "asari": {
+        "race": "Asari",
         "lifespan": 950,
         "lift_str": 1000,
         "speed": 28,
@@ -37,6 +40,7 @@
         }
       },
       "gray": {
+        "race": "Gray",
         "lifespan": 210,
         "lift_str": 900,
         "speed": 27,
@@ -44,6 +48,7 @@
         "free_skill": "Intelligence"
       },
       "aquoid": {
+        "race": "Aquoid",
         "lifespan": 120,
         "lift_str": 1300,
         "speed": 35,
@@ -54,6 +59,7 @@
         }
       },
       "qunari": {
+        "race": "Qunari",
         "lifespan": 150,
         "lift_str": 1600,
         "speed": 35,
