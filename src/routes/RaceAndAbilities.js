@@ -40,21 +40,10 @@ export default class RaceAndAbilities extends Component {
   chooseAbility(abilityObject) {
     const abilities = this.props.user.abilities;
     let points = this.props.user.points;
-    const abilityNames = _.map(abilities, ability => ability.ability);
-    const specialNames = _.map(this.props.user.special, special => special.special);
     if (!_.includes(abilities, abilityObject)) {
-      if (!abilityObject.restriction) {
-        if (points - abilityObject.points > -1) {
-          abilities.push(abilityObject);
-          this.props.modifyAbilities(abilities);
-        }
-      } else {
-        if (_.includes(_.concat(abilityNames, specialNames), _.values(abilityObject.restriction)[0])) {
-          if (points - abilityObject.points > -1) {
-            abilities.push(abilityObject);
-            this.props.modifyAbilities(abilities);
-          }
-        }
+      if (points - abilityObject.points > -1) {
+        abilities.push(abilityObject);
+        this.props.modifyAbilities(abilities);
       }
     } else {
       _.pullAt(abilities, _.indexOf(abilities, abilityObject));
@@ -65,7 +54,6 @@ export default class RaceAndAbilities extends Component {
   addMulti(abilityObject) {
     const multiNum = _.filter(this.props.user.abilities, ability => ability.ability === abilityObject.ability).length;
     const abilities = this.props.user.abilities;
-    let points = this.props.user.points;
     if (this.props.user.points - abilityObject.points > -1 && multiNum < abilityObject.max) {
       abilities.push(abilityObject);
       this.props.modifyAbilities(abilities);
@@ -73,9 +61,7 @@ export default class RaceAndAbilities extends Component {
   }
 
   removeMulti(abilityObject) {
-    const multiNum = _.filter(this.props.user.abilities, ability => ability.ability === abilityObject.ability).length;
     const abilities = this.props.user.abilities;
-    let points = this.props.user.points;
     _.pullAt(abilities, _.indexOf(abilities, abilityObject));
     this.props.modifyAbilities(abilities);
   }

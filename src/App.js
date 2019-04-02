@@ -48,9 +48,11 @@ class App extends Component {
   }
 
   changeRace(raceArray) {
+    const extra = _.sum(_.map(raceArray, race => race.extra_points === undefined ? 0 : race.extra_points));
     const user = this.state.user;
     user.race = raceArray;
     this.setState({ user: user });
+    this.modifyMaxPoints(extra);
     this.modifyAbilities(this.state.user.abilities);
   }
 
@@ -68,9 +70,15 @@ class App extends Component {
     });
     const user = this.state.user;
     user.abilities = abiltiyCheck;
-    const points = 75 - _.sum(_.map(_.filter(abiltiyCheck, ability => !_.includes(userRaces, ability.free)), filteredAbility => filteredAbility.points));
+    const points = this.state.user.maxPoints - _.sum(_.map(_.filter(abiltiyCheck, ability => !_.includes(userRaces, ability.free)), filteredAbility => filteredAbility.points));
     this.setState({ user: user });
     this.modifyPoints(points);
+  }
+
+  modifyMaxPoints(points) {
+    const user = this.state.user;
+    user.maxPoints = 75 + points;
+    this.setState({user: user});
   }
 
   modifyPoints(points) {
