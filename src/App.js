@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       currentTab: 'Opening',
       user: {
+        maxPoints: 75,
         points: 75,
         special: [],
         race: [],
@@ -43,6 +44,7 @@ class App extends Component {
     const user = this.state.user;
     user.special = specialArray;
     this.setState({ user: user });
+    this.modifyAbilities(this.state.user.abilities);
   }
 
   changeRace(raceArray) {
@@ -52,9 +54,19 @@ class App extends Component {
   }
 
   modifyAbilities(abilitiesArray) {
+    const abilityNames = _.map(abilitiesArray, ability => ability.ability);
+    const abiltiyCheck = [];
+    _.forEach(abilitiesArray, ability => {
+      if (_.includes(_.concat(abilityNames, this.state.user.special), _.values(ability.restriction)[0])) {
+        abiltiyCheck.push(ability);
+      } else if (!ability.restriction) {
+        abiltiyCheck.push(ability);
+      }
+    });
+    console.log(abiltiyCheck);
     const user = this.state.user;
-    user.abilities = abilitiesArray;
-    const points = 75 - _.sum(_.map(abilitiesArray, ability => ability.points));
+    user.abilities = abiltiyCheck;
+    const points = 75 - _.sum(_.map(abiltiyCheck, ability => ability.points));
     this.setState({ user: user });
     this.modifyPoints(points);
   }

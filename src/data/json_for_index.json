@@ -17,6 +17,7 @@
         "lifespan" : 135,
         "lift_str" : 1100,
         "speed" : 30,
+        "extra_points": 5,
         "text" : "<b>Human</b><br>Bipedal pursuit hunter, skilled with tools.<br>Max Lifespan of 135 years.<br>Max Lifting Strength of 1100 lbs.<br>Max Speed of 30 mph.<br>Natural Environment is Varied; species is very adaptable and thrives in all climates except arid desert and frozen poles.<br><br>-Gain an extra 5 points.<br>-Gain Endurance for Free.",
         "free_skill" : "Endurance"
       },
@@ -85,7 +86,7 @@
       "combat_training": {
         "ability": "Combat Training",
         "points": 3,
-        "text": "<b>Combat Training (Cost: 3 Points)</b><br>You have gone through the best your race has to offer in standard combat training.You know how to fire, clean, and maintain any firearm, drive any vehicle, and survive in prolonged combat.Also, your current strength is boosted to l/2 of your race's max strength, if it wasn't already.",
+        "text": "<b>Combat Training (Cost: 3 Points)</b><br>You have gone through the best your race has to offer in standard combat training.You know how to fire, clean, and maintain any firearm, drive any vehicle, and survive in prolonged combat. Also, your current strength is boosted to l/2 of your race's max strength, if it wasn't already.",
         "free": "Qunari"
       },
       "endurance": {
