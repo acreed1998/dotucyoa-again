@@ -22,6 +22,7 @@ class App extends Component {
         race: [],
         abilities: [],
         armor: [],
+        armor_traits: [],
         weapons: [],
         ship_type: '',
         ship_style: '',
@@ -32,6 +33,16 @@ class App extends Component {
         events: [],
         rewards: [],
         section: 'Opening'
+      },
+      tally: {
+        abilities: 0,
+        armor: 0,
+        armor_traits: 0,
+        weapons: 0,
+        ship_type: 0,
+        ship_style: 0,
+        ship_traits: 0,
+        team_members: 0,
       },
     };
     console.log(CYOAData);
@@ -58,6 +69,7 @@ class App extends Component {
   }
 
   modifyAbilities(abilitiesArray) {
+    const tally = this.state.tally;
     const abilityNames = _.map(abilitiesArray, ability => ability.ability);
     const specialNames = _.map(this.state.user.special, special => special.special);
     const abiltiyCheck = [];
@@ -71,9 +83,20 @@ class App extends Component {
     });
     const user = this.state.user;
     user.abilities = abiltiyCheck;
-    const points = this.state.user.maxPoints - _.sum(_.map(_.filter(abiltiyCheck, ability => !_.includes(userRaces, ability.free)), filteredAbility => filteredAbility.points));
-    this.setState({ user: user });
-    this.modifyPoints(points);
+    const points = _.sum(_.map(_.filter(abiltiyCheck, ability => !_.includes(userRaces, ability.free)), filteredAbility => filteredAbility.points));
+    tally.abilities = points;
+    this.setState({ user: user, tally: tally });
+    this.modifyPoints();
+  }
+
+  modifyWeapons(weaponsArray) {
+    const user = this.state.user;
+    const tally = this.state.tally;
+    user.weapons = weaponsArray;
+    const points = _.sum(_.map(weaponsArray, weapon => weapon.points));
+    tally.weapons = points;
+    this.setState({ user: user, tally: tally });
+    this.modifyPoints();
   }
 
   modifyMaxPoints(points) {
@@ -82,10 +105,10 @@ class App extends Component {
     this.setState({user: user});
   }
 
-  modifyPoints(points) {
+  modifyPoints() {
     const user = this.state.user;
-    user.points = points;
-    this.setState({ user: user });
+    user.points = user.maxPoints - _.sum(_.map(this.state.tally, (value) => value));
+    this.setState({user: user});
   }
 
   render() {
@@ -113,6 +136,7 @@ class App extends Component {
             armor={CYOAData.armor}
             armor_traits={CYOAData.armor_traits}
             weapons={CYOAData.weapons}
+            modifyWeapons={this.modifyWeapons.bind(this)}
             />} />
           </div>
         </Router>

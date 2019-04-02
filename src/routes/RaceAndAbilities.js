@@ -73,7 +73,7 @@ export default class RaceAndAbilities extends Component {
         <GridItem container spacing={24} justify='space-evenly'>
           {_.map(this.props.races.choices, (choice, index) => {
             return (
-              <GridItem key={`special-grid-${index}`} item xs>
+              <GridItem key={`race-grid-${index}`} item xs>
                 <ChoiceCard
                   cardText={choice.text}
                   special={index}
@@ -89,7 +89,7 @@ export default class RaceAndAbilities extends Component {
           {_.map(this.props.abilities.choices, (choice, index) => {
             if (choice['multi-pick']) {
               return (
-                <GridItem key={`special-grid-${index}`} item xs>
+                <GridItem key={`ability-grid-${index}`} item xs>
                   <MultiChoiceCard
                     cardText={choice.text}
                     special={index}
