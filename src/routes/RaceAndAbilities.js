@@ -21,7 +21,6 @@ export default class RaceAndAbilities extends Component {
     // const twoSpecials = _.includes(_.map(this.props.user.boons, boon => boon.name), 'The Chosen One');
     const twoRaces = _.includes(_.map(this.props.user.boons, boon => boon.name), 'Born This Way');
     const races = this.props.user.race;
-    console.log(twoRaces, userRace);
     if (_.includes(races, userRace)) {
       this.props.changeRace(_.filter(races, Race => Race !== userRace));
     } else {
@@ -42,6 +41,7 @@ export default class RaceAndAbilities extends Component {
     const abilities = this.props.user.abilities;
     let points = this.props.user.points;
     const abilityNames = _.map(abilities, ability => ability.ability);
+    const specialNames = _.map(this.props.user.special, special => special.special);
     if (!_.includes(abilities, abilityObject)) {
       if (!abilityObject.restriction) {
         if (points - abilityObject.points > -1) {
@@ -49,7 +49,7 @@ export default class RaceAndAbilities extends Component {
           this.props.modifyAbilities(abilities);
         }
       } else {
-        if (_.includes(_.concat(abilityNames, this.props.user.special), _.values(abilityObject.restriction)[0])) {
+        if (_.includes(_.concat(abilityNames, specialNames), _.values(abilityObject.restriction)[0])) {
           if (points - abilityObject.points > -1) {
             abilities.push(abilityObject);
             this.props.modifyAbilities(abilities);
@@ -92,8 +92,8 @@ export default class RaceAndAbilities extends Component {
                   cardText={choice.text}
                   special={index}
                   changeRace={this.props.changeRace}
-                  picked={_.includes(this.props.user.race, index)}
-                  onClick={() => { this.changeRace(index) }} />
+                  picked={_.includes(this.props.user.race, choice)}
+                  onClick={() => { this.changeRace(choice) }} />
               </GridItem>
             );
           })}

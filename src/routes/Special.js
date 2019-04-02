@@ -43,11 +43,11 @@ export default class Special extends Component {
             return (
               <GridItem key={`special-grid-${index}`} item xs>
                 <ChoiceCard
-                cardText={choice}
+                cardText={choice.text}
                 special={index}
                 changeSpecial={this.props.changeSpecial}
-                picked={_.includes(this.props.user.special, index)}
-                onClick={() => { this.changeSpecial(index) }}/>
+                picked={_.includes(this.props.user.special, choice)}
+                onClick={() => { this.changeSpecial(choice) }}/>
               </GridItem>
             );
           })}

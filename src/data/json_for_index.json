@@ -3,10 +3,22 @@
   "special" : {
     "opening" : "<b>What makes you special?</b><br>Choose One",
     "choices" : {
-      "your_armor" : "<p><b>Your Armor</b></p><p>You stumbled upon an incredible suit of armor, one that is incredibly durable and has the firepower to rival and dreadnought. The suit seems to be powered by a strange, near-limitless cosmic energy.<br><br>-Power Armor is Free, Mech is 1/2 price<br>-All Restriction:Armor options are unlocked</p>",
-      "your_team" : "<p><b>Your Team</b></p><p>You and your crew are the biggest bad-asses in this super cluster. Each and every one of you are highly sought after by dozens of different governments, but you decided to band together and make a real difference.<br><br>-Your first two non-restricted Companions are Free<br>-All Restriction:Team options are unlocked</p>",
-      "your_ship" : "<p><b>Your Ship</b></p><p>Your ship truly is something else; no one you've ever brought it to has ever seen anything like it before. It's nigh-indestructible, faster than any other ship of its class, and it's inhabited by the most powerful A.I. ever found or made.<br><br>-All ship class costs are cut in half<br>-All Restriction:Team options are unlocked</p>",
-      "you" : "<p><b>You</b></p><p>You are a powerhouse, a living weapon, a one-person army. Nobody like you has ever existed before, you are a true outlier. What gives you this power, this cosmic might, is unknown.<br><br>-Peak Physical Fitness is Free<br>-All Restriction:You options are unlocked</p>"
+      "your_armor" : {
+        "special": "Your Armor",
+        "text": "<p><b>Your Armor</b></p><p>You stumbled upon an incredible suit of armor, one that is incredibly durable and has the firepower to rival and dreadnought. The suit seems to be powered by a strange, near-limitless cosmic energy.<br><br>-Power Armor is Free, Mech is 1/2 price<br>-All Restriction:Armor options are unlocked</p>"
+      },
+      "your_team" : {
+        "special": "Your Team",
+        "text": "<p><b>Your Team</b></p><p>You and your crew are the biggest bad-asses in this super cluster. Each and every one of you are highly sought after by dozens of different governments, but you decided to band together and make a real difference.<br><br>-Your first two non-restricted Companions are Free<br>-All Restriction:Team options are unlocked</p>"
+      },
+      "your_ship" : {
+        "special": "Your Ship",
+        "text": "<p><b>Your Ship</b></p><p>Your ship truly is something else; no one you've ever brought it to has ever seen anything like it before. It's nigh-indestructible, faster than any other ship of its class, and it's inhabited by the most powerful A.I. ever found or made.<br><br>-All ship class costs are cut in half<br>-All Restriction:Team options are unlocked</p>"
+      },
+      "you" : {
+        "special": "You",
+        "text": "<p><b>You</b></p><p>You are a powerhouse, a living weapon, a one-person army. Nobody like you has ever existed before, you are a true outlier. What gives you this power, this cosmic might, is unknown.<br><br>-Peak Physical Fitness is Free<br>-All Restriction:You options are unlocked</p>"
+      }
     }
   },
   "race" : {
@@ -197,7 +209,7 @@
         "points": 6,
         "text": "<b>Super Soldier (Restriction:You) (Cost: 6 Points)</b><br> You can now lift over 5x your races max lifting strength, run at over 55 mph, and you heal 2x faster than normal.You are also now an expert marksman, your skin is tougher, and your reflexes are faster. If you lose a limb, a tooth, or an organ, it will slowly regrow and repair.",
         "restriction": {
-          "special": "you"
+          "special": "You"
         }
       },
       "superhuman": {
@@ -205,21 +217,21 @@
         "points": 6,
         "text": "<b>Superhuman (Restriction:You) (Cost: 6 Points)</b><br> Requires Psionics Your psionic powers are now so intense that you can lift up to 25 tons with them.<br> You can generate barriers so large they encompass ships, crush normal people into paste, and you can even fly using your telekinesis.",
         "restriction": {
-          "special": "you"
+          "special": "You"
         }
       },
       "armored": {
         "ability": "Armored",
         "points": 6,
         "text": "<b>Armored (Restriction:You) (Cost: 6 Points)</b><br> Most of your chest and head have been replaced with unique, alien cybernetics, and nanobots flow through your blood. All of your mechanical parts automatically and rapidly repair, and your healing is boosted to 5x faster than normal.<br> All of your cybernetics are now tough enough to stop bullets.",
-        "restriction": { "special": "you"}
+        "restriction": { "special": "You"}
       },
       "synergy": {
         "ability": "Synergy",
         "points": 5,
         "text": "<b>Synergy (Restriction:Team) (Cost: 5 Points)</b><br> You and your teammates somehow have an unconscious psychic link; you all seem to know where the others are, even across light years.<br> You also sync up unbelievably well; you all can come up with and follow unspoken plans on the fly. Your team is unspeakably loyal to you, and you can sense each other’s injures.",
         "restriction": {
-          "special": "your_team"
+          "special": "Your Team"
         }
       }
     }

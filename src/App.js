@@ -51,22 +51,24 @@ class App extends Component {
     const user = this.state.user;
     user.race = raceArray;
     this.setState({ user: user });
+    this.modifyAbilities(this.state.user.abilities);
   }
 
   modifyAbilities(abilitiesArray) {
     const abilityNames = _.map(abilitiesArray, ability => ability.ability);
+    const specialNames = _.map(this.state.user.special, special => special.special);
     const abiltiyCheck = [];
+    const userRaces = _.map(this.state.user.race, race => race.race);
     _.forEach(abilitiesArray, ability => {
-      if (_.includes(_.concat(abilityNames, this.state.user.special), _.values(ability.restriction)[0])) {
+      if (_.includes(_.concat(abilityNames, specialNames), _.values(ability.restriction)[0])) {
         abiltiyCheck.push(ability);
       } else if (!ability.restriction) {
         abiltiyCheck.push(ability);
       }
     });
-    console.log(abiltiyCheck);
     const user = this.state.user;
     user.abilities = abiltiyCheck;
-    const points = 75 - _.sum(_.map(abiltiyCheck, ability => ability.points));
+    const points = 75 - _.sum(_.map(_.filter(abiltiyCheck, ability => !_.includes(userRaces, ability.free)), filteredAbility => filteredAbility.points));
     this.setState({ user: user });
     this.modifyPoints(points);
   }
