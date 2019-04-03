@@ -8,6 +8,7 @@ import Opening from './routes/Opening';
 import Special from './routes/Special';
 import RaceAndAbilities from './routes/RaceAndAbilities';
 import ArmorAndWeapons from './routes/ArmorAndWeapons';
+import Ship from './routes/Ship';
 import _ from 'lodash';
 
 class App extends Component {
@@ -190,6 +191,11 @@ class App extends Component {
             modifyWeapons={this.modifyWeapons.bind(this)}
             modifyArmor={this.modifyArmor.bind(this)}
             modifyArmorTraits={this.modifyArmorTraits.bind(this)}
+            />} />
+            <Route path="/ship/" render={() => <Ship
+            ship={CYOAData.ship}
+            ship_style={CYOAData.ship_style}
+            ship_traits={CYOAData.ship_traits}
             />} />
           </div>
         </Router>
