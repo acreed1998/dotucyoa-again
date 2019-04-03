@@ -57,6 +57,7 @@ class App extends Component {
     user.special = specialArray;
     this.setState({ user: user });
     this.modifyAbilities(this.state.user.abilities);
+    this.modifyArmor(this.state.user.armor);
   }
 
   changeRace(raceArray) {
@@ -83,7 +84,7 @@ class App extends Component {
     });
     const user = this.state.user;
     user.abilities = abiltiyCheck;
-    const points = _.sum(_.map(_.filter(abiltiyCheck, ability => !_.includes(userRaces, ability.free)), filteredAbility => filteredAbility.points));
+    const points = _.sum(_.map(_.filter(abiltiyCheck, ability => !_.includes(_.concat(userRaces, specialNames), ability.free)), filteredAbility => filteredAbility.points));
     tally.abilities = points;
     this.setState({ user: user, tally: tally });
     this.modifyPoints();
@@ -92,9 +93,50 @@ class App extends Component {
   modifyArmor(armorArray) {
     const user = this.state.user;
     const tally = this.state.tally;
-    user.armor = armorArray;
-    tally.armor = _.sum(_.map(armorArray, armor => armor.points));
+    user.armor = _.sortBy(armorArray, ['traits']);
+    if (user.armor[user.armor.length - 1]) {
+      if (user.armor[user.armor.length - 1].traits - user.armor_traits.length < 0) {
+        user.armor_traits = _.slice(user.armor_traits, 0, user.armor[user.armor.length - 1].traits);
+      }
+    }
+    tally.armor = _.sum(_.map(armorArray, armor => {
+      if (!armor.half) {
+        return armor.points
+      } else {
+        if (_.includes(_.map(user.special, specialObject => specialObject.special), armor.half)) {
+          return armor.points / 2;
+        } else {
+          return armor.points;
+        }
+      }
+    }));
     this.setState({user: user, tally: tally});
+    this.modifyArmorTraits(this.state.user.armor_traits);
+    this.modifyPoints();
+  }
+
+  modifyArmorTraits(armorTraitsArray) {
+    const user = this.state.user;
+    const tally = this.state.tally;
+    const armorNames = _.map(user.armor, armorObject => armorObject.type);
+    const specialNames = _.map(user.special, specialObject => specialObject.special);
+    const armorTraitNames = _.map(user.armor_traits, armorTraitObject => armorTraitObject.trait);
+    const combo = _.concat(armorNames, specialNames, armorTraitNames);
+    const armorTraitsCheck = [];
+    _.forEach(armorTraitsArray, armorTrait => {
+      if (!armorTrait.restriction) {
+        armorTraitsCheck.push(armorTrait);
+      } else if (_.filter(combo, name => _.includes(armorTrait.restriction, name)).length === armorTrait.restriction.length) {
+        armorTraitsCheck.push(armorTrait);
+      } else if (_.includes(armorTrait.restriction, "Powered Armor") && _.includes(armorTrait.restriction, "Mech Suit")) {
+        if (_.filter(combo, name => _.includes(armorTrait.restriction, name)).length === armorTrait.restriction.length - 1) {
+          armorTraitsCheck.push(armorTrait);
+        }
+      }
+    });
+    user.armor_traits = armorTraitsCheck;
+    tally.armor_traits = _.sum(_.map(armorTraitsCheck, filteredAbility => filteredAbility.points));
+    this.setState({ user: user, tally: tally });
     this.modifyPoints();
   }
 
@@ -147,6 +189,7 @@ class App extends Component {
             weapons={CYOAData.weapons}
             modifyWeapons={this.modifyWeapons.bind(this)}
             modifyArmor={this.modifyArmor.bind(this)}
+            modifyArmorTraits={this.modifyArmorTraits.bind(this)}
             />} />
           </div>
         </Router>

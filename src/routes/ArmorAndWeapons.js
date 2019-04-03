@@ -12,6 +12,7 @@ export default class ArmorAndWeapons extends Component {
 
     };
     this.chooseWeapon = this.chooseWeapon.bind(this);
+    this.chooseArmor = this.chooseArmor.bind(this);
   }
 
   chooseArmor(armorObject) {
@@ -29,6 +30,25 @@ export default class ArmorAndWeapons extends Component {
     } else {
       _.pullAt(armor, _.indexOf(armor, armorObject));
       this.props.modifyArmor(armor);
+    }
+  }
+
+  chooseArmorTraits(armorTraitsObject) {
+    const armor = _.sortBy(this.props.user.armor, ['traits']);
+    if (armor.length !== 0) {
+      const armorTraits = this.props.user.armor_traits;
+      let points = this.props.user.points;
+      if (!_.includes(armorTraits, armorTraitsObject)) {
+        if (points - armorTraitsObject.points > -1) {
+          if (armor[armor.length - 1].traits - (armorTraits.length + 1) > -1) {
+            armorTraits.push(armorTraitsObject);
+            this.props.modifyArmorTraits(armorTraits);
+          }
+        }
+      } else {
+        _.pullAt(armorTraits, _.indexOf(armorTraits, armorTraitsObject));
+        this.props.modifyArmorTraits(armorTraits);
+      }
     }
   }
 
@@ -72,7 +92,7 @@ export default class ArmorAndWeapons extends Component {
                   cardText={choice.text}
                   special={index}
                   picked={_.includes(this.props.user.armor_traits, choice)}
-                  onClick={() => { console.log('clicked') }} />
+                  onClick={() => { this.chooseArmorTraits(choice) }} />
               </GridItem>
             );
           })}
