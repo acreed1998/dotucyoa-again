@@ -1,0 +1,1391 @@
+{
+  "opening" : "<p class='sectionDialogue'>The unvierse is a wild, chaotic place.<br>Tyrannical empires, monstruous aliens, bloodthirst pirates, and the unforgiving vaccum make everything dangerous, makes every day uncertain.<br>Out of the chaos, forged in fire and blood, heroes arise.<br>You? You are one of them, and could very well be the greatest of them all; the true Defender of the Universe.<br>With a ship, a crew, your weapons and armor, and your own natural powers, you shall save panets, overthrow dictators, defeat horrific monsters, holdback the tide of evil, and bring peace and order to the universe.<br>You have <b>75 points.</b><br>Good luck, Hero.</p>",
+  "special" : {
+    "opening" : "<b>What makes you special?</b><br>Choose One",
+    "choices" : {
+      "your_armor" : {
+        "special": "Your Armor",
+        "text": "<p><b>Your Armor</b></p><p>You stumbled upon an incredible suit of armor, one that is incredibly durable and has the firepower to rival and dreadnought. The suit seems to be powered by a strange, near-limitless cosmic energy.<br><br>-Power Armor is Free, Mech is 1/2 price<br>-All Restriction:Armor options are unlocked</p>"
+      },
+      "your_team" : {
+        "special": "Your Team",
+        "text": "<p><b>Your Team</b></p><p>You and your crew are the biggest bad-asses in this super cluster. Each and every one of you are highly sought after by dozens of different governments, but you decided to band together and make a real difference.<br><br>-Your first two non-restricted Companions are Free<br>-All Restriction:Team options are unlocked</p>"
+      },
+      "your_ship" : {
+        "special": "Your Ship",
+        "text": "<p><b>Your Ship</b></p><p>Your ship truly is something else; no one you've ever brought it to has ever seen anything like it before. It's nigh-indestructible, faster than any other ship of its class, and it's inhabited by the most powerful A.I. ever found or made.<br><br>-All ship class costs are cut in half<br>-All Restriction:Team options are unlocked</p>"
+      },
+      "you" : {
+        "special": "You",
+        "text": "<p><b>You</b></p><p>You are a powerhouse, a living weapon, a one-person army. Nobody like you has ever existed before, you are a true outlier. What gives you this power, this cosmic might, is unknown.<br><br>-Peak Physical Fitness is Free<br>-All Restriction:You options are unlocked</p>"
+      }
+    }
+  },
+  "race" : {
+    "opening" : "<b>Race</b><br>Choose One",
+    "choices" : {
+      "human" : {
+        "race": "Human",
+        "lifespan" : 135,
+        "lift_str" : 1100,
+        "speed" : 30,
+        "extra_points": 5,
+        "text" : "<b>Human</b><br>Bipedal pursuit hunter, skilled with tools.<br>Max Lifespan of 135 years.<br>Max Lifting Strength of 1100 lbs.<br>Max Speed of 30 mph.<br>Natural Environment is Varied; species is very adaptable and thrives in all climates except arid desert and frozen poles.<br><br>-Gain an extra 5 points.<br>-Gain Endurance for Free.",
+        "free_skill" : "Endurance"
+      },
+      "android": {
+        "race": "Android",
+        "lifespan": "Potentially Limitless",
+        "lift_str": 1800,
+        "speed": 40,
+        "text": "<b>Android</b><br>Bipedal synthetic organism, skilled with tech.<br>All Androids are sapient, and can feel the same sensations that organics feel.<br>Do not age with frequent repair and upkeep.<br>Max Lifting Strength of 1800 lbs.<br>Max speed of 40 mph.<br>Natural Environment is Cold and Dry.<br><br>-Gain Tech Skills for Free.<br>-Gain Cybernetics (x4) for Free.",
+        "free_skill": "Cybernetics"
+      },
+      "asari": {
+        "race": "Asari",
+        "lifespan": 950,
+        "lift_str": 1000,
+        "speed": 28,
+        "text": "<b>Asari</b><br>Bipedal Mono-sexed psionics.<br>Max Lifespan of 900-1000 years.<br>Max Lifting Strength of 1000 lbs.<br>Max Speed of 28 mph.<br>Natural Environment is Tropical, but are almost as adaptable as humans.<br><br>-Gain Beautiful for Free.<br>-Gain Psionics for Free.<br>",
+        "free_skill": {
+          "0" : "Beautiful",
+          "1" : "Psionics"
+        }
+      },
+      "gray": {
+        "race": "Gray",
+        "lifespan": 210,
+        "lift_str": 900,
+        "speed": 27,
+        "text": "<b>Gray</b><br>Bald, gray skinned humanoids with large brains.<br>Developed advanced anti-gravity tech.<br>Large height range in Males: 3-6 feet tall.<br>Females are taller: 6-7 feet.<br>Max Lifespan of 210 years.<br>Max Lifting Strength of 900 lbs.<br>Max Speed of 27 mph.<br>Natural Environment is Dry and Arid.<br><br>-Gain Intelligence for Free.",
+        "free_skill": "Intelligence"
+      },
+      "aquoid": {
+        "race": "Aquoid",
+        "lifespan": 120,
+        "lift_str": 1300,
+        "speed": 35,
+        "text": "<b>Aquoid</b><br>Bipedal aquatic humanoids, genetic engineers.<br>Possess two repository systems.<br>Max Lifespan of 120 years.<br>Max Lifting Strength of 1300 lbs.<br>Max Speed of 35 mph.<br>Natural Environment is Tropical waters.<br>Natural Depth is between 300 and 1000 feet.<br><br>-Gain Immune for Free.<br>-Gain Enhanced Senses for Free.",
+        "free_skill": {
+          "0" : "Immune",
+          "1" : "Enhanced Senses"
+        }
+      },
+      "qunari": {
+        "race": "Qunari",
+        "lifespan": 150,
+        "lift_str": 1600,
+        "speed": 35,
+        "text": "<b>Qunari</b><br>Bipedal metallic-skinned horned warriors.<br>Rigid, militaristic, hyper-socialist society.<br>Most clothes are traditional and revealing.<br>Average height of 6'10.<br>Max Lifespan of 150 years.<br>Max Lifting Strength of 1600 lbs.<br>Max Speed of 35 mph.<br>Natural Environments is Hot and Tropical.<br><br>-Gain Combat Training for Free",
+        "free_skill": "Combat Training"
+      }
+    }
+  },
+  "abilities" : {
+    "opening" : "<b>Abilities</b><br><You start off at 1/3 of your race's Max Strength",
+    "choices" : {
+      "beloved" : {
+        "ability" : "Beloved",
+        "points" : 2,
+        "text" : "<b>Beloved (Cost: 2 Points)</b><br>You are naturally charismatic, and people naturally enjoy your pressence. Also, you're something of an intergalactic celebrity.<br>But you're more than just popular; you're inspiring. People are much more likely to help you or assist you.<br>Your team is more loyal to you now."
+      },
+      "psionics": {
+        "ability": "Psionics",
+        "points": 4,
+        "text": "<b>Psionics (Cost: 4 Points)</b><br>You can telekinetically lift and move objects up to 3x your race's max lifting strength. You can also form a psychic link through physical contact, allowing you to share emotions and memories with a person, and you can generate psionic barriers that protect against attacks.",
+        "free": "Asari"
+      },
+      "combat_training": {
+        "ability": "Combat Training",
+        "points": 3,
+        "text": "<b>Combat Training (Cost: 3 Points)</b><br>You have gone through the best your race has to offer in standard combat training.You know how to fire, clean, and maintain any firearm, drive any vehicle, and survive in prolonged combat. Also, your current strength is boosted to l/2 of your race's max strength, if it wasn't already.",
+        "free": "Qunari"
+      },
+      "endurance": {
+        "ability": "Endurance",
+        "points": 2,
+        "text": "<b>Endurance (Cost: 2 Points)</b><br> You have some of the best endurance in the galaxy.<br> You could jog for dozens of miles without a break, go days without sleep, food, or water, and you only need to sleep for about 4-5 hours a night.",
+        "free": "Human"
+      },
+      "tech_skills": {
+        "ability": "Tech Skills",
+        "points": 2,
+        "text": "<b>Tech Skills (Cost: 2 Points)</b><br> You are naturally skilled with electronics and technology.<br> You’re an expert hacker, you have advanced knowledge in and experience with engineering, and you’re far more skilled with energy weapons.",
+        "free": "Android"
+      },
+      "cybernetics": {
+        "ability": "Cybernetics",
+        "points": 1,
+        "text": "<b>Cybernetics (Cost: 1 Point)</b><br> One of your limbs has been replaced with a cybernetic prosthetic.<br> This cybernetic limb can exert twice as much force as a standard limb. However, these limbs need to be repaired regularly, and unless you upgrade, you can’t get stronger. This can be taken up to 4 times.",
+        "multi-pick": true,
+        "max": 4,
+        "free": "Android"
+      },
+      "enhanced_senses": {
+        "ability": "Enhanced Senses",
+        "points": 2,
+        "text": "<b>Enhanced Senses (Cost: 2 Points)</b><br> With genetic and/or cybernetic engineering, your senses have been boosted.You can now see in the dark, your vision can pick out details from dozens of meters away, and you could hear a pin drop in a crowded room.",
+        "free": "Aquoid"
+      },
+      "intelligence": {
+        "ability": "Intelligence",
+        "points": 3,
+        "text": "<b>Intelligence (Cost: 3 Points)</b><br> You are a natural genius. In human terms, you have an I.Q. of around 150, and you have a photographic memory.<br> You are also naturally inventive, and you have a natural talent for theoretical physics and advanced mathematics.",
+        "free": "Gray"
+      },
+      "beautiful": {
+        "ability": "Beautiful",
+        "points": 2,
+        "text": "<b>Beautiful (Cost: 2 Points)</b><br> Your physical appearance turns heads everywhere you go.<br> Even people who aren't your own species are usually attracted to you.<br> For Androids; you look and feel far more lifelike.You could even have some of the right..‘parts’ installed.",
+        "free": "Asari"
+      },
+      "special_ops": {
+        "ability": "Special Ops",
+        "points": 4,
+        "text": "<b>Special Ops (Cost: 4 Points)<br> Requires Combat Training</b><br> You are one of the elite.<br> You have been heavily trained in unconventional warfare.<br> You are a master of sabotage, assassination, espionage, and you excel in high-risk combat situations.",
+        "restriction": {
+          "abilities": "Combat Training"
+        }
+      },
+      "peak_physical_fitness": {
+        "ability": "Peak Physical Fitness",
+        "points": 4,
+        "text": "<b>Peak Physical Fitness (Cost: 4 Points)</b><br> Your lifting strength, speed, and lifespan are boosted to that of your race’s maximum.<br> You are the best your species has to offer."
+      },
+      "immune": {
+        "ability": "Immune",
+        "points": 2,
+        "text": "<b>Immune (Cost: 2 Points)</b><br> Thanks to genetic engineering, you heal 30% faster than normal people, and your immune system is much tougher.<br> You also have no genetic or birth defects.<br> Cannot be taken by androids.",
+        "free": "Aquoid"
+      },
+      "medical_expert": {
+        "ability": "Medical Expert",
+        "points": 3,
+        "text": "<b>Medical Expert (Cost: 3 Points)</b><br> You have a doctorate in a medical field of your choice from a prestigious university.<br> You know how to perform first aid and use advanced medical technology."
+      },
+      "piloting": {
+        "ability": "Piloting",
+        "points": 2,
+        "text": "<b>Piloting (Cost: 2 Points)</b><br> You graduated with top marks from your race’s best piloting academy.<br> You are an expert pilot with every manner of spacecraft"
+      },
+      "diplomatic": {
+        "ability": "Diplomatic",
+        "points": 2,
+        "text": "<b>Diplomatie (Cost: 2 Points)</b><br> You are an expert negotiator.<br> You could talk your way out of or through a hostage situation, a kidnapping, or a business deal.<br> You could be an amazing politician, and perhaps you were at one point."
+      },
+      "hidden_weapon": {
+        "ability": "Hidden Weapon",
+        "points": 2,
+        "text": "<b>Hidden Weapons (Cost: 2 Points)<br> Requires Cybernetics</b><br> For each cybernetic limb you have, you can hide one of the following retractable weapons in it:<br> a pistol<br> a hyper-durable blade<br> a short-range flamethrower<br> a buzz saw",
+        "restriction": {
+          "abilities": "Cybernetics"
+        }
+      },
+      "psionic_enhancement": {
+        "ability": "Psionic Enhancement",
+        "points": 2,
+        "text": "<b>Psionic Enhancement (Cost: 2 Points)<br> (Requires: Psionics)</b><br> Your psionics can now boost your running speed by 10 mph, you can jump twice as far and high, and you can use psionics to temporarily boost your healing by up to 50%.",
+        "restriction": {
+          "abilities": "Psionics"
+        }
+      },
+      "elementalism": {
+        "ability": "Elementalism",
+        "points": 1,
+        "text": "<b>Elementalism (Cost: 1 Point)</b><br> Through either tech or psionics, you can heat up or cool down objects through touch, generate small to medium sized flames, create balls of ice, and generate the same amount of electricity as a taser."
+      },
+      "precision": {
+        "ability": "Precision",
+        "points": 2,
+        "text": "<b>Precision (Cost: 2 Points)</b><br> Both you and your hands are always steady and precise.This makes you a far better shot, and it’s easier to perform surgery or sautering.<br> With Psionics, you can carefully move delicate objects, unlock doors, and even snap bones from a distance."
+      },
+      "rage": {
+        "ability": "Rage",
+        "points": 3,
+        "text": "<b>Rage (Cost: 3 Points)</b><br> Through sheer determination and unbridled rage, you can ignore pain, you are harder to knock unconscious, and you absolutely refuse to die. If someone buried you alive, you would force yourself to dig your way out, no matter how deep down you are."
+      },
+      "super_soldier": {
+        "ability": "Super Soldier",
+        "points": 6,
+        "text": "<b>Super Soldier (Restriction:You) (Cost: 6 Points)</b><br> You can now lift over 5x your races max lifting strength, run at over 55 mph, and you heal 2x faster than normal.You are also now an expert marksman, your skin is tougher, and your reflexes are faster. If you lose a limb, a tooth, or an organ, it will slowly regrow and repair.",
+        "restriction": {
+          "special": "You"
+        }
+      },
+      "superhuman": {
+        "ability": "Superhuman",
+        "points": 6,
+        "text": "<b>Superhuman (Restriction:You) (Cost: 6 Points)</b><br> Requires Psionics Your psionic powers are now so intense that you can lift up to 25 tons with them.<br> You can generate barriers so large they encompass ships, crush normal people into paste, and you can even fly using your telekinesis.",
+        "restriction": {
+          "special": "You"
+        }
+      },
+      "armored": {
+        "ability": "Armored",
+        "points": 6,
+        "text": "<b>Armored (Restriction:You) (Cost: 6 Points)</b><br> Most of your chest and head have been replaced with unique, alien cybernetics, and nanobots flow through your blood. All of your mechanical parts automatically and rapidly repair, and your healing is boosted to 5x faster than normal.<br> All of your cybernetics are now tough enough to stop bullets.",
+        "restriction": { "special": "You"}
+      },
+      "synergy": {
+        "ability": "Synergy",
+        "points": 5,
+        "text": "<b>Synergy (Restriction:Team) (Cost: 5 Points)</b><br> You and your teammates somehow have an unconscious psychic link; you all seem to know where the others are, even across light years.<br> You also sync up unbelievably well; you all can come up with and follow unspoken plans on the fly. Your team is unspeakably loyal to you, and you can sense each other’s injures.",
+        "restriction": {
+          "special": "Your Team"
+        }
+      }
+    }
+  },
+  "armor" : {
+    "opening" : "<b>Armor</b><br>You can choose EITHER the Mech or the PA",
+    "choices" : {
+      "space_suit": {
+        "type": "Space Suit",
+        "points": 0,
+        "traits": 4,
+        "ext_str": 0,
+        "use_time": 0,
+        "text": "<b>Space Suit (Cost: Free)</b><br> Kevlar suit with ceramic armor, has mag boots.<br> Light and fast, no strength boost.<br> Has a magnetic clamp on each arm and leg, and two on the back, which connect to your weapons.<br> Has communication systems in the helmet.<br> Can fit 4 traits.<br> You can have the Space Suit and one other suit.<br> For Androids; incorporate all of your Space Suit traits into your body."
+      },
+      "powered_armor": {
+        "type": "Powered Armor",
+        "points": 4,
+        "traits": 8,
+        "ext_str": 1000,
+        "use_time": 6,
+        "text": "<b>Powered Armor (Cost: 4 Points)</b><br> Heavy suit, titanium-based alloy, vacuum-sealed.<br> 5 inches taller than you.<br> Allows you to carry 1,000 lbs more than you previously could.<br> Needs to be recharged after 6 hours of use.<br> Has magnetic clamps for large weapons and internal compartments for small weapons.<br> Can fit 8 traits."
+      },
+      "mech_suit": {
+        "type": "Mech Suit",
+        "points": 8,
+        "traits": 12,
+        "ext_str": 10000,
+        "use_time": 3,
+        "text": "<b>Mech Suit (Cost: 8 Points)</b><br> 11 ft tall armored suit.<br> Slow, big, and durable.<br> Allows you to carry up to 10,000 lbs.<br> Needs to be recharged after 3 hours of use.<br> Has internal compartments for weapons. <br>Can fit 12 traits."
+      }
+    }
+  },
+  "armor_traits" : {
+    "opening" : "<b>Armor Traits</b>",
+    "choices" : {
+      "nanobots": {
+        "trait": "Nanobots",
+        "points": 1,
+        "text": "<b>Nanobots (Cost: 1 Point)</b><br> Your armor repairs itself slowly thanks to a cluster of nanobots that are released when the armor is damaged."
+      },
+      "survivalist": {
+        "trait": "Survivalist",
+        "points": 1,
+        "text": "<b>Survivalist (Cost: 1 Point)</b><br> Your armor houses dozens of small, retractable tools, including a knife, a blowtorch, a flare gun, a taser, various wrenches, screwdrivers, pliers, scissors, and more.<br> Your helmet also has night-vision and thermal imaging."
+      },
+      "dr_armor": {
+        "trait": "Dr.Armor",
+        "points": 1,
+        "text": "<b>Dr. Armor (Cost: 1 Point)</b><br> Your suit's medical suite carries healing gel, your armor can lock up limbs when it detects broken bones, it dispenses adrenaline and electric shocks when it detects heart failure, it can administer local anesthetics, and if you have an A.I, this suite is controlled by it."
+      },
+      "collapsible": {
+        "trait": "Collapsible",
+        "points": 1,
+        "text": "<b>Collapsible (Cost: 1 Point)</b><br> Your suit can easily snap together, and each piece can be collapsed into a small, light frame, and parts of your suit can be rolled back easily.<br> Your suit is much easier to hide and carry. For Mechs, this allows your suit to get much smaller for transport."
+      },
+      "enhanced_servos": {
+        "trait": "Enhanced Servos",
+        "points": 2,
+        "text": "<b>Enhanced Servos (Cost: 2 Points)</b><br> Powerful servos in your arms and legs boosts your strength in suit.<br> For Space Suit, you can carry 400 lbs more.<br> For Powered Armor, you can carry 800 lbs more.<br> For Mech, you can carry 1,400 lbs more."
+      },
+      "enhanced_shell": {
+        "trait": "Enhanced Shell",
+        "points": 2,
+        "text": "<b>Enhanced Shell (Cost: 2 Points)</b><br> Your suit's armor is replaced with a stronger, more durable substance, while also maintaining the same weight"
+      },
+      "enhanced_size": {
+        "trait": "Enhanced Size",
+        "points": 2,
+        "text": "<b>Enhanced Size (Cost: 2 Points)<br> Mech Only</b><br> Your suit is much bigger;<br> now your Mech is 50 feet tall, and can carry 3x as much as before."
+      },
+      "energy_systems": {
+        "trait": "Energy Systems",
+        "points": 1,
+        "text": "<b>Energy Systems (Cost: 1 Point)</b><br> Your suit is now run by a powerful, clean, efficient energy source.<br> Power Armor and Mech have miniaturized reactors on them now.<br> You could stay in your suit for hours, even days on end, and your suit is hardened against EMPs."
+      },
+      "elemental_gauntlets": {
+        "trait": "Elemental Gauntlets",
+        "points": 1,
+        "text": "<b>Elemental Gauntlets (Cost: 1 Point)</b><br> Your gauntlets can fire streams, blasts, and Jets of fire, ice, and electricity."
+      },
+      "kinetic_gauntlets": {
+        "trait": "Kinetic Gauntlets",
+        "points": 1,
+        "text": "<b>Kinetic Gauntlets (Cost: 1 Point)</b><br> Your gauntlets can fire blasts of kinetic force, allowing you to send shockwaves through the air or ground, knocking enemies back and off their feet.<br> This also significantly enhances your punches."
+      },
+      "energy_gauntlets": {
+        "trait": "Energy Gauntlets",
+        "points": 2,
+        "text": "<b>Energy Gauntlets (Cost: 2 Points)</b><br> You can fire blasts of energy from the palms of your hands.<br> These blasts carry heat, and can knock an armored human off their feet.This is effective against armored opponents, as the blasts cut through armor."
+      },
+      "firepower": {
+        "trait": "Firepower",
+        "points": 2,
+        "text": "<b>Firepower (Cost: 2 Points)</b><br> For Space Suits, you have a hidden machine gun in each gauntlet.<br> For PAs, you have the above and hidden missile launchers in your shoulder plates.<br> For Mechs, you have the above and a mounted minigun that slides out of your left: shoulder."
+      },
+      "kinetic_shield": {
+        "trait": "Kinetic Shield",
+        "points": 1,
+        "text": "<b>Kinetic Shield (Cost: 1 Point)</b><br> These shields automatically deflect any object with sufficient speed.<br> It will activate to deflect anything from crossbow bolts to bullets.<br> It does not block energy blasts, lasers, or immense heat, although energy weapons are rare, and are typically restricted for military use."
+      },
+      "energy_shield": {
+        "trait": "Energy Shield",
+        "points": 2,
+        "text": "<b>Energy Shield (Cost: 2 Points)</b><br> These shields are stronger than kinetic shields, but take up more power.<br> They block both kinetic and energy weapons, and have some effect against immense heat and radiation."
+      },
+      "hardlight_shield": {
+        "trait": "Hardlight Shield",
+        "points": 1,
+        "text": "<b>Hardlight Shield (Cost: 1 Point)</b><br> These close-range shields will activate if anyone gets too close.<br> They are decent against guns, but are more suited towards close quarter combat as they hold closer to the body and block both punches and melee attacks."
+      },
+      "smart_armor": {
+        "trait": "Smart Armor",
+        "points": 2,
+        "text": "<b>Smart Armor (Cost: 2 Points)</b><br> Insulated, heat-resistant armor plating that detects incoming strikes and locks up and hardens to absorb the impact"
+      },
+      "tentacle": {
+        "trait": "Tentacle",
+        "points": 2,
+        "text": "<b>Tentacle (Cost: 2 Points)</b><br> Your suit houses a single, retractable metal tentacle that can extend from your back up to 4 feet, and can be used as an extra limb, a weapon, or can be used with your hacking.<br> Mechs can extend up to 10 feet, and have two tentacles."
+      },
+      "jump_jets": {
+        "trait": "Jump Jets",
+        "points": 2,
+        "text": "<b>Jump Jets (Cost: 2 Points)</b><br> You can launch yourself up to 30 feet forward and into the air thanks to these jets on your boots and back.You can also use these to move around in zero-G.<br> The distance is doubled for powered armors, and tripled for mechs."
+      },
+      "stealth": {
+        "trait": "Stealth",
+        "points": 2,
+        "text": "<b>Stealth (Cost: 2 Points)</b><br> Your suit muffles your footsteps and noises you make. It also comes with a built-in cloaking field that turns you invisible for a brief time.<br> This works on cameras, but you can still be picked up by motion detectors unless you have a cyberwarfare suite."
+      },
+      "cyberwarfare_suite": {
+        "trait": "Cyberwarfare Suite",
+        "points": 1,
+        "text": "<b>Cyberwarfare Suite (Cost: 1 Point)</b><br> Your suit has hacking systems that can be used to get through locked doors, disable security cameras and drones, and make armors malfunction.Your A.I. will control this suite if you have one."
+      },
+      "super_suit": {
+        "trait": "Super Suit",
+        "points": 6,
+        "text": "<b>Super Suit (Cost: 6 Points)<br> (Restriction: Armor)<br> PA or Mech only</b><br> Your strength in armor is boosted to the point where you could lift a frigate by yourself, and your built-in weapons are now strong enough to rival battleships. Your suit is also built out of hypermatter, making it extremely durable and it repairs itself over time."
+      },
+      "advanced_flight": {
+        "trait": "Advanced Flight",
+        "points": 6,
+        "text": "<b>Advanced Flight (Cost: 6 Points)<br> (Restriction: Armor)<br> Requires Jump Jets<br> PA or Mech only</b><br> Your armor can fly under its own power for days, and it can fly faster than any spaceship, as well as being capable of FTL jumps.<br> Your suit is durable enough to withstand and protect you from these speeds, as well as extreme heat."
+      },
+      "psychic_link": {
+        "trait": "Psychic Link",
+        "points": 6,
+        "text": "<b>Psychic Link (Cost: 6 Points)<br> (Restriction: Armor)<br> PA or Mech only</b><br> You can remotely, psychically connect to your armor, even across light years, and command it to come to you, wherever you are.<br> You also can activate your suit’s functions with just a thought, and your suit is now unhackable."
+      },
+      "amplifier": {
+        "trait": "Amplifier",
+        "points": 5,
+        "text": "<b>Amplifier (Restriction:You)<br> (Costs: 5 Points)<br> Requires Psionics</b><br> Your suit now syncs up to your body, amplifying your psionic abilities.<br> Now, when you are in your suit you can lift and throw twice as much with your psionics, and your barriers can withstand ship-grade weaponry."
+      }
+    }
+  },
+  "weapons" : {
+    "opening" : "<b>Weapons</b>",
+    "choices" : {
+      "hardlight_blade": {
+        "name": "Hardlight Blade",
+        "points": 1,
+        "text": "<b>Hardlight Blade (Cost: 1 Point)</b><br> A blade of hardlight that you can project from your suit.<br> This blade is superheated, and can carve through bodies easily."
+      },
+      "phaser": {
+        "name": "Phaser",
+        "points": 1,
+        "text": "<b>Phaser (Cost: 1 Point)</b><br> A rechargeable energy weapon that interacts with its targets nervous system, and can be set to stun, knock out or kill."
+      },
+      "pulse_rifle": {
+        "name": "Pulse Rifle",
+        "points": 1,
+        "text": "<b>Puise Rifle (Cost: 1 Point)</b> This assault rifle fires tiny balls of energy at an extremely fast rate, this gives it low accuracy and moderate kickback.<br> Very good against shields."
+      },
+      "heavy_flamethrower": {
+        "name": "Heavy Flamethrower",
+        "points": 1,
+        "text": "<b>Heavy Flamethrower (Cost: 1 Point)</b><br> This flamethrower generates a powerful jet of plasma, incinerating everything within a 12 foot cone of the nozzle."
+      },
+      "kinetic_staff": {
+        "name": "Kinetic Staff",
+        "points": 2,
+        "text": "<b>Kinetic Staff (Cost: 2 Points)</b><br> This staff, when the end is slammed into a person or a surface, generates a blast of kinetic energy that sends people flying back."
+      },
+      "pulse_pistols": {
+        "name": "Pulse Pistols",
+        "points": 2,
+        "text": "<b>Pulse Pistols (Cost: 2 Points)</b><br> These pistols fire tiny balls of energy at an extremely fast rate.<br> Thus, these pistols have low accuracy but minimal kickback.<br> Very good against shields."
+      },
+      "mag": {
+        "name": "MAG",
+        "points": 2,
+        "text": "<b>MAG (Cost: 2 Points)</b><br> This assault rifle uses magnets to accelerate bullets like a rail gun.<br> Has more kickback than most assault rifles, and hard to aim without a lot of strength, but hits like a sniper rifle."
+      },
+      "heavy_cryo_cannon": {
+        "name": "Heavy Cryo Cannon",
+        "points": 2,
+        "text": "<b>Heavy Cryo Cannon (Cost: 2 Points)</b><br> Fires balls of super-cooled goo that sticks to and instantly freezes onto any surface it hits.<br> Can cause hypothermia, frostbite, and death."
+      },
+      "mono_molecular_blade": {
+        "name": "Mono-molecular Blade",
+        "points": 2,
+        "text": "<b>Mono-molecular Blade (Cost: 2 Points)</b><br> This hyper-thin blade is only a molecule thick, allowing it to cut through most armors with ease."
+      },
+      "tiger_sharks": {
+        "name": "Tiger Sharks",
+        "points": 2,
+        "text": "<b>Tiger Sharks (Cost: 2 Points)</b><br> Collapsible, easy to conceal energy pistols.<br> Balances firing speed and impact power.<br> Good accuracy, low recoil."
+      },
+      "falcon_sniper_rifle": {
+        "name": "Falcon Sniper Rifle",
+        "points": 2,
+        "text": "<b>Falcon Sniper Rifle (Cost: 2 Points)</b><br> Collapsible and easy to carry sniper rifle.<br> Uses mass alteration fields to fire a tiny shred of metal at a small fraction of the speed of light"
+      },
+      "pulse_grenade_launcher": {
+        "name": "Pulse Grenade Launcher",
+        "points": 2,
+        "text": "<b>Pulse Grenade Launcher (Cost: 2 Points)</b><br> Fires mini-pulse grenades that explode in a fireball of plasma."
+      },
+      "plasma_blade": {
+        "name": "Plasma Blade",
+        "points": 3,
+        "text": "<b>Plasma Blade (Cost: 3 Points)</b><br> This powerful energy weapon is easy to conceal, as it is just a handle until it is activated.<br> The 3-foot long plasma blades cut through bodies, armor, and shields with relative ease."
+      },
+      "magnum": {
+        "name": "Magnum",
+        "points": 3,
+        "text": "<b>Magnum (Cost: 3 Points)</b><br> Slow-firing pistol, fires a powerful blast of energy every 2 seconds."
+      },
+      "puma_energy_rifle": {
+        "name": "PUMA Energy Rifle",
+        "points": 3,
+        "text": "<b>PUMA Energy Rifle (Cost: 3 Points)</b><br> Long range energy rifle.<br> Fires bolts of plasma faster than a sniper, but is slower and more powerful than an assault rifle."
+      },
+      "large_pulse_laser": {
+        "name": "Large Pulse Laser",
+        "points": 3,
+        "text": "<b>Large Pulse Laser (Cost: 3 Points)</b><br> Heavy single-barreled laser cannon.<br> Very hard to aim. but chews through armor like paper.<br> Can be mounted onto a suit of Powered Armor by sliding it over one of the hands."
+      },
+      "uber_blade": {
+        "name": "Uber Blade",
+        "points": 3,
+        "text": "<b>Über Blade (Cost: 3 Points)</b><br> This blade is not only incredibly durable and extremely sharp, but a generator in the hilt causes the blade to vibrate at high frequencies, so when it hits a person, it tears right through them."
+      },
+      "the_panther": {
+        "name": "The Panther",
+        "points": 3,
+        "text": "<b>The Panther (Cost: 3 Points)</b><br> A long-range, high-powered energy pistol.<br> This pistol fires very quietly, making it great for stealth."
+      },
+      "particle_beam_rifle": {
+        "name": "Particle Beam Rifle",
+        "points": 3,
+        "text": "<b>Particle Beam Rifle (Cost: 3 Points)</b><br> This rifle fires a beam of energy that can hold steady for up to 8 seconds.<br> It does immense damage against both shields and armor."
+      },
+      "heavy_minigun": {
+        "name": "Heavy Minigun",
+        "points": 3,
+        "text": "<b>Heavy Minigun (Cost: 3 Points)</b><br> Much lighter and sleeker than the miniguns of old, but still weighs a couple dozen pounds.<br> Chews through people."
+      }
+    }
+  },
+  "ship" : {
+    "opening" : "<b>Ship</b><br>Pick one size",
+    "choices" : {
+      "frigate": {
+        "type": "Frigate",
+        "length": 200,
+        "decks": 5,
+        "traits": 6,
+        "main_weapons": 1,
+        "points": 4,
+        "text": "<b>Frigate (Cost: 4 Points)</b><br> Fast and Light, meant more for stealth, scouting, extraction, search-and-rescue, etc.<br> Between 100 and 200 meters long.<br> Typically has 3-5 decks.<br> Can fit 6 traits and 1 main weapon."
+      },
+      "cruiser": {
+        "type": "Cruiser",
+        "length": 500,
+        "decks": 8,
+        "traits": 8,
+        "main_weapons": 1,
+        "points": 6,
+        "text": "<b>Cruiser (Cost: 6 Points)</b><br> Larger than a frigate, very popular as it balances armor with speed.<br> Between 300 and 500 meters long.<br> Typically has 5-8 decks.<br> Can fit 8 traits and 1 main weapon."
+      },
+      "battleship": {
+        "type": "Battleship",
+        "length": 900,
+        "decks": 12,
+        "traits": 10,
+        "main_weapons": 1,
+        "points": 8,
+        "text": "<b>Battleship (Cost: 8 Points)</b><br> 3/4ths the size of a dreadnought very large and very heavily armed, but still pretty slow and doesn’t have as much armor as the dreadnought.<br> Between 700 and 900 meters long.<br> Typically has 8-12 decks.<br> Can fit 10 traits and 1 main weapon."
+      },
+      "dreadnought": {
+        "type": "Dreadnought",
+        "length": 1800,
+        "decks": 18,
+        "traits": 12,
+        "main_weapons": 2,
+        "points": 10,
+        "text": "<b>Dreadnought (Cost: 10 Points)</b><br> Biggest ship, other than Gray motherships. Slower than battleships, can’t land on most planets.<br> Immense armor and weaponry.<br> 900+ meters, typical limit is 1800 meters.<br> Can fit 12 traits and 2 main weapons."
+      }
+    }
+  },
+  "ship_style" : {
+    "opening" : "<b>Style</b><br>Choose one, your race's style is Free",
+    "choices" : {
+      "human": {
+        "type": "Human",
+        "points": 2,
+        "free_traits": {
+          "0": "Kinetic Shields",
+          "1": "Rail Guns"
+        },
+        "speed": 20,
+        "text": "<b>Human (Cost: 2 Points)</b><br> Blocky and gray, typically very militaristic.<br> Uses Kinetic Shields and Rail Guns (are Free).<br> Typical FTL speed is 18-20 LY per Day."
+      },
+      "android": {
+        "type": "Android",
+        "points": 2,
+        "free_traits": {
+          "0": "Kinetic Shields",
+          "1": "Particle Beams"
+        },
+        "speed": 21,
+        "text": "<b>Android (Cost: 2 Points)</b><br> Very utilitarian, focuses on function.<br> Uses Kinetic Shields and Particle Beams (are Free).<br> Typically employs swarms of unmanned fighters.<br> Typical FTL speed is 18-21 LY per day."
+      },
+      "asari": {
+        "type": "Asari",
+        "points": 2,
+        "free_traits": {
+          "0": "Energy Shields",
+          "1": "Mass Accelerators"
+        },
+        "speed": 22,
+        "text": "<b>Asari (Cost: 2 Points)</b><br> Sleek, rounded, and lots of glowing lights.<br> Uses Energy Shields and Mass Accelerators (are Free).<br> Typical FTL speed is 18-22 LY per day."
+      },
+      "gray": {
+        "type": "Gray",
+        "points": 4,
+        "free_traits": {
+          "0": "Energy Shields",
+          "1": "Particle Beams"
+        },
+        "speed": 24,
+        "text": "<b>Gray (Cost: 4 Points)</b><br> Disc shaped and intricate.<br> Uses Energy Shields and Particle Beams (are Free).<br> Has Gravity tech that allows for dreadnoughts to land on planets, and for tractor beams.<br> Typical FTL speed is 20-24 LY per day."
+      },
+      "aquoid": {
+        "type": "Aquoid",
+        "points": 2,
+        "free_traits": {
+          "0": "Kinetic Shields",
+          "1": "Mass Accelerators"
+        },
+        "speed": 20,
+        "text": "<b>Aquoid (Cost: 2 Points)</b><br> Very organic and sea-animal shaped.<br> Built for deep oceans and deep space.<br> Uses Kinetic Shields and Mass Accelerators (are Free).<br> Typical FTL speed is 17-20 LY per Day."
+      },
+      "qunari": {
+        "type": "Qunari",
+        "points": 2,
+        "free_traits": {
+          "0": "Energy Shields",
+          "1": "Casaba Howitzers"
+        },
+        "speed": 22,
+        "text": "<b>Qunari (Cost: 2 Points)</b><br> Long, angular, and sturdy.<br> Uses Energy Shields and Casaba Howitzers (are Free).<br> Typical FTL speed is 17-22 LY per day."
+      }
+    }
+  },
+  "ship_traits" : {
+    "opening" : "<b>Ship Traits</b><br>Only once you spend points on an option, it becomes a Trait.",
+    "choices" : {
+      "medical_bay": {
+        "trait": "Medical Bay",
+        "points": 2,
+        "text": "<b>Medical Bay</b><br> Has MRIs, medical scanners, automated surgery machines, and plenty of beds, as well as a stockpile of medication.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your medical center is 3x as big, and has organ cloners, stasis pods, and even accelerated healing pods."
+      },
+      "mess_hall": {
+        "trait": "Mess Hall",
+        "points": 1,
+        "text": "<b>Mess Hall</b><br> Has enough metal tables to seat everyone, and has a decently sized kitchen and storeroom.<br> <b>Upgrade (Cost: 1 Point)</b><br> Very fancy; tables are replaced with booths, there is now a bar. a large kitchen, and a 5-star chef."
+      },
+      "crew_quarters": {
+        "trait": "Crew Quarters",
+        "points": 1,
+        "text": "<b>Crew Quarters<br> Can house 4 Teammates</b><br> Your ship has a series of nice, single room cabins for your teammates, and two or three large communal rooms.<br> <b>Upgrade (Cost: 1 Point)<br> Can house 6 more Teammates</b><br> Everyone has their own small but luxurious room."
+      },
+      "recreational_rooms": {
+        "trait": "Recreational Rooms",
+        "points": 2,
+        "text": "<b>Recreational Rooms</b><br> You have a small library on board, as well as a rec room with movies, game tables, and video games.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your library is huge, housing thousands of paperbacks and tens of thousands of digital books.You also have a small movie theater on board."
+      },
+      "shields": {
+        "trait": "shields",
+        "type" : {
+          "0" : "Energy",
+          "1" : "Kinetic"
+        },
+        "points": 1,
+        "upgrade" : 2,
+        "text": "<b>Shields (Cost: 1 Point)</b><br> You gain one shield, choose between <b>Energy</b> or <b>Kinetic</b>.<br> Energy uses almost 2x as much power.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your shields are now layered.<br> Choose a second shield, you can have your second be the same shield as the first, if you want."
+      },
+      "hull": {
+        "trait": "Hull",
+        "points": 2,
+        "text": "<b>Hull</b><br> You have a tough, multi-layered hull, which protects against space dust, impacts, radiation, and heat. This includes a Whipple shield.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your main exterior hull is much more durable; made out of layered and pressed carbon nanotubes."
+      },
+      "defenses": {
+        "trait": "Defenses",
+        "type" : {
+          "1" : "Rail",
+          "2" : "Mass",
+          "3" : "Energy",
+          "4" : "Laser"
+        },
+        "points": 2,
+        "text": "<b>Defenses</b><br> You gain two external point-defense turrets, and gain another two turrets for each ship size; Frigates get 2 total, etc.<br> Choose if Rail, Mass, Energy, or Laser.<br> <b>Upgrade (Cost: 2 Points)</b><br> You gain an additional four turrets total, plus a swarm of 10 combat drones, and a swarm of 8 repair drones."
+      },
+      "security": {
+        "trait": "Security",
+        "tpd" : 2,
+        "points": 1,
+        "upgrade": 2,
+        "text": "<b>Security (Cost: 1 Point)</b><br> You have two hidden turrets on each deck, and a team of 10 security officers.<br> Choose what races they are, you can choose Playable Races + Turian.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your security team is now heavily armed and armored, and you have at least 4 officers on each deck at all times."
+      },
+      "crew": {
+        "trait": "Crew",
+        "points": 1,
+        "text": "<b>Crew</b><br> You have a decently-sized crew of engineers, navigators, technicians, and maintenance. They are all your race.<br> <b>Upgrade (Cost: 1 Point)</b><br> All of your crew mates are ex-military or otherwise skilled.They are also diverse, choose the species distribution<br> (Can only be Playable Races)"
+      },
+      "engines": {
+        "trait": "Engines",
+        "points": 2,
+        "text": "<b>Engines</b><br> Your ship's thrusters push you through real space at thousands of miles an hour.<br> The exterior of your ship is covered in RCS thrusters for micro-adjustments.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your ship is now noticeably faster in real space, thanks to your upgraded thrusters."
+      },
+      "hangar_bay": {
+        "trait": "Hangar Bay",
+        "points": 1,
+        "upgrade" : 1,
+        "text": "<b>Hangar Bay (Cost: 1 Point)</b><br> You gain a single hanger bay.This can hold shuttles, fighters, and vehicles.Your ship’s hangar bay can house any ship that is smaller than your ship’s size.<br> <b>Upgrade (Cost: 1 Point)</b><br> You have multiple hangar bays, and you can hold twice as many shuttles and fighters."
+      },
+      "training": {
+        "trait": "Training",
+        "points": 1,
+        "text": "<b>Training</b><br> You have a decent-sized shooting gallery on board for your crew mates, and you have a small gym for crew.<br> <b>Upgrade (Cost: 1 Point)</b><br> You now have a holographic combat simulator that your crew mates can train in, and your gym is 2x larger."
+      },
+      "particle_beam_cannon": {
+        "trait": "Particle Beam Cannon",
+        "points": 1,
+        "weapon" : true,
+        "text": "<b>Particle Beam Cannon<br> (Cost: 1 Point)</b><br> Main Weapon<br> Fires a high-intensity beam of atomic particles at near-light speeds.This weapon causes superheating in its targets and impacts with over 150 terajoules of kinetic energy.<br> Can fire once per minute."
+      },
+      "rail_gun": {
+        "trait": "Rail Gun",
+        "points": 1,
+        "weapon" : true,
+        "text": "<b>Rail Gun (Cost: 1 Point)</b><br> Main Weapon<br> Uses a long series of magnets to accelerate a large, human-sized slug of metal to several hundred times the speed of sound. Impacts with about 70 terajoules of energy, and penetrates even the toughest armors. Can only fire once every 30 seconds."
+      },
+      "mass_accelerator_cannon": {
+        "trait": "Mass Accelerator Cannon",
+        "points": 1,
+        "weapon":true,
+        "text": "<b>Mass Accelerator Cannon<br> (Cost: 1 Point)</b><br> Main Weapon<br> Uses Mass Alteration Fields to accelerate a soccer ball-sized slug of molten metal to a tiny fraction of the speed of light. Can fire every 12 seconds.<br> Has an impact yield in the low kilotons."
+      },
+      "casaba_howitzer": {
+        "trait": "Casaba Howitzer",
+        "points": 1,
+        "weapon":true,
+        "text": "<b>Casaba Howitzer (Cost: 1 Point)</b><br> The Nuclear Spear, Main Weapon.<br> This directed weapon fires a beam of pure nuclear fire and radiation. It tears through and cooks unshielded ships, and is decently effective against ground targets. Cheap, easy to use, and has an explosive yield in the low kilotons.<br> Can fire every 15 seconds."
+      },
+      "armory": {
+        "trait": "Armory",
+        "points": 1,
+        "upgrade":1,
+        "text": "<b>Armory (Cost: 1 Point)</b><br> In the heart of your ship, you have a fortified room holding hundreds of advanced kinetic weapons, personal shield generators, and Space Suits.<br> <b>Upgrade (Cost: 1 Point)</b><br> Your armory now holds energy weapons, as well as 12 Power Armor Suits for Crew usage."
+      },
+      "stealth": {
+        "trait": "Stealth",
+        "points": 1,
+        "upgrade":2,
+        "text": "<b>Stealth (Cost: 1 Point)</b><br> Your ship is outfitted with systems that mask your heat emissions and hide you from radar.<br> Your ship is also much quieter now.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your ship has a stealth field that renders it completely invisible."
+      },
+      "life_support": {
+        "trait": "Life Support",
+        "points": 1,
+        "text": "<b>Life Support</b><br> When in atmosphere, your ship takes in large amounts of oxygen and water for crew use and heat regulation. You also have a hydroponics garden.<br> <b>Upgrade (Cost: 1 Point)</b><br> Your hydroponics garden is 3x larger, and now grows fresh fruit and vegetables for your crew."
+      },
+      "observation_decks": {
+        "trait": "Observation Decks",
+        "points": 1,
+        "upgrade": 1,
+        "text": "<b>Observation Decks (Cost: 1 Point)</b><br> Each deck of your ship has one room with a large, ceiling-to-floor window that looks out into space.Very tranquil.<br> <b>Upgrade (Cost: 1 Point)</b><br> You now have two rooms per deck, and exterior cameras allow a 360, real-time image to be projected through holograms."
+      },
+      "dropships": {
+        "req" : "Hangar Bay",
+        "trait": "Dropships",
+        "points": 1,
+        "text": "<b>Dropships (Requires Hangar Bay)</b><br> Your ship carries 2 state-of-the-art dropships that can carry up to 10 people, and have stealth and heavy weapons.<br> <b>Upgrade (Cost: 1 Point)</b><br> Frigates get 2 more dropships. Cruisers get 4 more. Battleships get 6 more, and Dreadnoughts get 8 more."
+      },
+      "fighter": {
+        "req" : "Hangar Bay",
+        "trait": "Fighter",
+        "points": 1,
+        "text": "<b>Fighter (Requires Hangar Bay)<br> (Cost: 1 Point)</b><br> This fighter can hold 3 people, and is very fast, lightly armored, has shields, and powerful weapons.These weapons are mini versions of your Main Weapon.<br> You gain 1 for Frigates, 4 for Cruisers, 8 for Battleships, and 12 for Dreadnoughts."
+      },
+      "apcs": {
+        "trait": "APCs",
+        "req" : "Hangar Bay",
+        "points": 1,
+        "text": "<b>APCs (Requires Hangar Bay)<br> (Cost: 1 Point)</b> These armored, all-terrain APCs can carry up to 20 people, have shields, and have powerful anti-air guns and rocket launchers.<br> Frigates gain 2, Cruisers gain 5, Battleships gain 8, and Dreadnoughts gain 10."
+      },
+      "hover_tanks": {
+        "trait": "Hover Tanks",
+        "req" : "Hangar Bay",
+        "points": 2,
+        "text": "<b>Hover-Tanks (Requires Hangar Bay)<br> (Cost: 2 Points)</b><br> These AI controlled hover-tanks are fest over all terrains, armored, and carry missiles launchers, heavy mortars, machine guns, and shields.<br> You gain 2 for Frigates, and another 3 for each size, with Dreadnoughts receiving 11."
+      },
+      "ai": {
+        "trait": "AI",
+        "points": 1,
+        "text": "<b>AI (Cost: 1 Point)</b><br> You gain a standard, human-level intellect AI.This AI helps maintain your ship’s systems, and can remotely interact with and monitor your suit’s systems.This AI can act as a Co-Pilot but CANNOT entirely replace a pilot with a body.<br> A quantum AI could replace a pilot."
+      },
+      "cyberwarfare_suite": {
+        "trait": "cyberwarfare_suite",
+        "points": 1,
+        "text": "<b>Cyberwarfare Suite (Cost: 1 Point)</b><br> If you don’t have an AI, this is managed by a combination of auto systems and crew members.This suite helps defend your ship from hacking, and can hack into and disable missiles, enemy weapons, shields, and engines. A standard AI increases efficiency by 30%, a quantum AI increases it by 80%."
+      },
+      "drones": {
+        "trait": "Drones",
+        "points": 1,
+        "text": "<b>Drones (Cost: 1 Point)</b><br> Each level of ship gets +5 hover drones, with Frigates getting 5 and Dreadnoughts getting 20. Each drone has a gripping arm, a plasma torch, a kinetic shield, and storage space for up to 3 lbs of raw materials.These are used for dose-range attacks, gathering materials, and repairing your hull."
+      },
+      "command_bridge": {
+        "trait": "command_bridge",
+        "points": 0,
+        "text": "<b>Command Bridge (Cost: 1 Point for Frigates, free for all others)</b><br> Your ships cockpit is replaced with a command bridge, where you can view from your ship’s cameras and direct the entire crew.This is vital for larger ships, but more of a luxury for smaller ones."
+      },
+      "built_to_last": {
+        "trait": "Built to Last",
+        "points": 1,
+        "text": "<b>Built to Last (Free with Human Style)<br> (Cost: 1 Point)</b><br> Your ship is sturdy, and tough as nails.Your ship’s parts last longer and break down less often, saving you money and time on replacements and repairs."
+      },
+      "skeleton_crew": {
+        "trait": "Skeleton Crew",
+        "extr_crew" : "1",
+        "points": 1,
+        "text": "<b>Skeleton Crew (Free with Android Style)<br> (Cost: 1 Point)</b><br> Thanks to the skill and efficiency of android crewmates, the number of crew members that you need to run the ship is cut down by 1/4th with no loss in efficiency, freeing up space.Your ship can hold 1 more teammate."
+      },
+      "luxury": {
+        "trait": "Luxury",
+        "points": 1,
+        "text": "<b>Luxury (Free with Asari Style)<br> (Cost: 1 Point)</b><br> Your ship is always sleek, clean, and luxurious.<br> The rooms and food feel more like you’re living in a 5-star hotel than a warship."
+      },
+      "grav_tech": {
+        "trait": "Grav-Tech",
+        "points": 2,
+        "text": "<b>Grav-Tech (Free with Gray Style)<br> (Cost: 2 Points)</b><br> Your ship has powerful gravity systems that allow you to practically ignore powerful winds and storms, break free from strong gravity wells, and you have a tractor beam on board."
+      },
+      "atmospheres": {
+        "trait": "Atmospheres",
+        "points": 1,
+        "text": "<b>Atmospheres (Free with Aquoid Style)<br> (Cost: 1 Point)</b><br> No matter what size your ship is; it’s fitted for travel in hostile, non-space environments.You can dive deep into the ocean, and your ship can survive higher amount of pressure and temperature."
+      },
+      "efficiency": {
+        "trait": "Efficiency",
+        "points": 1,
+        "text": "<b>Efficiency (Free with Qunari Style)</b><br> <b>(Cost: 1 Point)</b><br> Your ship and crew are streamlined and trained to maximize efficiency.You use far less resources in everything from life support to weaponry and your crew responds much fester to surprises and threats."
+      },
+      "hypernought": {
+        "trait": "Hypernought",
+        "points": 6,
+        "text": "<b>Hypernought (Restriction: Ship)<br> (Cost: 6 Points)</b><br> Your ship is made up of a strange, alien metal that has never been seen before. It seems to be some form of Hypermatter. Your hull can block immense amounts of heat and radiation, and can endure huge amounts of damage. If the hull is ever breached, the hypermatter will repair itself within a day, with no need for any input of mass or energy."
+      },
+      "superluminal": {
+        "trait": "Superluminal",
+        "points": 6,
+        "text": "<b>Superluminal (Restriction: Ship)<br> (Cost: 6 Points)</b><br> Your ship’s FTL drive is upgraded as well; your ship can fly at around 3x the FTL speed that all other ships of your class and style fly at.Your ship is also equipped with a wormhole gate, which are huge space stations that allow travel to other galaxies, but yours is small enough to fit on your ship."
+      },
+      "superweapon": {
+        "trait": "Superweapon",
+        "extr_weapons" : 2,
+        "points": 6,
+        "text": "<b>Superweapon (Restriction: Ship)<br> (Cost: 6 Points)</b><br> Your weapons are upgraded immensely.<br> Now your main weapon(s) yield is increased to somewhere in the upper megatons/petajoules.<br> Your main weapon is also now smaller, with no loss in power, so you can now pick a 2nd or even 3rd main weapon."
+      },
+      "deus_ex_machina": {
+        "trait": "Deus Ex Machina",
+        "points": 5,
+        "text": "<b>Deus Ex Machina (Restriction: Ship)<br> (Cost: 5 Points)</b><br> Your ship is inhabited and controlled by an immensely powerful quantum AI named Eve. She is truly unique. She can make tens of decillions of calculations in seconds, and her thoughts move faster than any organic, and most other Als as well. She is curious, inquisitive, loyal, quick-witted, and has a soothing voice.<br> She can project a hardlight form."
+      }
+    }
+  },
+  "non_playable_characters" : {
+    "opening" : "<b>Non-Playable Races</b>",
+    "choices" : {
+      "altean": {
+        "race": "Altean",
+        "lifespan": 810,
+        "lift_str": 1100,
+        "speed": 30,
+        "text": "<b>Altean</b><br> Alteans are native to Altea, a lush garden world.<br> Alteans are an advanced yet reclusive race of elf-like humanoids with psionic abilities. 70% of Alteans are Psionics, but only I/8th ofthat percentage possess telekinesis. For the others, their psionics manifest as the manipulation and even generation of: Fire/Heat, Ice/Cold, Water, Earth,Air, Life, or Space, which is the rarest. Alteans have a democratic monarchy, where the king presides over an elected parliament. Few outsiders are allowed on Altea.<br> Max Lifespan of 810 years.<br> Max Lifting Strength of 1100 lbs.<br> Max Speed of 30 mph.<br> Natural Environment is Temperate Grasslands."
+      },
+      "quarian": {
+        "race": "Quarian",
+        "lifespan": 130,
+        "lift_str": 1000,
+        "speed": 27,
+        "text": "<b>Quarian</b><br> Quarians are native to Rannoch, an arid and dry, yet habitable world. Quarians are very similar to humans, but due to their weak immune systems, they must wear a special biosuit 95% of the time, only taking it off for short intervals while in sterilized environments. Quarians are well known for their engineering capabilities and resourcefulness.They tend to be distrustful of A.l.s, especially those not in Android bodies.<br> Quarians are also nomadic, the majority of their species living in an enormous fleet that flies through space.<br> Max Lifespan of 130 years.<br> Max Lifting Strength of 1000 lbs.<br> Max Speed of 27 mph.<br> Natural Environment is Dry and Arid."
+      },
+      "celestial": {
+        "race": "Celestial",
+        "lifespan": "Unknown",
+        "lift_str": "Unknown",
+        "speed": "Unknown",
+        "text": "<b>Celestial</b><br> Little is known about these mysterious beings, as the large, dense nebula in which they are known to live in is very dangerous, and difficult to navigate.They are known to be made out of the same gas that makes up their nebula, and they seem to be held together by psionic force alone.They are incredibly powerful psionics, but they maintain a belief system very much like human Buddhism.The majority of Celestials are pacifist, and they also rarely leave their nebula, spending most of their time meditating.<br> Max Lifespan of ??? years.<br> Max Lifting Strength of ??? lbs.<br> Max Speed of ??? mph.<br> Natural Environment is Space Gas."
+      },
+      "kitsune": {
+        "race": "Kitsune",
+        "lifespan": 400,
+        "lift_str": 1200,
+        "speed": 38,
+        "text": "<b>Kitsune</b><br> The Kitsune are a race of bipedal humanoids who appear very similar to earth foxes.<br> What’s unique about them is their ability to shapeshift.They can become indistinguishable from any human, asari, gray. etc.They cannot mimic specific people, just a specific humanoid species.They are incredibly secretive, to the point where nobody is exactly sure where their homeworldTaya is.What is known is that they seem to be working on enhancing the agents that they send out into the galaxy, creating something akin to Super Soldiers.<br> Max Lifespan of 400 years.<br> Max Lifting Strength of 1200 lbs.<br> Max Speed of 38 mph.<br> Natural Environment is Temperate Forests."
+      },
+      "turian": {
+        "race": "Turian",
+        "lifespan": 130,
+        "lift_str": 1400,
+        "speed": 30,
+        "text": "<b>Turian</b><br> Turians are a race of stoic, militaristic avian humanoids.They value military strength, honor, and discipline. All turians have a thin natural carapace that is a mixture of organic metal and bone, that helps shield them from the radiation of their sun, due to their planets weak magnetic fields not blocking all of it They have sharp teeth, and vicious talons on their hands and feet implying that this species evolved as carnivorous predators.Turians have a very large military force, due to a race-wide law that requires all citizens to spend at least 10 years in the military.<br> Max Lifespan of 130 years.<br> Max Lifting Strength of 1400 lbs.<br> Max Speed of 30 mph.<br> Natural Environment is Varied, usually Temperate."
+      },
+      "typhon": {
+        "race": "Typhon",
+        "lifespan": "Unknown",
+        "lift_str": "Unknown",
+        "speed": "Unknown",
+        "text": "<b>Typhon</b><br> Very little is known about these monstrous shapeshifters, but we do know that they have stripped once-prosperous worlds barren, and left them empty and dead.They are very powerful, as they can shapeshift, survive the vacuum of space, apparently don’t age, and they possess psionic abilities.They also have no empathy; they are physically incapable of it. Tests have shown thatTyphon-Human hybrids could experience empathy, and thus be reasoned with, but nothing has come of that yet. If you see one of these, do not engage.<br> Leave the area/ship/planet immediately.<br> Max Lifespan of ??? Years.<br> Max Lifting Strength of ??? lbs.<br> Max Speed of ??? mph."
+      }
+    }
+  },
+  "team" : {
+    "opening" : "<b>Team<b>",
+    "choices" : {
+      "morgan_yu": {
+        "member_name": "Dr. Morgan Yu",
+        "race" : "human",
+        "armor": {
+          "type": "space_suit",
+          "traits": ["jump_jets", "dr_armor", "survivalist", "smart_armor"]
+        },
+        "abilities": ["intelligence", "tech_skills", "enhanced_senses", "endurance", "immune", "medical_expert"],
+        "points": 2,
+        "text": "<b>Dr. Morgan Yu (Cost: 2 Points)</b><br> The youngest in a long line of neurosurgeons, aerospace engineers, and biotech inventors, Morgan Yu certainly lives up to her heritage. She’s a certified genius, and has built everything from AJ.s to weaponry. She even designed the Heavy Cryo Cannon. She's a prodigy with tech, and a master hacker to boot. She can also hold her own in combat, thanks to all the time she spent testing her own weapons. Eventually, she got tired of inventing for money, and wanted to really do something with her life. She’s often cold and abrasive, but her actions speak louder; she is very caring and kind, and is willing to risk her life for anyone in need.<br> Her custom Space Suit has Jump Jets, Dr. Armor, Survivalist, and Smart Armor.<br> She has Intelligence.Tech Skills, Enhanced Senses, Endurance, Immune, and Medical Expert."
+      },
+      "rick_jordan": {
+        "member_name": "Rick 'Robocop' Jordan",
+        "race": "andoroid",
+        "armor": {
+          "type": "body",
+          "traits": ["kinetic_shield", "hardlight_shield", "nanobots", "survivalist"]
+        },
+        "abilities": ["tech_skills", "combat_training", "special_ops", "precision", "hidden_weapons", {"1" : "cybernetics", "2" : 4}],
+        "points": 2,
+        "text": "<b>Rick “Robocop” Jordan (Cost: 2 Points)</b><br> Male android, served on over 8 different police forces in the last 40 years. He's been a member of S.W.A.T for just as long, and has a nearly-flawless record. He's taken down slave rings, drug rings, and several crime bosses with minimal help. His skill and record have earned him the nickname “Robocop”, in reference to the ancient human story. He's gotten tired with bureaucracy, and left the police force after a murderer that he caught managed to walk free due to corruption. He’s grizzled, wizened, and pessimistic.<br> He’s also a little paranoid, thanks to all the hits put out on him over the years.<br> Integrated into his body is a Kinetic Shield, a Hardlight Shield, Nanobots, and Survivalist.<br> He has Tech Skills, Combat Training, Special Ops. Precision, Hidden Weapons, and Cybernetics (x4)."
+      },
+      "amelia_oxton": {
+        "member_name": "Flight Lt. Amelia Oxton",
+        "race": "human",
+        "armor": {
+          "type": "space_suit",
+          "traits": ["jump_jets", "kinetic_shield", "kinetic_gauntlets", "dr_armor"]
+        },
+        "abilities": ["piloting", "enhanced_senses", "endurance", "precision", "combat_training"],
+        "points": 2,
+        "text": "<b>Flight Lt. Amelia Oxton (Cost: 2 Points)</b><br> Amelia's family have been flying in fighter jets since the Second World War; flying is in her blood. She's a decorated Ace and dog-fighter, and she graduated at the absolute top of her class in the united Human Air Force’s Flight School. She can fly anything from a helicopter to a dreadnought with ease. She's even managed to navigate a fighter through an asteroid field, several times! She prefers to fly smaller crafts like fighters and shuttles, but she can definitely fly anything bigger for you. She constantly carries her Hardlight Blade and her Pulse Pistols. She has a fiery personality, and she is very passionate in everything she does.<br> Her Space Suit has Jump Jets, a Kinetic Shield, Kinetic Gauntlets, and Dr.Armor.<br> She has Piloting, Enhanced Senses. Endurance, Precision, and Combat Training."
+      },
+      "josef_kateb": {
+        "member_name": "Dr. Josef Kateb",
+        "race": "android",
+        "armor": {
+          "type": "body",
+          "traits": ["energy_shield", "tentacle", "survivalist", "elemental_gauntlents"]
+        },
+        "abilities": ["medical_expert", "tech_skills", "combat_training", "precision", "intelligence", "beloved", {
+            "1": "cybernetics",
+            "2": 4
+          }],
+        "points": 1,
+        "text": "<b>Dr. Josef Kateb (Cost: I Point)</b><br> This French Android is famous for pushing the bounds of modern medicine, was the first to perfect the integration of cloned organs into patients, and has been on the forefront of the medical cybernetic field for over 50 years. What sets Josef, aka “The Doc”, apart is his unwavering altruism. He charges little to no money for his services, and frequently offers medical aid to homeless people, as well as traveling great distances to war-tom areas.Thanks to this, he has picked up combat skills from grateful war veterans.<br> A few years ago, he could no longer ignore his calling. He left the medical field and went out to truly help people.<br> Integrated into his body is an Energy Shield. a Tentacle, Survivalist, and Elemental Gauntlets.<br> He has Medical Expert,Tech Skills, Combat Training. Precision, Intelligence, Beloved, and Cybernetics (x4)."
+      },
+      "kim_song": {
+        "member_name": "Kim 'Kitty' Song",
+        "race": "human",
+        "armor": {
+          "type": "power_armor",
+          "traits": ["jump_jets", "energy_shield", "nanobots", "firepower", "enhanced_servos", "enhanced_shell", "energy_systems", "dr_armor"]
+        },
+        "abilities": ["combat_training", "endurance", "piloting", "beautiful", "tech_skills", {
+            "1": "cybernetics",
+            "2": 4
+          }],
+        "points": 3,
+        "text": "<b>Kim “Kitty” Song (Cost: 3 Points)</b><br> Kim Song is a decorated Korean Mech Pilot and an accomplished fighter, as well as the wearer of a brand new, experimental suit of power armor that was designed to have the firepower of a Mech.<br> She was selected to pilot this new suit after her old Mech blew up; with her inside, which caused the loss of her limbs. She is rather young; only 24 years old. Song is spunky, upbeat, and has a kind heart. She gets rather competitive in games and in combat, however.<br> Her arms can morph into powerful three-barreled plasma cannons and back.<br> Her Power Armor has Jump Jets, an Energy Shield. Nanobots, Firepower. Enhanced Servos, an Enhanced Shell. Energy Systems, and a Dr. Armor.<br> She has Combat Training. Endurance. Piloting. Beautiful.Tech Skills, and Cybernetics (x4)."
+      },
+      "faezi_perev": {
+        "member_name": "Faezi Perev",
+        "race": "asari",
+        "weapon" : ["panther", "uber_blade"], 
+        "armor": {
+          "type": "space_suit",
+          "traits": ["energy_shield", "jump_jets", "stealth"]
+        },
+        "abilities": ["beautiful", "diplomatic", "combat_training", "psionic_enhacement", "special_ops", "psionics"],
+        "points": 2,
+        "text": "<b>Faezi Perev (Cost: 2 Points)</b><br> Asari consort dancer, bartender, federal spy. information broker, professional assassin, secret agent and crime lord. Few have done as much as Faezi Perev, and she's only 300 years old! She even spent a few years acting as an elite secret agent for the Asari government What makes her so good is her cunning wit her ability to think on her feet her outrageous acting skills, and most of all; her ability to read people like books. She changes her personality to fit into other people's needs and expectations, and then plays them like puppets. She has connections in every government and in most criminal underworlds.<br> Carries a Panther and a Über Blade.<br> Her Suit has an Energy Shield, Jump Jets, and Stealth.<br> She has Beautiful, Diplomatic. Combat Training. Psionic Enhancement. Special Ops. and Psionics."
+      },
+      "kayvorah endeavor": {
+        "member_name": "Kay'Vorah vas Endeavor",
+        "race": "quarian",
+        "weapon" : ["falcon_sniper_rifle", "tiger_sharks"], 
+        "armor": {
+          "type": "space_suit",
+          "traits": ["jump_jets", "stealth", "cyberwarfare_suite", "kinetic_shield"]
+        },
+        "abilities": ["tech_skills", "combat_training", "special_ops", "precision", "beautiful", "peak_physical_fitness"],
+        "points": 3,
+        "text": "<b>Kay’Vorah vas Endeavor (Cost: 3 Points)</b><br> One of the very few Quarians who, thanks to genetic engineering, can go without her helmet.<br> She’s still likely to sick if she’s in a dirty, unfamiliar area, but a fever or a cold won't kill her or anything.<br> Kay is a master hacker and expert sniper, as well as a master of stealth and infiltration. She serves as a member of the elite Quarian Special Forces.<br> Kay is snarky, flirty, and greatly enjoys friendly banter She wears a fully helmeted bio-suit both as a Space Suit and in order to blend in.<br> She carries a Falcon Sniper Rifle and Tiger Sharks.<br> Her suit has Jump Jets, Stealth, Cyberwarfare Suite, and a Kinetic Shield.<br><br> She has Tech Skills, Combat Training, Special Ops, Precision. Beautiful, and Peak Physical Fitness."
+      },
+      "refaxamin_guyya": {
+        "member_name": "Refa'Xamin vas Gyya",
+        "race": "quarian",
+        "armor": {
+          "type": "none",
+          "traits": []
+        },
+        "abilities": ["intelligence", "tech_skills", {
+            "1": "cybernetics",
+            "2": 1
+          }, "precision", "hidden_weapons"],
+        "points": 1,
+        "text": "<b>Refa'Xamin vas Guyya (Cost: I Point)</b><br> Her friends call her Refi.<br> She’s smart as hell, even among Quarians. and she seems to have a knack for FTL engines.<br> She’s so good at it, the Quarians even managed to send her to a decent university, and she graduated with a Doctorate in Applied Physics, with a focus on FTL, in about 5 years. She could fix up any FTL engine by herself, and she’s amazaigly cool under pressure.<br> Socially, she's a wallflower. Refi gets very shy around new people, and it takes her a while to start to open up. She has a lot of passion for what she does, and she's damn good at it. She’s not really a fighter, but she can hold a gun at least and she's better at fixing your ship than any drone or nanobot swarm.<br> She has Intelligence,Tech Skills, Cybernetics (Left Arm), Precision, and Hidden Weapon (Pistol)."
+      },
+      "yonera": {
+        "member_name": "Yonera",
+        "race": "qunari",
+        "weapon" : ["mono_molecular_blade", "mag"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["nanobots", "kinetic_shield", "survivalist", "jump_jets"]
+        },
+        "abilities": ["combat_training", "endurance", "psionics", "psionic_enhacement", "rage", "peak_physical_fitness"],
+        "points": 2,
+        "text": "<b>Yonera (Cost: 2 Points)</b><br> Yonera is a powerful Qunari warrior and Psionic.She agrees with many of the Qunari’s ideals, but disagrees with many of their practices, especially their methods of \"re-education\". She took her leave of the Qunari, and set off as a mercenary which she has been for the last 15 years, honing her skills and building a legendary reputation as a fearsome yet honorable warrior.<br> She retired a few years ago with a sizable wealth, but grew bored quickly, and realized that she wanted to fight to help people, since she had all the money she needed, and so she joined up with you.<br> She carries a Mono-molecular blade and a MAG.<br> Her Space Suit has Nanobots, a Kinetic Shield, Survivalist, and Jump Jets.<br> She has Combat Training, Endurance, Psionics, Psionic Enhancement, Rage, and Peak Physical Fitness."
+      },
+      "bulwark": {
+        "member_name": "Bulwark",
+        "race": "qunari",
+        "weapon" : ["energy_blade", "minigun"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["enhanced_shell", "energy_shield", "dr_armor"]
+        },
+        "abilities": ["combat_training", "enhanced_senses", "endurance", "peak_physical_fitness"],
+        "points": 2,
+        "text": "<b>Bulwark (Cost: 2 Points)</b><br> This Qunari soldier gives no name other than Bulwark, and the name is certainly accurate, thanks to his Impact Shield, which has Smart Armor, and it generates blasts of kinetic energy when it is slammed into someone, sending them flying back.<br> He is stoic, disciplined, and still very much in service to the Qunari, who apparently like what you’re doing; helping others with no direct rewards for yourself. So, they sent Bulwark to help you, and maybe spy on you a little. Bulwark is a member of the Antaam, the main Qunari military. He doesn't talk much.<br> He always carries his Energy Blade and his Minigun, which he wields with one hand. His Suit has Enhanced Shell, an Energy Shield, and Dr.Armor.<br> He has Combat Training, Enhanced Senses, Endurance, and Peak Physical Fitness."
+      },
+      "doz_brutal": {
+        "member_name": "Doz the Brutal",
+        "race": "gray",
+        "weapon" : ["laser_rifle"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["energy_shield", "dr_armor", "enhanced_servos", "jump_jets"]
+        },
+        "abilities": ["intelligence", "enhanced_senses", "combat_training", "rage", "diplomatic", "tech_skills"],
+        "points": 2,
+        "text": "<b>Doz the Brutal (Cost: 2 Points)</b><br> Some would call her a warlord, some would call her a monster, she prefers ‘mercenary’.This female Gray is a master of combat, and has been fighting since she was 7 years old. She's almost 130 now. She was once feared as a brutal pirate a few decades ago, but she disappeared at her height, and has re-emerged to join you. She says that she had a crisis of conscience, and she truly wants to help people now. She is clearly no less brutal now, however. She shows no mercy towards the pirates that she once surrounded herself with.<br> She carries a powerful laser rifle, and travels with a loyal yet horrific failed cloning experiment as a guard dog, which she treats very well.<br> Her suit has an Energy Shield, Dr. Armor, Enhanced Servos, and Jump Jets.<br> She has Intelligence, Enhanced Senses, Combat Training, Rage, Diplomatic, and Tech Skills."
+      },
+      "harnld": {
+        "member_name": "Harnld",
+        "race": "gray",
+        "armor": {
+          "type": "space_suit",
+          "traits": ["dr_armor", "survivalist", "tentacle", "energy_shield"]
+        },
+        "abilities": ["intelligence", "tech_skills", "immune", "precision", "medical_expert"],
+        "points": 1,
+        "text": "<b>Harnld (Cost: I Point)</b><br> Harnld is a “Tall Gray”, a male on the upper end of the Gray height scale. He wears clothes, don’t worry.<br> He spent the first 30 or so years in school, getting advanced degrees in xenobiology, gravitational engineering, and aerospace engineering. He's written dozens of dissertations, and has gotten quite a few awards for his studies. And yet, his thirst for adventure kept him up at night. One day, he couldn’t take it anymore, and set out to see the universe for himself, and joined up with you. He’s an absolute genius, and a godsend for when you’re visiting new worlds, or if your ship’s gravity gets fucked up.<br> His Suit has a Dr. Armor, Survivalist, a Tentacle, and an Energy Shield.<br> He has Intelligence,Tech Skills, Immune, Precision, and Medical Expert."
+      },
+      "esora_teanus": {
+        "member_name": "Esora T'eanus",
+        "race": "asari",
+        "armor": {
+          "type": "space_suit",
+          "traits": ["jump_jets", "survivalist", "dr_armor", "kinetic_shield"]
+        },
+        "abilities": ["beautiful", "intelligence", "combat_training", "psionics", "piloting"],
+        "points": 2,
+        "text": "<b>EsoraT'eanus (Cost: 2 Points)</b><br> Adventurer, explorer, archaeologist, and pilot. Esora really loves to move and get around. She’s been pretty much everywhere; if you want a pilot who’s going to know the ins and outs of most populated star systems, you’re going to want Esora. She tends to be very unprofessional, both in dress and in speech. She’ll often flirt with you and other teammates that she finds attractive. She's a damn good pilot, however. Esora’s more than capable of piloting any ship you could have, and she has a knack for getting out of tight spots, and surviving against nigh-impossible odds.<br> She always carries a Magnum and a Hardlight Blade.<br> Her Suit has Jump Jets, Survivalist, Dr. Armor, and a Kinetic Shield.<br> She has Beautiful, Intelligence, Combat Training, Psionics, and Piloting."
+      },
+      "aquila": {
+        "member_name": "Aquila",
+        "race": "asari",
+        "armor": {
+          "type": "space_suit",
+          "traits": ["kinetic_shield", "survivalist", "enhanced_servos", "smart_armor"]
+        },
+        "abilities": ["beautiful", "combat_training", "psionics", "precision", "special_ops", "peak_physical_fitness"],
+        "points": 3,
+        "text": "<b>Aquila (Cost: 3 Points)</b><br> Aquila is an Asari Justicar; a powerful knight-like warrior that travels through Asari space dispensing justice and righting wrongs.The Justicars are an order of ancient warrior-monks, following a strict, black-and-white code that dictates what is right and wrong. Aquila still follows the code, for the most part.<br> Recently she has begun to feel like the code is too restrictive, so she left Asari space. She is often no-nonsense,but she opens up quickly after some drinks. She is always respectful of others though, she's not cold, just serious.<br> She carries an Energy Blade, twin Tiger Sharks, and a PUMA Energy Rifle.<br> Her Suit has a Kinetic Shield, Survivalist, Enhanced Servos, and Smart Armor.<br> She has Beautiful, Combat Training, Psionics, Precision, Special Ops, and Peak Physical Fitness."
+      },
+      "rio": {
+        "member_name": "Rio",
+        "race": "aquoid",
+        "armor": {
+          "type": "space_suit",
+          "traits": ["survivalist", "energy_gauntlets", "jump_jets"]
+        },
+        "abilities": ["enhanced_senses", "immune", "medical_expert", "intelligence", "combat_training"],
+        "points": 1,
+        "text": "<b>Rio (Cost: I Point)</b><br> Female Aquoid, genetic engineer and doctor. Aquoids are unique due to the fact that there are around 12 different subspecies of Aquoid.AII look pretty similar, but have clear physical differences. Rio’s subspecies prefers the warmest waters of her homeworld, staying around the equator. Like many Aquoids, Rio has a natural skill for genetic engineering and biology, but Rio is exceptionally intelligent, and is unique for her work in advancing genetic engineering in other sentient species. She’s also done some work on terraforming and on Quarians, and helped develop the genetic therapy that was used on Kay’Vorah.<br> She carries a Phaser and a Pulse Grenade Launcher.<br> Her Suit has Survivalist, Energy Gauntlets, and Jump Jets.<br> She has Enhanced Senses, Immune, Medical Expert, Intelligence, and Combat Training."
+      },
+      "charlie": {
+        "member_name": "Charlie",
+        "race": "aquoid",
+        "weapon" : ["tiger_sharks", "hardlight_blade"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["dr_armor", "jump_jets", "kinetic_shield", "survivalist"]
+        },
+        "abilities": ["immune", "enhanced_senses", "combat_training", "special_ops", "peak_physical_fitness"],
+        "points": 2,
+        "text": "<b>Charlie (Cost: 2 Points)</b><br> Charlie is a male Aquoid, around 40 years old, and his subspecies prefers humid areas and deep lakes in rainforests. He’s also one of the first Aquoids to ever marry a human. He is, simply put, an intelligence officer. He can fight if he needs to, and as he works out and trains very often, he can definitely hold his own, but he detests fighting. He prefers to find smart solutions out of problems. He has an inquisitive mind, and he’s very good at surveillance, stealth, and information gathering. He’s also quite skilled in sabotage.<br> He learned ASL from his wife.<br> He carries Tiger Sharks and a Hardlight Blade.<br> His Suit has a Dr. Armor, Jump Jets, a Kinetic Shield, and Survivalist.<br> He has Immune, Enhanced Senses, Combat Training, Special Ops, and Peak Physical Fitness."
+      },
+      "julea_victolus": {
+        "member_name": "Julea Victolus",
+        "race": "turian",
+        "armor": {
+          "type": "space_suit",
+          "traits": ["jump_jets", "survivalist", "energy_shield", "stealth"]
+        },
+        "abilities": ["psionics", "psionic_enhacement", "immune", "combat_training", "special_ops", "precision"],
+        "points": 2,
+        "text": "<b>JuleaVictolus (Cost: 2 Points)</b><br> Julea is a female Turian Kabal.The Kabal are turians who display psionic abilities and are then trained to become elite special forces units. Julea has retractable, poison-coated claws built into her gauntlets.This poison, which she takes antidotes against every morning (just in case), is a fest acting neurotoxin that locks up motor functions, leaving it’s victim paralyzed and unable to speak. Julea is agile, fast, and quick on her feet. She’s very careful, thorough, and strives to always be prepared. She’s somewhat of a perfectionist, and gets very annoyed when things don't go just right.<br> She carries a Panther and a Falcon Sniper Rifle.<br> Her Suit has Jump Jets, Survivalist, an Energy Shield, and Stealth.<br> She has Psionics, Psionic Enhancement, Immune, Combat Training, Special Ops, and Precision."
+      },
+      "hunter": {
+        "member_name": "The Hunter",
+        "race": "unknown",
+        "weapon" : ["gauss_rifle", "mono_molecular_blade"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["survivalist", "jump_jets", "energy_shield", "enhanced_shell"]
+        },
+        "abilities": ["precision", "combat_training", "immune", "enhanced_senses", "special_ops", "psionics", "rage", "elementalism", "endurance", "peak_physical_fitness"],
+        "points": 3,
+        "text": "<b>The Hunter (Cost: 3 Points)</b><br> This bounty hunter is famous for single-handedly taking down ferocious monsters and convicts that had previously killed dozens, if not hundreds of armed soldiers and other bounty hunters. He is well known for his strong code of ethics, excellent parkour skills, and his incredible skill in combat. He’s a decently powerful psionic, but his psionics don’t hold a candle to either his daughters, who also works as a bounty hunter, or his wife's, who works as a college professor.<br> He’s in his mid 50’s, and he’s seen some shit.<br> He always carries his gauss rifle, and his two mono-molecular blades.<br> His Suit has Survivalist, Jump Jets, an Energy Shield, and an Enhanced Shell.<br> He has Precision, Combat Training, Immune, Enhanced Senses, Special Ops, Psionics, Rage, Elementalism, Endurance, and Peak Physical Fitness."
+      },
+      "kayla_ghost": {
+        "member_name": "Kayla the Ghost",
+        "race": "human",
+        "weapon" : ["anti_material_rifle", "hardlight_blade"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["stealth", "survivalist", "kinetic_shield"]
+        },
+        "abilities": ["precision", "combat_training", "rage", "endurance", "enhanced_senses", "special_ops"],
+        "points": 2,
+        "text": "<b>Kayla the Ghost (Cost: 2 Points)</b><br> Bom on Aeos; a harsh, unincorporated frontier world that has little more than hot deserts and vast underground resources, Kayla lived a colonist’s life until the age of 10, when one of the many pirate gangs that inhabit the planet raided the town and killed most of the people, except her.This hardened her, and after being taken in by an old soldier, she became The Ghost, the Scourge of Aeos. She is a silent predator, sniping from large distances and never getting spotted. She’s single-handedly cut the huge pirate population down by I /4th over the last 15 years. She’s a tomboy, and it’ll take time for her to warm up and trust you.<br> She carries an Anti-Material Rifle and a Hardlight Blade.<br> Her Suit has Stealth, Survivalist, and a Kinetic Shield.<br> She has Precision, Combat Training, Rage, Endurance, Enhanced Senses, and Special Ops."
+      },
+      "iris_brauner": {
+        "member_name": "Iris Brauner",
+        "race": "human",
+        "weapon" : ["tiger_sharks"],
+        "armor": {
+          "type": "mech",
+          "traits": ["nanobots", "collapsible", "enhanced_servos", "enhanced_shell", "enhanced_size", "energy_systems", "firepower", "energy_gauntlets", "energy_shield", "jump_jets"]
+        },
+        "abilities": ["piloting", "combat_training", "precision", "rage", "endurance", "tech_skills"],
+        "points": 3,
+        "text": "<b>Iris Brauner (Cost: 3 Points)</b><br> Iris is a famous, decorated mech pilot. She pilots a Jaeger; an elite German battle mech designed for heavy assault. Just one of these is enough to turn the tide of any battle. She’s been training to pilot mechs since she was 9, and she has a natural skill for it.<br> Iris herself is young, cocky, and has a bit of a temper. She often gets into fights, especially bar fights, and she’s somewhat of a loud mouth. Iris is also fiercely defensive of her friends and teammates.<br> She carries Tiger Sharks when not in her Mech.<br> Her Jaeger is equipped with Nanobots, Collapsible. Enhanced Servos, Enhanced Shell, Enhanced Size, Energy Systems, Firepower, Elemental Gauntlets, an Energy Shield, and Jump Jets.<br> Iris has Piloting, Combat Training, Precision. Rage. Endurance, and Tech Skills."
+      },
+      "sky_tulach": {
+        "member_name": "Sky Tulach",
+        "race": "human",
+        "weapon" : ["magnum", "kinetic_staff"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["energy_shield"]
+        },
+        "abilities": ["beautiful", "beloved", "combat_training", "immune", "precision", "rage", "diplomatic", "special_ops"],
+        "points": 2,
+        "text": "<b>SkyTulach (Cost: 2 Points)</b><br> Once a powerful gang leader and crime boss, when her crew was engaged by a law enforcement fleet, she fled the battle to escape capture, and her escape pod was picked up by a large group of slavers who put her to work. Within a week, all of those slavers were working for her, and then she killed off all of the ones who refused to stop slaving.This experience has opened her eyes, and she has decided to put her skills to good use, helping you. Sky is very cunning, persuasive, and charismatic. She has a strong distaste for slavery, drug running, and needless brutality. She is beloved for her fairness, ethics, and empathy.<br> She carries a Magnum and a Kinetic Staff.<br> Her Suit is just a space mask and an Energy Shield.<br> She has Beautiful, Beloved, Combat Training, Immune, Precision, Rage, Diplomatic, and Special Ops."
+      },
+      "sten": {
+        "member_name": "Sten",
+        "race": "qunari",
+        "weapon" : ["kinetic_warhammer", "flamethrower"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["enhanced_servos", "kinetic_shield", "dr_armor", "kinetic_gauntlets"]
+        },
+        "abilities": ["combat_training", "precision", "rage", "endurance", "immune", "peak_physical_fitness"],
+        "points": 2,
+        "text": "<b>Sten (Cost: 2 Points)</b><br> A hornless Qunari, Sten’s rare lack of one of the defining features of Qunari is seen as a sign of good luck and great potential. Sten is a squad leader in the Beresaad; the section of the Qunari military that holds the scouts, vanguards, and front linesmen. Sten is very, very good at what he does. He's generally a no-nonsense kind of guy, and respects strength, leadership, and direct action.The more you get to know him, the more he’ll warm up and respect you. Small talk, and any needless talking really, annoys him.<br> He carries a Kinetic Warhammer and a Flamethrower.<br> His Suit has Enhanced Servos, a Kinetic Shield. Dr. Armor, and Kinetic Gauntlets.<br> He has Combat Training, Precision, Rage, Endurance. Immune, and Peak Physical Fitness."
+      },
+      "sun": {
+        "member_name": "Sun",
+        "race": "human",
+        "weapon" : ["shotgun"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["kinetic_shield", "amplifier"]
+        },
+        "abilities": ["psionics", "psionic_enhacement", "precision", "rage", {
+            "1": "cybernetics",
+            "2": 1
+          }, "combat_training"],
+        "points": 3,
+        "text": "<b>Sun (Cost: 3 Points)</b><br> Sun is a young human woman, around 19 years old, who was kidnapped at the age of 14 and experimented on in order to create a psionic superweapon. Her body is laced with psionic amplifiers, as is her cybernetic left arm.The scientists who enhanced her succeeded in the psionic enhancement, but when they tried to wipe her memories and reprogram her, they triggered a berserker rage, and she slaughtered everyone in the facility, and then met you, as you came investigating the string of kidnappings. She had calmed down by then, and decided to join up with you. Her memories are fuzzy, and she has quite a bit of trauma.<br> Her psionics allow her to lift and throw up to 10,000 lbs.<br> She carries a shotgun.<br> Her Suit has a Kinetic Shield and Amplifier.<br> She has Psionics, Psionic Enhancement, Precision, Rage, Cybernetics (Left Arm), and Combat Training."
+      },
+      "sumia_valmaer": {
+        "member_name": "Sumia Valmaer",
+        "race": "altean",
+        "weapon" : ["plasma_blade", "pulse_pistols"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["stealth", "survivalist", "cyberwarfare_suite", "kinetic_shield"]
+        },
+        "abilities": ["intelligence", "tech_skills", "precision", "combat_training", "special_ops", "beautiful"],
+        "points": 2,
+        "text": "<b>Sumia Valmaer (Cost: 2 Points)</b><br> This Altean woman left her homeworld for two reasons: adventure, and wealth. She gains both by being a master thief. Despite being one of the few Alteans with no psionic powers, she is easily one of the best infiltrators in the super cluster. She joined up with you for the adventure, and, well, because you’re paying her.<br> Eventually you’ll become friends. She is somewhat of a voyeur, and enjoys snooping around and spying. Sumia is a skilled gymnast, and can break into any vault, or crack any encryption. Only powerful Als could do it better.<br> She carries a Plasma Blade and Pulse Pistols.<br> Her Suit has one of the best Stealth Systems available, she also has Survivalist, a Cyberwarfare Suite, and a Kinetic Shield.<br> She has Intelligence,Tech Skills, Precision, Combat Training, Special Ops, and Beautiful."
+      },
+      "miki": {
+        "member_name": "Miki",
+        "race": "kitsune",
+        "weapon" : ["uber_blade", "panther", "puma"],
+        "armor": {
+          "type": "space_suit",
+          "traits": ["jump_jets", "energy_shield", "smart_armor", "survivalist"]
+        },
+        "abilities": ["combat_training", "beautiful", "special_ops", "diplomatic", "peak_physical_fitness", "enhanced_senses", "precision", "super_soldier"],
+        "points": 6,
+        "restriction" : "team",
+        "text": "<b>Miki (Restriction:Team)<br> (Cost: 6 Points)</b><br> Miki is not just a Kitsune; who by all means are very rare, she is also a Kitsune Super Solider.<br> On top of being able to shapeshift to become identical to humans, asari, gray, aquoids, and qunari, she can also lift over 6000 lbs, run at over 50 mph, her reflexes, regeneration, and accuracy are all enhanced, and she has clearly gone through rigorous combat training. It’s clear that she’s an agent for the Kitsune government, and she was upfront about that. She’s been assigned to keep you safe and to assist you in your adventures.The Kitsune are very interested in you and your capabilities, and wish to have you as an ally in the future, rather than an enemy. Miki herself seems honest, and she’s a sweetheart. She loves poker and gambling games, and she’s occasionally flirty.<br> Miki carries an Über Blade, a Panther, and a PUMA.<br> Her Suit has Jump Jets, an Energy Shield, Smart Armor, and Survivalist.<br> She has Combat Training, Beautiful, Special Ops, Diplomatic, Peak Physical Fitness, Enhanced Senses, Precision, and Super Soldier."
+      },
+      "nebula": {
+        "member_name": "Nebula",
+        "race": "celestial",
+        "armor": {
+          "type": "not_applicable",
+          "traits": "not_applicable"
+        },
+        "abilities": ["beautiful", "diplomatic", "psionics", "precision", "superhuman"],
+        "points": 6,
+        "restriction" : "team",
+        "text": "<b>Nebula (Restriction:Team)<br> (Cost: 6 Points)</b><br> Nebula is a Celestial, one of the very few outside the Crescent Veil, which is the enormous nebula that the Celestials call home. Nebulas body is made up of space gas that she has solidified into a tangible body with her psionic powers. She can shift between a gaseous form and a solid form at will. Nebula is a young Celestial, only 4 or 5 hundred years old, and she grew restless in the Veil. She left to see and explore, and grew sad upon discovering the suffering of innocents. She has decided to temporarily renounce her pacifism, and has joined with you to help others. Nebula is a very curious, bubbly person. She tends to ask many, many questions, but when she’s not doing that, she's floating in front of a large window, meditating. She has no need for a Space Suit, as she does not need to breathe. She can fly through a vacuum under her own power. She also does not need weapons, thanks to her immense psionic powers.When she gets emotional, she disrupts gravity around her. It is unknown if she can die.<br> She has Beautiful, Diplomatic, Psionics, Precision, and Superhuman."
+      },
+      "lup": {
+        "member_name": "Lup",
+        "race": "altean",
+        "armor": {
+          "type": "space_suit",
+          "traits": ["energy_shield", "survivalist", "cyberwarfare_suite", "firepower"]
+        },
+        "abilities": ["intelligence", "enhanced_senses", "beautiful", "tech_skills", "combat_training", "psionics", "rage", "psionic_enhacement", "superhuman"],
+        "points": 6,
+        "restriction" : "team",
+        "text": "<b>Lup (Restriction: Team)<br> (Cost: 6 Points)</b><br> Lup is an Altean, roughly around 160 years old. Lup and her twin brother are extremely powerful psionics. but whereas Lup got advanced degrees in theoretical physics, aerospace engineering, and biotechnology, her brother became a famous chef instead. Lup is every bit the chef that he is, she just had different goals in mind. After obtaining her degrees, Lup joined the Altean Navy at the age of 70 ( 19 in human terms), and quickly ascended the ranks. However, after numerous engagements and awards, she became upset with the Altean s policy of non-interference when possible, so she left, and travels around helping others where she can.<br> Lup is fascinated with human culture, especially Punk-Rock culture.<br> Lup has powers over Fire, and can both generate and withstand fires of up to 2000 Celsius. She can hurl blasts of fire, propel herself, and even coat her entire body in flame.<br> Lup's Space Suit has an Energy Shield, Survivalist, a Cyberwarfare Suite, and Firepower.<br> Lup has Intelligence, Enhanced Senses, Beautiful, Tech Skills, Combat Training, Psionics (Fire), Rage, Psionic Enhancement and Superhuman (Fire)."
+      },
+      "eve": {
+        "member_name": "Eve",
+        "race": "android",
+        "armor": {
+          "type": "body",
+          "traits": ["kinetic_shield", "energy_shield", "nanobots", "cyberwarfare_suite"]
+        },
+        "abilities": ["combat_training", "intelligence", "tech_skills", "piloting", "enhanced_senses", "beautiful", "special_ops", "peak_physical_fitness", "armored", "cybernetics_x4"],
+        "points": 5,
+        "restriction" : "ship",
+        "text": "<b>Eve (Restriction: Ship)<br> (Cost: 5 Points)</b><br> The advanced quantum Artificial Intelligence that inhabits your ship has it’s own advanced android platform.The fact that it can inhabit both at the same time is unprecedented. All other Als in existence are relegated to a single platform, be that a ship or an android body. As long as the ship is within I AU of the body. Eve can operate at maximum efficiency in both her ship form and her android form. Any further and she experiences a drop in efficiency. Her android form is resistant to high temperatures, small arms fire, and blunt force trauma. She is equipped with a Kinetic Shield generator and an Energy Shield generator, and she has multiple clusters of alien nanobots that work constantly to keep her android form in top shape. In addition to that, she is a master of cyberwarfare, hacking through enemies defenses within minutes, if not seconds. She is incredibly agile and flexible, moving with the grace of a ballerina, or a master infiltrator. Her android body is also incredibly lifelike. Eve has Com bat Training. Intelligence.Tech Skills, Piloting, Enhanced Senses, Beautiful, Special Ops, Peak Physical Fitness, Cybernetics (x4), and Armored."
+      }
+    }
+  },
+  "boons" : {
+    "opening" : "<b>Boons</b><br>For each Boon, you must take the listed # of drawbacks",
+    "choices" : {
+      "the_chosen_one": {
+        "name": "The Chosen One",
+        "drawbacks": 2,
+        "text": "<b>The Chosen One<br> (Take 2 Drawbacks)</b><br> Crazy shit just seems to happen to you, like, repeatedly.<br><br> You can select a second option from the \"What makes you Special?\" section."
+      },
+      "hello_ladies": {
+        "name": "Hello Ladies...",
+        "drawbacks": 1,
+        "text": "<b>Hello Ladies... (Take I Drawback)</b><br> Beautiful, powerful women flock to you like moths to a flame.<br><br> All female Teammates cost I less point, down to a minimum of I point. This includes restricted teammates."
+      },
+      "time": {
+        "name": "Time",
+        "drawbacks": 1,
+        "text": "<b>Time (Take I Drawback)</b><br> You're not young anymore, you’re closer to being middle aged than anything else, but you've had a lot of time to improve yourself, to go through school and learn.<br> Gain an extra 8 points to be used in the Abilities and Team sections."
+      },
+      "luck_of_the_draw": {
+        "name": "Luck of the Draw",
+        "drawbacks": 1,
+        "text": "<b>Luck of the Draw<br> (Take I Drawback)</b><br> You were born into a wealth/ family, and you have far more resources than most.<br><br> Gain an extra 10 points to be used in the Armor, Weapons, and Ship sections."
+      },
+      "born_this_way": {
+        "name": "Born This Way",
+        "drawbacks": 2,
+        "text": "<b>Born This Way (Take 2 Drawbacks)</b><br> You may choose to either become a Turian or a Quarian, or you can defy all laws of nature and become a hybrid of your original species and any other species of your choice, except Celestial. For Kitsunes, you can change your hair color and length, as well as your voice at will, and for Altean, you get dark skin, pointy ears, and you can use your Psionics for twice as long. If you choose Android, you become a synthezoid; half cloned organic, half cybernetic. If you choose Typhon, nothing changes, and you are also unaware of your hybrid status, until you encounter the Typhon, who will kill you on sight For Asari and Altean, your original lifespan increases by 100 years."
+      }
+    }
+  },
+  "drawbacks" : {
+    "opening" : "<b>Drawbacks</b><br>For every taken drawback <b>not</b> required by Boons, you gain 3 pts.",
+    "choices" : {
+      "lose_some": {
+        "name": "Lose Some",
+        "text": "<b>Lose Some</b><br> What makes you special, is also what makes you weak. You have developed a degenerative disease due to your Special. Using your special will <b>not<b> accelerate the disease, and your lifespan is shortened by 1/5th."
+      },
+      "impaired_senses": {
+        "name": "Impaired Senses",
+        "text": "<b>Impaired Senses</b><br> You were born either <b>Deaf</b> or <b>Blind</b>. This drawback may be taken twice in order to be both.<br> Enhanced Senses brings you close to average levels, but you still need glasses and/or hearing aids in order to function."
+      },
+      "piece_of_junk": {
+        "name": "Piece of Junk",
+        "text": "<b>Piece of Junk</b><br> Your ship will regularly break down, due to old age. You will have to buy a replacement part almost every time you land. Built to Last ensures that your ship will always make it back to port, and not break down in space, but that’s it."
+      },
+      "daisy_bell": {
+        "name": "Daisy Bell",
+        "text": "<b>Daisy Bell (Requires an AI)</b><br> Your ship’s AI will be..., off.<br> It will be overly protective, invasive, and have little respect for your privacy. It will react negatively, maybe even violently, at any attempt to remove it or change it. It occasionally disobeys orders.",
+        "requires" : "A.I."
+      },
+      "superstar": {
+        "name": "Superstar",
+        "text": "<b>Superstar<br> (Requires Beloved or Beautiful)</b> Most people recognize you almost instantly. If you get spotted outside by a fan. your location will be plastered all over social media, making stealth and undercover missions much harder.",
+        "requires" : ["Beloved", "Beautiful"]
+
+      },
+      "vigilante": {
+        "name": "Vigilante",
+        "text": "<b>Vigilante</b><br> In the eyes of most governments; you are a vigilante. News companies frequently post slander about you. and while many people may not believe this, there are some who do. Don't expect gratitude or cooperation from law enforcement."
+      },
+      "rejection": {
+        "name": "Rejection",
+        "text": "<b>Rejection (Cant take with Armored)</b><br> Something with what makes you special has caused your body to keep rejecting your cybernetics.You have to take medication regularly, and you have to replace cybernetic limbs twice as often. Androids malfunction more often.",
+        "no" : "Armored"
+      },
+      "wanted": {
+        "name": "Wanted",
+        "text": "<b>Wanted</b><br> There are quite a few groups out there who covet your power.Thankfully, some are smart enough to stay away, but some aren't. Expect an assassin or groups of thugs every other week, and they don't care about collateral damage."
+      },
+      "overload": {
+        "name": "Overload",
+        "text": "<b>Overload (Requires Psionics)</b><br> With constant psionic use and the passage of time, you will slowly become paranoid, your psionics will start flaring up when you become emotional, and eventually, after a few decades, using your powers will cause you physical pain.",
+        "requires" : "Psionics"
+      },
+      "bitter_rivalry": {
+        "name": "Bitter Rivalry",
+        "text": "<b>Bitter Rivalry</b><br> Back before you became a Defender, you had a semi-friendly rival throughout schooling. Now that you’ve become famous and powerful, that rival despises you.They will turn others against you, and even try to corrupt your own crew."
+      },
+      "jinxed": {
+        "name": "jinxed",
+        "text": "<b>Jinxed</b><br> Things just go wrong around you. Coffee pots frequently break or explode, you frequently lose keys, pens, and food that you set down, your personal electronics malfunction and lag more often, and you're prone to tripping over nothing."
+      },
+      "sabotage": {
+        "name": "Sabotage",
+        "text": "<b>Sabotage (Cant take with Synergy)</b><br> A teammate of your choice will sabotage your ship, weapons, and armor. If you have a Rival, they coerced or blackmailed them into doing it It’s your choice if you accept them back into your crew, but expect a loss in trust from the others.",
+        "no" : "Synergy"
+      }
+    }
+  },
+  "events" : {
+    "opening" : "<b>Events</b><br>Choose Three",
+    "choices" : {
+      "technocratic_civil_war": {
+        "event_name": "Technocratic Civil War",
+        "text": "<b>Technocratie Civil War</b><br> The Gray Confederacy has erupted into a civil war. On one side are the Progressives, who have been in power for over three centuries, and were the ones to do away with the Gray's morally questionable experiments on the other races. For over a millennia, the Grays had secretly been visiting other species' worlds and conducting experiments, abducting local animals and sapient species, and dissecting them, among other things.This secret is not known to the galaxy at large, and once other species started entering the intergalactic and intragalactic stages, the Progressives took control and enacted moral restrictions.The aggressors in this conflict are the Traditionalists.who have slowly been rebuilding support, and wish to go back to the age of unrestricted science and research.They don't exactly want to go back to experimenting on others races, just get rid of the restrictions that impede progress.<br> -If you support the Traditionalists, you will receive several elite squadrons of Gray Special Ops soldiers, and you may receive Grav-Tech for Free.<br> -If you support the Progressives, they will be willing to upgrade your ship to a Gray Mothership, for a cost of 2 points, regardless of its current size, or for Free if it’s currendy a Dreadnought"
+      },
+      "buried_hypernought": {
+        "event_name": "Buried Hypernought",
+        "text": "<b>Buried Hypemought</b><br> On a distant, uninhabited forest world, explorers have discovered an advanced ship buried in the ground. Scans suggest it is over 5 miles long, and only the first 300 meters are unearthed. If you chose Ship, Armor, or Armored, then you know that this ship is made out of hypermatter and is the same technology as your ship/armor/body. Over 3 dozen researchers and explorers went in once a door was located, and never came out.You have been contracted to go in and find them.<br> After a perilous journey, you find the explorers suspended in stasis by the passive defense system, and one of you needs to interface with the ship in order to release them, but doing so will activate the incredibly deadly active defense system, and cause the ship to come online and prepare for takeoff, giving you 30 mins to escape.<br> Choose one of the following:<br> -If you interface with the ship, you can gain Armored or Deus Ex Machina for Free.<br> -If you have Deus Ex Machina but not Eve's body, then Eve will interface with the ship and instantly gain her body for Free.<br> -If you already have Eve and her body, then she will interface with the ship and become Upgraded Eve for Free."
+      },
+      "apex": {
+        "event_name": "Apex",
+        "text": "<b>Apex</b><br> A distress signal sent specifically to you has led to a large scientific research station in orbit around the moon of a large human colony world.This station is owned and run by Alex Yu, Morgan Yus older brother.The station is silent as you approach, and you and your team find nothing but corpses of the scientists living there, and as you travel deeper inside, you feel like there are things moving, just at the edge of your vision, and then the station locks down, and erects layered energy shields, trapping you all inside.Then, the Typhon emerge. It turns out that Alex had found a cluster of Typhon floating through space, captured it, and was doing experiments on it and developed Neuromods based on their matter; injectable DNA rewriters that can bestow increased strength, longer lifespan, and unique psionics powers. Now the Typhon have broken containment and are multiplying as they consume humans.<br> You must survive in this station full of psionic shapeshifters, find the survivors, and and destroy this station. Choose any or all of the following that apply:<br> -If you have Morgan Yu. her dormant Human-Typhon hybridization will awaken.<br> -If you are a Human-Typhon hybrid, your abilities will awaken.<br> -If you save Alex and get him off the station, he will supply you with Two Neuromods."
+      },
+      "we_shall_be_monsters": {
+        "event_name": "We Shall Be Monsters",
+        "text": "<b>We Shall Be Monsters</b><br> You have been contacted to attend a secret meeting of every major government in the galaxy for one reason; to discuss the recent appearance of advanced synthezoid agents, indistinguishable from organics, yet far stronger and tougher. Even if you are seen as a vigilante, they have decided that they have no choice but to ask for your help.There have been over a dozen of these synthezoids found, stationed in various levels of government, and all fear the possibility of a mass synthetic takeover soon.<br> You must find the synthezoid manufacturer and what their plans are, and shut them down.You uncover an immense conspiracy built by a single insane inventor, who wished to create an army of synthezoids who would infiltrate the highest levels of government, allowing him to control and direct the galaxy for the better. Find his factory, and defeat him.You can choose to free the synthezoids of their creator's loyalty conditioning, if you wish, giving all of them free will. If you are a synthezoid. you discover that this is where you were built. Choose any or all of the following:<br> -If you are an Android, you can upgrade to a synthezoid body, if you wish.<br> -You can recover the most advanced synthezoid in the mastermind s base on your way out, she calls herself Echo."
+      },
+      "orion_and_the_scorpion": {
+        "event_name": "Orion and the Scorpion",
+        "text": "<b>Orion and the Scorpion</b><br> While on patrol in a nearby galaxy, you received a strange transmission; a female warrior, a hunter from a race of apex predators, has been hunting a violent parasitic species across the galaxy, and has finally cornered them on a single world, but when she tried to exterminate them, she found herself overwhelmed with endless waves, and her ship doesn't have the firepower to destroy them, as they have built deep tunnel systems to hide in. She has heard of your exploits, and requests your assistance in ending this hunt.<br> This species is scorpion-like, and reproduce by incubating inside other species.They are fast, deadly, and possess a sturdy black carapace and razor-sharp stinger at the end of a long tail.<br> You will have to go down into the tunnels with her, and help burn out the army of monsters. She has offered to travel with you and fight by your side if you assist her.<br><br><br> -Gain A'ja the Hunter for Free."
+      },
+      "shady_dealings_among_the_stars": {
+        "event_name": "Shady Dealings Among the Stars",
+        "text": "<b>Shady Dealings Among the Stars</b><br> There are around 30 wormhole gates scattered around the edges of the galaxy, and these gates shorten trips to nearby galaxies from 5 centuries to about 2 days. Every galaxy in the supercluster has these gates, but none have as many as your galaxy, probably because your galaxy has more space-faring species than any other in the supercluster. A few are privately owned, but most are public, and are guarded by a joint-species defense force.Your contacts in the criminal underworlds have warned you of an upcoming attack. It seems like most of the major crime bosses in the galaxy are building a fleet of thugs and pirates, and are going to launch simultaneous attacks on the wormhole gates, capturing them and linking up with similar coalitions in nearby galaxies. If they do this, they will have complete control over trans-galactic trading and travel, and will be able to build an immense, galaxy spanning, united criminal empire. Choose one of the following:<br> -By helping stop the takeover of the gates, you can remove the Vigilante drawback, and you will receive a smaller wormhole gate for your own personal use.<br> -If you wish to help the takeover, you can remove the Wanted drawback, and will receive the same reward, but many of your Companions will not be happy."
+      },
+      "galactic_races": {
+        "event_name": "Galactic Races",
+        "text": "<b>Galactic Races</b><br> You have the opportunity to participate in the race of the millennia;The Galactic Race. Navigate your ship through dense nebulas, asteroid fields, and deep gravity wells, make your way past enormous black holes, volatile pulsars and quasars, and reach the finish line, all while avoid the interference and sabotage from fellow racers, some of whom are the best of the best, and have come from all over the super cluster to participate.There is one racer, a dastardly looking human man with a large mustache, who seems to have it out for you; he and his oddly intelligent dog will do all they can to sabotage you at every pit stop. If you win in first place, one of the greatest ship mechanics in the galaxy will join your crew, and you will receive a very large monetary reward, along with a trophy and fame.<br> You will win if you have at least two of the following:<br> -The Piloting Ability<br> -One Companion with Piloting<br> -Deus Ex Machina<br> -Upgraded Engines<br> Your Reward is 4 Points to be used for Ship/Armor/Weapons, and Ajax for Free."
+      },
+      "your_princess_is_in_another_space_castle": {
+        "event_name": "Your Princess is in Another Space-Castle",
+        "text": "<b>Your Princess is in Another Space-Castle</b><br> You have been hired by the Altean king for a very important mission; you must spend the next few months accompanying his daughter. Allura, on a series of diplomatic missions. For the first month or so, this will only involve going with her to various Altean colonies, but after that, you will leave Altean space, and travel to the various races to re-negotiate trade deals that have expired.The beloved princess of a powerful, wealthy, advanced race is an extremely desirable target for pirates and crime bosses. Expect at least 3 dozen attempts by pirates to kidnap her. each attempt ranging from stealthily sneaking onto your docked ship, to assaulting you in space with a large fleet of ships. Also, expect at least 5 different assassination attempts, funded by Altean crime bosses who either wish to send a message to the King, or to remove her. due to her well-known desire to heavily crack down on organized crime once she takes the throne. But most of all; be prepared for Allura s bleeding heart getting you into trouble, because she will force you to stop to help every person in need that she sees. If you do well, and impress her. she'll occasionally accompany you after this, and even spend some quality alone time with you.<br> -Gain Princess Allura for Free."
+      },
+      "the_devourer" : {
+        "event_name" : "The Devourer",
+        "text" : "<b>The Devourer<br> This is an open-ended quest</b><br> You have received word of some... disturbing reports. Some traders got lost, and stumbled upon an uninhabited star system, that had almost every planet that was once in it, torn to pieces.They found an energy trail, and followed it, hopping to two nearby star systems, finding the exact same thing, and in the third star system, they saw it An enormous beast, the size of a planet, feeding on a tiny rock world. They managed to snap the above picture of it before fleeing in terror. It appears to be made out of the same cosmic gas that Celestials are made out of. So far, it has not consumed any inhabited worlds, only barren rock worlds that held no life. But there is nothing to say that it will spare life-bearing worlds. How could you possibly fight something like this? Maybe there's a way. other than violence.<br> If you have Nebula, perhaps she can communicate with it.<br> If you have Superhuman, perhaps you can create a psychic link with it.<br> If you have a Psychic Link with your Armor, maybe you can expand it and talk to it.<br> If you have Deus Ex Machina, perhaps Eve can figure something out.<br> Will you convince this creature to halt, be forced to fight or maybe even gain a friend?"
+      },
+      "into_the_breach": {
+        "event_name": "Into the Breach",
+        "text": "<b>Into The Breach<br> This is an open-ended quest</b><br> Explorers have found, on a distant, ocean-covered world, at the edge of the galaxy, a rift in time and space, a hole in the universe.They have spent months studying it, and they have determined that it leads to another universe.They have sent drones into it, and they have returned with pictures and data of an identical planet, but in another universe.The rock archway surrounding the breach is massive, large enough that a frigate could fly through without touching the sides.<br> They have contacted you, as they are unsure what possibilities this new universe could hold; it could be teeming with hostile life, and they are unwilling to risk their own lives in such an endeavor, and wish for you and your team to venture through.<br><br><br> What universe will you end up in? Perhaps there will be some familiar faces, but faces that have no memory of you. Perhaps you will even run into a powerful, galactic hero, very much like yourself.<br> Who knows? Adventure awaits."
+      }
+    }
+  },
+  "unique_rewards" : {
+    "opening" : "<b>Unique Rewards</b>",
+    "choices" : {
+      "echo": {
+        "name": "Echo",
+        "text": "<b>Echo</b><br> This advanced synthezoid was built for combat, and when you freed the synthezoids, she had yet to be given any real personality, so she will have to develop one with you. She knows over 2 dozen different types of martial arts, and is a master in all of them. She can lift up to 4000 lbs, run at 45 mph, and her organic parts can regenerate up to 2x faster than normal humans. She seems to enjoy physical activity, such as sparring and boxing. She has also taken a liking to cats, and giving her one will quickly teach her how to fully manage and suppress her considerable strength.<br> She will stay with you for anywhere from a few months to a few years while she finds herself.<br> Depending on how you interact with her, she will either enter into the military, train to become a police officer and then detective, or she will stay with you. Integrated into her body are Nanobots, an Energy Shield, Enhanced Servos, Stealth, and Survivalist. She has Cybernetics (x4). Enhanced Senses, Beautiful, Combat Training, Hidden Weapons, Special Ops, and Super Soldier."
+      },
+      "upgraded_eve": {
+        "name": "Upgraded Eve",
+        "text": "<b>Upgraded Eve</b><br> Eve's body has been advanced in some major ways.<br> First, she is far more durable now; she can withstand sustained heavy weapons fire, and can endure levels of heat that would melt most metals. She is also far stronger; her body can lift up to 4 tons, she can run at over 65 mph, and she can jump up to 50 feet into the air.<br> On top of that, she is now able to generate a 6 foot long plasma blade that she wields with deadly efficiency, and she can morph her hands into short-range plasma cannons, as well as being able to transform her arms into slow-firing. hard-hitting, long range Mass Accelerator Cannons, apparently designed for anti-tank and anti-air.<br> She is far more aggressive in combat now, and much more willing to charge into some enemies rather than sneak around and take them out.<br> She is also noticeably more protective of you, and if such a thing were possible, more loyal to you as well. Her body is hardened against powerful magnets, EMPs, and radiation."
+      },
+      "ajax": {
+        "name": "Ajax",
+        "text": "<b>Ajax</b><br> This engineer is so legendary for her ability to repair technology that many refer to her as an “Android Doctor”. It doesn’t matter how advanced your body, weapons, armor, ship, or teammates are, she can fix it up in less than an hour. She has poor communication skills, preferring to do her work, listen to music, or just listen in on conversations. She only really talks when she has to, and she isn’t great at holding a conversation. She is also extremely intelligent, with an IQ of somewhere around 210. Her left arm and leg are cybernetic, and she has a powerful plasma torch built into her arm, and a plasma flamethrower built into her leg. She is a tomboy, and will take offense to being treated like a girly girl. She enjoys drinking and just hanging out.<br> She typically carries a Particle Beam Rifle.<br> Her Suit has a Cyberwarfare Suite, a Tentacle, an Energy Shield, and Jump Jets.<br> She has Intelligence,Tech Skills, Beautiful, Combat Training, Cybernetics (Left Arm & Leg), and Hidden Weapons."
+      },
+      "t_h_morgan_yu": {
+        "name": "Typhon-Human Hybrid Morgan Yu",
+        "text": "<b>Typhon-Human Hybrid Morgan Yu</b><br> While on Alex Yu’s station, you discover the truth; Morgan helped Alex with his tests on the Typhon, but was killed when the Typhon first broke containment 8 years ago.The Typhon were re-contained, and Alex managed to infuse Morgan with Typhon matter, bringing her back to life. He erased her memories of the Typhon, after ensuring her personality remained unchanged, and sent her out to live her life. Her Human-Typhon form allows her to take the form of a Typhon at will; a humanoid mass of black tendrils and darkness.<br> In this form she heals rapidly.While she naturally prefers her human form, specifically her Morgan Yu form, she can shapeshift to appear as any other human, and she can even mimic objects around her. She can transform her arms into black tendrils that can multiply and stretch, and be used as deadly weapons, or allow her to grapple and climb up buildings. She also now has psionics that grant her telekinesis, and the ability to create and hurl blasts of fire and electricity.<br> She seems quieter now, but also a little warmer."
+      },
+      "princess_allura": {
+        "name": "Princess Allura",
+        "text": "<b>Princess Allura</b><br> Oldest child of Altea’s reigning king, Allura is set to take over the throne in about a century. She is currently 186 years old, while her father is nearing 470. While she has minimal combat experience, she can still hold and fire a gun with decent accuracy, and she is reasonably athletic. Her real skill comes in her impressive piloting, her cunning and intellect, her mastery of strategy, and her unmatched diplomatic abilities.Also, she’s drop dead gorgeous. On top of all of that, she is one of the few Alteans to possess the power of Space.This power drains her energy far faster than normal psionics do, but they allow her to teleport up to 100 meters away, briefly become intangible or hyper-durable, and even open wormholes that can reach to the other side of a planet.When linked up to her Altean warship, she can open huge wormholes that instantly transport her ship across galaxies. For a cost of 3 Points, you can get this installed in your ship, or if you have a wormhole gate, she can power it. Allura is a sweetheart, with enormous amounts of empathy.This is arguably her greatest weakness; she can’t help but stop for those in need.<br> She carries an Energy Blade and Pulse Pistols. Her Suit has an Energy Shield, Jump Jets, Cyberwarfare Suite, and Dr. Armor. Allura has Piloting, Diplomatic, Beautiful, Psionics (Space), Immune, Intelligence, Beloved, and Combat Training."
+      },
+      "aja_the_hunter": {
+        "name": "A'ja the Hunter",
+        "text": "<b>A’ja the Hunter</b><br> To A'ja’s people,The Hunt is a vital way of life.Their world is heavily jungled,and is full of deadly predators.They are easily the deadliest, but only because of their intelligence and ability to use and create tech.There are plenty of much larger beasts on their world, which they happily hunt for both sport and food.<br> It is a tradition among her people for those who reach adulthood to go out and begin a hunt A hunt can take years and the hunter can end up claiming thousands of trophies. It is not required to come home once the hunt is done, but it is expected to come back eventually. A’ja has great respect for other hunters, and unlike many of her kind, is willing to see other species as capable of being great hunters, rather than just prey. She is aggressive, temperamental, and has little patience for incompetence. She carries an array of weaponry, including various throwing knives, grenades, and both kinetic and energy weapons.<br> Her ship is small, and and has powerful stealth capabilities.You can house it with an upgraded hangar, or she can set it to follow.<br> She has durable metal blades that slide out of her gauntlets.<br> Her Suit has a shoulder-mounted auto plasma cannon, a Stealth system, an Energy Shield, Survivalist, Firepower, and Enhanced Shell.<br> She has Combat Training, Immune, Enhanced Senses, Special Ops, Peak Physical Fitness, Precision, and Rage."
+      },
+      "gray_special_ops_division": {
+        "name": "Gray Special Ops Division",
+        "text": "<b>Gray Special Ops Division</b><br> Stationed on your ship will be 3 ten-man squads of elite Gray special ops soldiers.<br> Each wears a light suit of Power Armor, equipped with Energy Shields. Jump Jets. Enhanced Servos. Enhanced Shells. Survivalist, Stealth, and more.<br> Each is capable of easily wielding a heavy weapon, thanks to their Suits.They tend to carry heavy plasma weapons and miniguns.<br> They are loyal and have fierce discipline and skill.<br> They are trained for everything from silent espionage and infiltration, to loud. aggressive assault and extraction.<br> They can provide security and backup for you."
+      },
+      "gray_mothership": {
+        "name": "Gray Mothership",
+        "text": "<b>Gray Mothership</b><br> Your ship has been replaced with an older model of the Gray Mothership. While the average modern Gray Mothership is somewhere around 3000 meters in diameter, yours is only 2200 meters in diameter.Your ships hangar bay is large enough to hold frigates, cruisers, and even a small battleship or two.<br> The Gray Motherships are the largest ships in the galaxy. As such, it is also the slowest, the toughest, and the most imposing. Motherships act as the hearts of Gray fleets, staying further back and carrying the military leaders, taking in and giving out military directions and information from every ship in the fleet.<br> It typically has around 50-60 decks, and can hold a crew of up to 300,000."
+      },
+      "neuromods": {
+        "name": "Neuromods",
+        "text": "<b>Neuromods</b><br> Not including any that you gain from quests, you can buy up to 3 of these for 2 points each.<br> These DNA rewriters allow you to change your body and mind. Pick from the following list, each costs I Neuromod.<br> -Increase your IQ by 15 Points<br> -Increase your Lifespan by 60 years (Cannot be taken with the Lose Some drawback)<br> -Increase your Strength by 200 lbs and your speed by 8 mph<br> -If you have Elementalism, you can now generate and hurl moderately powerful blasts of fire and lightning<br> -Polyglot you can now rapidly learn new languages, just like toddlers can<br> -Minor Shapeshifting, you can mimic and turn into any object bigger than a pencil or smaller than a chair for up to 5 minutes.<br> -Typhon Detection, you can sense when Typhon are nearby or hiding in mimicry<br> -You can gain either Immune or Enhanced Senses for Free."
+      }
+    }
+  }
+}
