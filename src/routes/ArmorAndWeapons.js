@@ -14,6 +14,24 @@ export default class ArmorAndWeapons extends Component {
     this.chooseWeapon = this.chooseWeapon.bind(this);
   }
 
+  chooseArmor(armorObject) {
+    const armor = this.props.user.armor.sort();
+    const armorNames = ['Space Suit', armorObject.type];
+    let points = this.props.user.points;
+    if (!_.includes(armor, armorObject)) {
+      if (points - armorObject.points > -1) {
+        if (armorObject.type !== 'Space Suit') {
+          _.remove(armor, armor => !_.includes(armorNames, armor.type));
+        }
+        armor.push(armorObject);
+        this.props.modifyArmor(armor);
+      }
+    } else {
+      _.pullAt(armor, _.indexOf(armor, armorObject));
+      this.props.modifyArmor(armor);
+    }
+  }
+
   chooseWeapon(weaponObject) {
     const weapons = this.props.user.weapons;
     let points = this.props.user.points;
@@ -40,7 +58,7 @@ export default class ArmorAndWeapons extends Component {
                   cardText={choice.text}
                   special={index}
                   picked={_.includes(this.props.user.armor, choice)}
-                  onClick={() => { console.log('clicked') }} />
+                  onClick={() => { this.chooseArmor(choice) }} />
               </GridItem>
             );
           })}

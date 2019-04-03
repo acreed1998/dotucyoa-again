@@ -89,6 +89,15 @@ class App extends Component {
     this.modifyPoints();
   }
 
+  modifyArmor(armorArray) {
+    const user = this.state.user;
+    const tally = this.state.tally;
+    user.armor = armorArray;
+    tally.armor = _.sum(_.map(armorArray, armor => armor.points));
+    this.setState({user: user, tally: tally});
+    this.modifyPoints();
+  }
+
   modifyWeapons(weaponsArray) {
     const user = this.state.user;
     const tally = this.state.tally;
@@ -137,6 +146,7 @@ class App extends Component {
             armor_traits={CYOAData.armor_traits}
             weapons={CYOAData.weapons}
             modifyWeapons={this.modifyWeapons.bind(this)}
+            modifyArmor={this.modifyArmor.bind(this)}
             />} />
           </div>
         </Router>
