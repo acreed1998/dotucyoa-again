@@ -12,6 +12,7 @@ export default class Ship extends Component {
 
     };
     this.chooseShip.bind(this);
+    this.chooseShipStyle.bind(this);
   }
 
   chooseShip(shipObject) {
@@ -22,6 +23,17 @@ export default class Ship extends Component {
       }
     } else {
       this.props.changeShip({});
+    }
+  }
+
+  chooseShipStyle(shipStyleObject) {
+    const points = this.props.user.points;
+    if (!_.isEqual(this.props.user.ship_style, shipStyleObject)) {
+      if (points - shipStyleObject.points > -1) {
+        this.props.changeShipStyle(shipStyleObject);
+      }
+    } else {
+      this.props.changeShipStyle({});
     }
   }
 
@@ -50,8 +62,8 @@ export default class Ship extends Component {
                 <ChoiceCard
                   cardText={choice.text}
                   special={index}
-                  picked={_.includes(this.props.user.ship_style, choice)}
-                  onClick={() => { console.log('mine') }} />
+                  picked={_.isEqual(this.props.user.ship_style, choice)}
+                  onClick={() => { this.chooseShipStyle(choice) }} />
               </GridItem>
             );
           })}

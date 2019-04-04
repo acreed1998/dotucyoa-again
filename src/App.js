@@ -59,6 +59,7 @@ class App extends Component {
     this.setState({ user: user });
     this.modifyAbilities(this.state.user.abilities);
     this.modifyArmor(this.state.user.armor);
+    this.changeShip(this.state.user.ship);
   }
 
   changeRace(raceArray) {
@@ -68,6 +69,7 @@ class App extends Component {
     this.setState({ user: user });
     this.modifyMaxPoints(extra);
     this.modifyAbilities(this.state.user.abilities);
+    this.changeShipStyle(this.state.user.ship_style);
   }
 
   modifyAbilities(abilitiesArray) {
@@ -161,6 +163,15 @@ class App extends Component {
     this.modifyPoints();
   }
 
+  changeShipStyle(shipStyleObject) {
+    const user = this.state.user;
+    const tally = this.state.tally;
+    user.ship_style = shipStyleObject;
+    tally.ship_style = _.includes(_.map(user.race, raceObject => raceObject.race), shipStyleObject.type) ? 0 : shipStyleObject.points;
+    this.setState({ user: user, tally: tally });
+    this.modifyPoints();
+  }
+
   modifyMaxPoints(points) {
     const user = this.state.user;
     user.maxPoints = 75 + points;
@@ -208,6 +219,7 @@ class App extends Component {
             ship_style={CYOAData.ship_style}
             ship_traits={CYOAData.ship_traits}
             changeShip={this.changeShip.bind(this)}
+            changeShipStyle={this.changeShipStyle.bind(this)}
             />} />
           </div>
         </Router>
