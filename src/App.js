@@ -25,8 +25,8 @@ class App extends Component {
         armor: [],
         armor_traits: [],
         weapons: [],
-        ship_type: '',
-        ship_style: '',
+        ship: {},
+        ship_style: {},
         ship_traits: [],
         team_members: [],
         boons: [],
@@ -94,13 +94,14 @@ class App extends Component {
   modifyArmor(armorArray) {
     const user = this.state.user;
     const tally = this.state.tally;
+    const specialNames = _.map(user.special, specialObject => specialObject.special);
     user.armor = _.sortBy(armorArray, ['traits']);
     if (user.armor[user.armor.length - 1]) {
       if (user.armor[user.armor.length - 1].traits - user.armor_traits.length < 0) {
         user.armor_traits = _.slice(user.armor_traits, 0, user.armor[user.armor.length - 1].traits);
       }
     }
-    tally.armor = _.sum(_.map(armorArray, armor => {
+    tally.armor = _.sum(_.map(_.filter(user.armor, armorTraitObject => !_.includes(specialNames, armorTraitObject.free)), armor => {
       if (!armor.half) {
         return armor.points
       } else {
@@ -151,6 +152,15 @@ class App extends Component {
     this.modifyPoints();
   }
 
+  changeShip(shipObject) {
+    const user = this.state.user;
+    const tally = this.state.tally;
+    user.ship = shipObject;
+    tally.ship_type = _.includes(_.map(this.state.user.special, specialObject => specialObject.special), 'Your Ship') ? shipObject.points / 2 : shipObject.points;
+    this.setState({ user: user, tally: tally });
+    this.modifyPoints();
+  }
+
   modifyMaxPoints(points) {
     const user = this.state.user;
     user.maxPoints = 75 + points;
@@ -193,9 +203,11 @@ class App extends Component {
             modifyArmorTraits={this.modifyArmorTraits.bind(this)}
             />} />
             <Route path="/ship/" render={() => <Ship
+            user={this.state.user}
             ship={CYOAData.ship}
             ship_style={CYOAData.ship_style}
             ship_traits={CYOAData.ship_traits}
+            changeShip={this.changeShip.bind(this)}
             />} />
           </div>
         </Router>

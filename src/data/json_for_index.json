@@ -254,6 +254,7 @@
         "traits": 8,
         "ext_str": 1000,
         "use_time": 6,
+        "free": "Your Armor",
         "text": "<b>Powered Armor (Cost: 4 Points)</b><br> Heavy suit, titanium-based alloy, vacuum-sealed.<br> 5 inches taller than you.<br> Allows you to carry 1,000 lbs more than you previously could.<br> Needs to be recharged after 6 hours of use.<br> Has magnetic clamps for large weapons and internal compartments for small weapons.<br> Can fit 8 traits."
       },
       "mech_suit": {
