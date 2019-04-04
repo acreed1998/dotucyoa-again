@@ -150,7 +150,8 @@
       "peak_physical_fitness": {
         "ability": "Peak Physical Fitness",
         "points": 4,
-        "text": "<b>Peak Physical Fitness (Cost: 4 Points)</b><br> Your lifting strength, speed, and lifespan are boosted to that of your race’s maximum.<br> You are the best your species has to offer."
+        "text": "<b>Peak Physical Fitness (Cost: 4 Points)</b><br> Your lifting strength, speed, and lifespan are boosted to that of your race’s maximum.<br> You are the best your species has to offer.",
+        "free": "You"
       },
       "immune": {
         "ability": "Immune",
@@ -171,7 +172,7 @@
       "diplomatic": {
         "ability": "Diplomatic",
         "points": 2,
-        "text": "<b>Diplomatie (Cost: 2 Points)</b><br> You are an expert negotiator.<br> You could talk your way out of or through a hostage situation, a kidnapping, or a business deal.<br> You could be an amazing politician, and perhaps you were at one point."
+        "text": "<b>Diplomatic (Cost: 2 Points)</b><br> You are an expert negotiator.<br> You could talk your way out of or through a hostage situation, a kidnapping, or a business deal.<br> You could be an amazing politician, and perhaps you were at one point."
       },
       "hidden_weapon": {
         "ability": "Hidden Weapon",
@@ -253,11 +254,13 @@
         "traits": 8,
         "ext_str": 1000,
         "use_time": 6,
+        "free": "Your Armor",
         "text": "<b>Powered Armor (Cost: 4 Points)</b><br> Heavy suit, titanium-based alloy, vacuum-sealed.<br> 5 inches taller than you.<br> Allows you to carry 1,000 lbs more than you previously could.<br> Needs to be recharged after 6 hours of use.<br> Has magnetic clamps for large weapons and internal compartments for small weapons.<br> Can fit 8 traits."
       },
       "mech_suit": {
         "type": "Mech Suit",
         "points": 8,
+        "half": "Your Armor",
         "traits": 12,
         "ext_str": 10000,
         "use_time": 3,
@@ -301,7 +304,8 @@
       "enhanced_size": {
         "trait": "Enhanced Size",
         "points": 2,
-        "text": "<b>Enhanced Size (Cost: 2 Points)<br> Mech Only</b><br> Your suit is much bigger;<br> now your Mech is 50 feet tall, and can carry 3x as much as before."
+        "text": "<b>Enhanced Size (Cost: 2 Points)<br> Mech Only</b><br> Your suit is much bigger;<br> now your Mech is 50 feet tall, and can carry 3x as much as before.",
+        "restriction": ["Mech Suit"]
       },
       "energy_systems": {
         "trait": "Energy Systems",
@@ -371,22 +375,39 @@
       "super_suit": {
         "trait": "Super Suit",
         "points": 6,
-        "text": "<b>Super Suit (Cost: 6 Points)<br> (Restriction: Armor)<br> PA or Mech only</b><br> Your strength in armor is boosted to the point where you could lift a frigate by yourself, and your built-in weapons are now strong enough to rival battleships. Your suit is also built out of hypermatter, making it extremely durable and it repairs itself over time."
+        "text": "<b>Super Suit (Cost: 6 Points)<br> (Restriction: Armor)<br> PA or Mech only</b><br> Your strength in armor is boosted to the point where you could lift a frigate by yourself, and your built-in weapons are now strong enough to rival battleships. Your suit is also built out of hypermatter, making it extremely durable and it repairs itself over time.",
+        "restriction": [
+          "Your Armor",
+          "Powered Armor",
+          "Mech Suit"
+        ]
       },
       "advanced_flight": {
         "trait": "Advanced Flight",
         "points": 6,
-        "text": "<b>Advanced Flight (Cost: 6 Points)<br> (Restriction: Armor)<br> Requires Jump Jets<br> PA or Mech only</b><br> Your armor can fly under its own power for days, and it can fly faster than any spaceship, as well as being capable of FTL jumps.<br> Your suit is durable enough to withstand and protect you from these speeds, as well as extreme heat."
+        "text": "<b>Advanced Flight (Cost: 6 Points)<br> (Restriction: Armor)<br> Requires Jump Jets<br> PA or Mech only</b><br> Your armor can fly under its own power for days, and it can fly faster than any spaceship, as well as being capable of FTL jumps.<br> Your suit is durable enough to withstand and protect you from these speeds, as well as extreme heat.",
+        "restriction": [
+          "Your Armor",
+          "Powered Armor",
+          "Mech Suit",
+          "Jump Jets"
+        ]
       },
       "psychic_link": {
         "trait": "Psychic Link",
         "points": 6,
-        "text": "<b>Psychic Link (Cost: 6 Points)<br> (Restriction: Armor)<br> PA or Mech only</b><br> You can remotely, psychically connect to your armor, even across light years, and command it to come to you, wherever you are.<br> You also can activate your suit’s functions with just a thought, and your suit is now unhackable."
+        "text": "<b>Psychic Link (Cost: 6 Points)<br> (Restriction: Armor)<br> PA or Mech only</b><br> You can remotely, psychically connect to your armor, even across light years, and command it to come to you, wherever you are.<br> You also can activate your suit’s functions with just a thought, and your suit is now unhackable.",
+        "restriction": [
+          "Your Armor",
+          "Powered Armor",
+          "Mech Suit"
+        ]
       },
       "amplifier": {
         "trait": "Amplifier",
         "points": 5,
-        "text": "<b>Amplifier (Restriction:You)<br> (Costs: 5 Points)<br> Requires Psionics</b><br> Your suit now syncs up to your body, amplifying your psionic abilities.<br> Now, when you are in your suit you can lift and throw twice as much with your psionics, and your barriers can withstand ship-grade weaponry."
+        "text": "<b>Amplifier (Restriction:You)<br> (Costs: 5 Points)<br> Requires Psionics</b><br> Your suit now syncs up to your body, amplifying your psionic abilities.<br> Now, when you are in your suit you can lift and throw twice as much with your psionics, and your barriers can withstand ship-grade weaponry.",
+        "restriction": ["You"]
       }
     }
   },
