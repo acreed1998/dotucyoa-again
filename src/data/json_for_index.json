@@ -693,7 +693,7 @@
       "engines": {
         "trait": "Engines",
         "basic": 0,
-        "engines": 2,
+        "upgrade": 2,
         "text": "<b>Engines</b><br> Your ship's thrusters push you through real space at thousands of miles an hour.<br> The exterior of your ship is covered in RCS thrusters for micro-adjustments.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your ship is now noticeably faster in real space, thanks to your upgraded thrusters."
       },
       "hangar_bay": {
@@ -774,7 +774,7 @@
         "trait": "APCs",
         "require" : "Hangar Bay",
         "basic": 1,
-        "text": "<b>APCs (Requires Hangar Bay)<br> (Cost: 1 Point)</b> These armored, all-terrain APCs can carry up to 20 people, have shields, and have powerful anti-air guns and rocket launchers.<br> Frigates gain 2, Cruisers gain 5, Battleships gain 8, and Dreadnoughts gain 10."
+        "text": "<b>APCs (Requires Hangar Bay)<br> (Cost: 1 Point)</b><br> These armored, all-terrain APCs can carry up to 20 people, have shields, and have powerful anti-air guns and rocket launchers.<br> Frigates gain 2, Cruisers gain 5, Battleships gain 8, and Dreadnoughts gain 10."
       },
       "hover_tanks": {
         "trait": "Hover-Tanks",
@@ -801,7 +801,7 @@
         "trait": "command_bridge",
         "basic": 1,
         "notFree": "Frigate",
-        "text": "<b>Command Bridge (Cost: 1 Point for Frigates, free for all others)</b><br> Your ships cockpit is replaced with a command bridge, where you can view from your ship’s cameras and direct the entire crew.This is vital for larger ships, but more of a luxury for smaller ones."
+        "text": "<b>Command Bridge <br>(Cost: 1 Point for Frigates, free for all others)</b><br> Your ships cockpit is replaced with a command bridge, where you can view from your ship’s cameras and direct the entire crew.This is vital for larger ships, but more of a luxury for smaller ones."
       },
       "built_to_last": {
         "trait": "Built to Last",

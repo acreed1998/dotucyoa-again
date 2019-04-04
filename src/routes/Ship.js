@@ -3,6 +3,7 @@ import NoChoiceCard from '../components/NoChoiceCard';
 import ChoiceCard from '../components/ChoiceCard';
 import _ from 'lodash';
 import GridItem from '@material-ui/core/Grid';
+import UpgradeCard from "../components/UpgradeCard";
 // import MultiChoiceCard from '../components/MultiChoiceCard';
 
 export default class Ship extends Component {
@@ -71,15 +72,27 @@ export default class Ship extends Component {
         <NoChoiceCard cardText={this.props.ship_traits.opening} />
         <GridItem container spacing={24} justify='space-evenly'>
           {_.map(this.props.ship_traits.choices, (choice, index) => {
-            return (
-              <GridItem key={`ship_traits-grid-${index}`} item xs>
-                <ChoiceCard
-                  cardText={choice.text}
-                  special={index}
-                  picked={_.includes(this.props.user.ship_traits, choice)}
-                  onClick={() => { console.log('mine') }} />
-              </GridItem>
-            );
+            if (choice.upgrade) {
+              return (
+                <GridItem key={`ship_traits-grid-${index}`} item xs>
+                  <UpgradeCard
+                    cardText={choice.text}
+                    special={index}
+                    picked={_.includes(this.props.user.ship_traits, choice)}
+                    onClick={() => { console.log('mine') }} />
+                </GridItem>
+              );
+            } else {
+              return (
+                <GridItem key={`ship_traits-grid-${index}`} item xs>
+                  <ChoiceCard
+                    cardText={choice.text}
+                    special={index}
+                    picked={_.includes(this.props.user.ship_traits, choice)}
+                    onClick={() => { console.log('mine') }} />
+                </GridItem>
+              );
+            }
           })}
         </GridItem>
       </div>

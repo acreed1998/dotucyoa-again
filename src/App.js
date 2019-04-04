@@ -33,6 +33,7 @@ class App extends Component {
         drawbacks: [],
         events: [],
         rewards: [],
+        extra_main_weapons: 0,
         section: 'Opening'
       },
       tally: {
@@ -172,6 +173,10 @@ class App extends Component {
     this.modifyPoints();
   }
 
+  modifyShipTraits(shipTraitsArray) {
+
+  }
+
   modifyMaxPoints(points) {
     const user = this.state.user;
     user.maxPoints = 75 + points;
@@ -190,38 +195,40 @@ class App extends Component {
         <Router>
           <div>
             <div>Defender of the Universe</div>
-            <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
-            <Route path="/" exact render={() => <Opening openingText={CYOAData.opening} />} />
-            <Route path="/special/" render={() => <Special
-            special={CYOAData.special}
-            user={this.state.user}
-            changeSpecial={this.changeSpecial.bind(this)} />} />
-            <Route path="/randa/" render={() => <RaceAndAbilities
-            user={this.state.user}
-            races={CYOAData.race}
-            abilities={CYOAData.abilities}
-            changeRace={this.changeRace.bind(this)}
-            modifyAbilities={this.modifyAbilities.bind(this)}
-            modifyPoints={this.modifyPoints.bind(this)}
-            />} />
-            <Route path="/arandw/" render={() => <ArmorAndWeapons
-            user={this.state.user}
-            armor={CYOAData.armor}
-            armor_traits={CYOAData.armor_traits}
-            weapons={CYOAData.weapons}
-            modifyWeapons={this.modifyWeapons.bind(this)}
-            modifyArmor={this.modifyArmor.bind(this)}
-            modifyArmorTraits={this.modifyArmorTraits.bind(this)}
-            />} />
-            <Route path="/ship/" render={() => <Ship
-            user={this.state.user}
-            ship={CYOAData.ship}
-            ship_style={CYOAData.ship_style}
-            ship_traits={CYOAData.ship_traits}
-            changeShip={this.changeShip.bind(this)}
-            changeShipStyle={this.changeShipStyle.bind(this)}
-            />} />
+            <div style={{height:'93%'}}>
+              <Route path="/" exact render={() => <Opening openingText={CYOAData.opening} />} />
+              <Route path="/special/" render={() => <Special
+                special={CYOAData.special}
+                user={this.state.user}
+                changeSpecial={this.changeSpecial.bind(this)} />} />
+              <Route path="/randa/" render={() => <RaceAndAbilities
+                user={this.state.user}
+                races={CYOAData.race}
+                abilities={CYOAData.abilities}
+                changeRace={this.changeRace.bind(this)}
+                modifyAbilities={this.modifyAbilities.bind(this)}
+                modifyPoints={this.modifyPoints.bind(this)}
+              />} />
+              <Route path="/arandw/" render={() => <ArmorAndWeapons
+                user={this.state.user}
+                armor={CYOAData.armor}
+                armor_traits={CYOAData.armor_traits}
+                weapons={CYOAData.weapons}
+                modifyWeapons={this.modifyWeapons.bind(this)}
+                modifyArmor={this.modifyArmor.bind(this)}
+                modifyArmorTraits={this.modifyArmorTraits.bind(this)}
+              />} />
+              <Route path="/ship/" render={() => <Ship
+                user={this.state.user}
+                ship={CYOAData.ship}
+                ship_style={CYOAData.ship_style}
+                ship_traits={CYOAData.ship_traits}
+                changeShip={this.changeShip.bind(this)}
+                changeShipStyle={this.changeShipStyle.bind(this)}
+              />} />
+            </div>
           </div>
+          <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
         </Router>
       </div>
     );
