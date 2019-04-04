@@ -16,8 +16,12 @@ export default class Ship extends Component {
 
   chooseShip(shipObject) {
     const points = this.props.user.points;
-    if (points - shipObject.points > -1) {
-      this.props.changeShip(shipObject);
+    if (!_.isEqual(this.props.user.ship, shipObject)) {
+      if (points - shipObject.points > -1) {
+        this.props.changeShip(shipObject);
+      }
+    } else {
+      this.props.changeShip({});
     }
   }
 
