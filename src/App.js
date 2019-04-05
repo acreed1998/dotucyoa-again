@@ -10,6 +10,7 @@ import RaceAndAbilities from './routes/RaceAndAbilities';
 import ArmorAndWeapons from './routes/ArmorAndWeapons';
 import { Button } from '@material-ui/core';
 import Ship from './routes/Ship';
+import ChoicesModalWrapped from './components/ChoicesModal';
 import _ from 'lodash';
 
 class App extends Component {
@@ -47,6 +48,7 @@ class App extends Component {
         ship_traits: 0,
         team_members: 0,
       },
+      choicesModalOpen: false,
     };
     console.log(CYOAData);
   }
@@ -229,8 +231,9 @@ class App extends Component {
               />} />
             </div>
           </div>
-          <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}}>{this.state.user.points}</Button>
+          <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}} onClick={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}>{this.state.user.points}</Button>
           <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
+          <ChoicesModalWrapped choicesModalOpen={this.state.choicesModalOpen} onClose={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}/>
         </Router>
       </div>
     );
