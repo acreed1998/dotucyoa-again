@@ -4,12 +4,12 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 // import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+// import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Parser from 'html-react-parser';
-import { Button, CardActionArea } from '@material-ui/core';
-import { FaPlus } from "react-icons/fa";
-import { FaMinus } from "react-icons/fa";
+import { Button } from '@material-ui/core';
+// import { FaPlus } from "react-icons/fa";
+// import { FaMinus } from "react-icons/fa";
 
 const styles = {
   card: {
@@ -39,7 +39,6 @@ const styles = {
 
 function UpgradeCard(props) {
   const { classes } = props;
-
   return (
     <Card className={classes.card}
       raised={!props.picked}

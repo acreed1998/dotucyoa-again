@@ -8,6 +8,7 @@ import Opening from './routes/Opening';
 import Special from './routes/Special';
 import RaceAndAbilities from './routes/RaceAndAbilities';
 import ArmorAndWeapons from './routes/ArmorAndWeapons';
+import { Button } from '@material-ui/core';
 import Ship from './routes/Ship';
 import _ from 'lodash';
 
@@ -194,8 +195,8 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <div>Defender of the Universe</div>
-            <div style={{height:'93%'}}>
+            <div>{`Defender of the Universe`}</div>
+            <div>
               <Route path="/" exact render={() => <Opening openingText={CYOAData.opening} />} />
               <Route path="/special/" render={() => <Special
                 special={CYOAData.special}
@@ -228,6 +229,7 @@ class App extends Component {
               />} />
             </div>
           </div>
+          <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}}>{this.state.user.points}</Button>
           <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
         </Router>
       </div>
