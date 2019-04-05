@@ -3,22 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
-
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
+import _ from 'lodash';
 
 const styles = theme => ({
   paper: {
@@ -55,9 +40,9 @@ class ChoicesModal extends React.Component {
         onBackdropClick={this.props.onClose}
         onClose={this.props.onClose}
       >
-        <div style={getModalStyle()} className={classes.paper}>
+        <div className={classes.paper}>
           <Typography variant="h6" id="modal-title">
-            Text in a modal
+            {`Special: ${_.map(this.props.user.special, specialObject => specialObject.special)}`}
           </Typography>
           <Typography variant="subtitle1" id="simple-modal-description">
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.

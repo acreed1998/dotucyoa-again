@@ -29,7 +29,10 @@ class App extends Component {
         weapons: [],
         ship: {},
         ship_style: {},
-        ship_traits: [],
+        ship_traits: {
+          basic: [],
+          upgrade: [],
+        },
         team_members: [],
         boons: [],
         drawbacks: [],
@@ -162,7 +165,7 @@ class App extends Component {
     const user = this.state.user;
     const tally = this.state.tally;
     user.ship = shipObject;
-    tally.ship_type = _.includes(_.map(this.state.user.special, specialObject => specialObject.special), 'Your Ship') ? shipObject.points / 2 : shipObject.points;
+    tally.ship_type = _.includes(_.map(this.state.user.special, specialObject => specialObject.special), 'Your Ship') ? shipObject.points !== undefined ? shipObject.points / 2 : 0 : shipObject.points;
     this.setState({ user: user, tally: tally });
     this.modifyPoints();
   }
@@ -176,8 +179,11 @@ class App extends Component {
     this.modifyPoints();
   }
 
-  modifyShipTraits(shipTraitsArray) {
-
+  modifyShipTraits(shipTraitsObject) {
+    console.log(shipTraitsObject);
+    const user = this.state.user;
+    user.ship_traits = shipTraitsObject;
+    this.setState({user: user});
   }
 
   modifyMaxPoints(points) {
@@ -228,12 +234,17 @@ class App extends Component {
                 ship_traits={CYOAData.ship_traits}
                 changeShip={this.changeShip.bind(this)}
                 changeShipStyle={this.changeShipStyle.bind(this)}
+                modifyShipTraits={this.modifyShipTraits.bind(this)}
               />} />
             </div>
           </div>
           <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}} onClick={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}>{this.state.user.points}</Button>
           <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
-          <ChoicesModalWrapped choicesModalOpen={this.state.choicesModalOpen} onClose={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}/>
+          <ChoicesModalWrapped
+          choicesModalOpen={this.state.choicesModalOpen}
+          onClose={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}
+          user={this.state.user}
+          />
         </Router>
       </div>
     );

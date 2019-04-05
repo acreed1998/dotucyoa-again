@@ -48,8 +48,8 @@ function UpgradeCard(props) {
           {Parser(props.cardText)}
         </Typography>
         <div style={{ display: 'inline-flex', marginTop: 10, width: '100%', alignItems: 'end', position: 'sticky' }}>
-          <Button onClick={props.onMinus} style={{ width: '50%' }}>Basic</Button>
-          <Button onClick={props.onPlus} style={{ width: '50%' }}>Upgrade</Button>
+          <Button onClick={props.basicOrUpgrade} style={{ width: '50%' }}>Basic</Button>
+          <Button onClick={props.basicOrUpgrade} style={{ width: '50%' }}>Upgrade</Button>
         </div>
       </CardContent>
     </Card>
