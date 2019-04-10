@@ -27,8 +27,13 @@ class App extends Component {
         armor: [],
         armor_traits: [],
         weapons: [],
-        ship: {},
-        ship_style: {},
+        ship: {
+          type: '',
+          traits: 0,
+        },
+        ship_style: {
+          type: '',
+        },
         ship_traits: {
           basic: [],
           upgrade: [],
@@ -167,6 +172,7 @@ class App extends Component {
     user.ship = shipObject;
     tally.ship_type = _.includes(_.map(this.state.user.special, specialObject => specialObject.special), 'Your Ship') ? shipObject.points !== undefined ? shipObject.points / 2 : 0 : shipObject.points;
     this.setState({ user: user, tally: tally });
+    this.changeShipStyle(this.state.user.ship_style);
     this.modifyPoints();
   }
 
@@ -176,14 +182,40 @@ class App extends Component {
     user.ship_style = shipStyleObject;
     tally.ship_style = _.includes(_.map(user.race, raceObject => raceObject.race), shipStyleObject.type) ? 0 : shipStyleObject.points;
     this.setState({ user: user, tally: tally });
+    this.modifyShipTraits(this.state.user.ship_traits);
     this.modifyPoints();
   }
 
   modifyShipTraits(shipTraitsObject) {
-    console.log(shipTraitsObject);
     const user = this.state.user;
-    user.ship_traits = shipTraitsObject;
-    this.setState({user: user});
+    const tally = this.state.tally;
+    const basicNames = _.map(shipTraitsObject.basic, shipTrait => shipTrait.trait);
+    const upgradeNames = _.map(shipTraitsObject.upgrade, shipTrait => shipTrait.trait);
+    const specialNames = _.map(user.special, specialObject => specialObject.special);
+    const filteredBasic = _.filter(shipTraitsObject.basic, shipTrait => {
+      if (!shipTrait.require) {
+        return true;
+      }
+      return _.includes(_.concat(basicNames, upgradeNames, specialNames), shipTrait.require);
+    });
+    const filteredUpgrade = _.filter(shipTraitsObject.upgrade, shipTrait => {
+      if (!shipTrait.require) {
+        return true;
+      }
+      return _.includes(_.concat(basicNames, upgradeNames, specialNames), shipTrait.require);
+    });
+    console.log(filteredBasic, filteredUpgrade);
+    user.ship_traits = {
+      basic: filteredBasic,
+      upgrade: filteredUpgrade,
+    };
+    const basicPoints = _.sum(_.map(_.filter(filteredBasic, filteredObject => !_.isEqual(user.ship_style.type, filteredObject.free)), shipTrait => {
+      return shipTrait.trait !== 'Command Bridge' ? shipTrait.basic : (user.ship.type !== 'Frigate' && user.ship.type !== '') ? 0 : 1;
+    }));
+    const upgradePoints = _.sum(_.map(_.filter(filteredUpgrade, filteredObject => _.isEqual(user.ship_style.type, filteredObject.free)), shipTrait => shipTrait.basic + shipTrait.upgrade));
+    tally.ship_traits = basicPoints + upgradePoints;
+    this.setState({user: user, tally: tally});
+    this.modifyPoints();
   }
 
   modifyMaxPoints(points) {

@@ -802,7 +802,7 @@
         "text": "<b>Drones (Cost: 1 Point)</b><br> Each level of ship gets +5 hover drones, with Frigates getting 5 and Dreadnoughts getting 20. Each drone has a gripping arm, a plasma torch, a kinetic shield, and storage space for up to 3 lbs of raw materials.These are used for dose-range attacks, gathering materials, and repairing your hull."
       },
       "command_bridge": {
-        "trait": "command_bridge",
+        "trait": "Command Bridge",
         "basic": 1,
         "notFree": "Frigate",
         "text": "<b>Command Bridge <br>(Cost: 1 Point for Frigates, free for all others)</b><br> Your ships cockpit is replaced with a command bridge, where you can view from your ship’s cameras and direct the entire crew.This is vital for larger ships, but more of a luxury for smaller ones."
@@ -847,25 +847,25 @@
       "hypernought": {
         "trait": "Hypernought",
         "basic": 6,
-        "restriction": "Your Ship",
+        "require": "Your Ship",
         "text": "<b>Hypernought (Restriction: Ship)<br> (Cost: 6 Points)</b><br> Your ship is made up of a strange, alien metal that has never been seen before. It seems to be some form of Hypermatter. Your hull can block immense amounts of heat and radiation, and can endure huge amounts of damage. If the hull is ever breached, the hypermatter will repair itself within a day, with no need for any input of mass or energy."
       },
       "superluminal": {
         "trait": "Superluminal",
-        "restriction": "Your Ship",
+        "require": "Your Ship",
         "basic": 6,
         "text": "<b>Superluminal (Restriction: Ship)<br> (Cost: 6 Points)</b><br> Your ship’s FTL drive is upgraded as well; your ship can fly at around 3x the FTL speed that all other ships of your class and style fly at.Your ship is also equipped with a wormhole gate, which are huge space stations that allow travel to other galaxies, but yours is small enough to fit on your ship."
       },
       "superweapon": {
         "trait": "Superweapon",
-        "restriction": "Your Ship",
+        "require": "Your Ship",
         "extr_weapons" : 2,
         "basic": 6,
         "text": "<b>Superweapon (Restriction: Ship)<br> (Cost: 6 Points)</b><br> Your weapons are upgraded immensely.<br> Now your main weapon(s) yield is increased to somewhere in the upper megatons/petajoules.<br> Your main weapon is also now smaller, with no loss in power, so you can now pick a 2nd or even 3rd main weapon."
       },
       "deus_ex_machina": {
         "trait": "Deus Ex Machina",
-        "restriction": "Your Ship",
+        "require": "Your Ship",
         "basic": 5,
         "text": "<b>Deus Ex Machina (Restriction: Ship)<br> (Cost: 5 Points)</b><br> Your ship is inhabited and controlled by an immensely powerful quantum AI named Eve. She is truly unique. She can make tens of decillions of calculations in seconds, and her thoughts move faster than any organic, and most other Als as well. She is curious, inquisitive, loyal, quick-witted, and has a soothing voice.<br> She can project a hardlight form."
       }

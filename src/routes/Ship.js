@@ -73,6 +73,7 @@ export default class Ship extends Component {
   basicOrUpgrade(shipTraitObject, boru) {
     const user = this.props.user;
     const ship_traits = user.ship_traits;
+    const numOfCurrentTrits = ship_traits.upgrade.length + _.filter(ship_traits.basic, traitObject => traitObject.basic > 0).length;
     const points = user.points;
     const ship = user.ship;
     if (boru === 'upgrade') {
@@ -84,8 +85,10 @@ export default class Ship extends Component {
         return 'Removed the Item';
       }
       if (points - (shipTraitObject.basic + shipTraitObject.upgrade) > -1) {
-        ship_traits.upgrade.push(shipTraitObject);
-        this.props.modifyShipTraits(ship_traits);
+        if (user.ship.traits - (numOfCurrentTrits + 1) > -1) {
+          ship_traits.upgrade.push(shipTraitObject);
+          this.props.modifyShipTraits(ship_traits);
+        }
       }
     } else if (boru === 'basic') {
       if (_.includes(ship_traits.upgrade, shipTraitObject)) {
@@ -96,8 +99,10 @@ export default class Ship extends Component {
         return 'Removed the Item';
       }
       if (points - shipTraitObject.basic > -1) {
-        ship_traits.basic.push(shipTraitObject);
-        this.props.modifyShipTraits(ship_traits);
+        if (user.ship.traits - (numOfCurrentTrits + 1) > -1) {
+          ship_traits.basic.push(shipTraitObject);
+          this.props.modifyShipTraits(ship_traits);
+        }
       }
     }
   }
