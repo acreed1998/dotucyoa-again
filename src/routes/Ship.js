@@ -83,8 +83,10 @@ export default class Ship extends Component {
         this.props.modifyShipTraits(ship_traits);
         return 'Removed the Item';
       }
-      ship_traits.upgrade.push(shipTraitObject);
-      this.props.modifyShipTraits(ship_traits);
+      if (points - (shipTraitObject.basic + shipTraitObject.upgrade) > -1) {
+        ship_traits.upgrade.push(shipTraitObject);
+        this.props.modifyShipTraits(ship_traits);
+      }
     } else if (boru === 'basic') {
       if (_.includes(ship_traits.upgrade, shipTraitObject)) {
         _.pullAt(ship_traits.upgrade, _.indexOf(ship_traits.upgrade, shipTraitObject));
@@ -93,8 +95,10 @@ export default class Ship extends Component {
         this.props.modifyShipTraits(ship_traits);
         return 'Removed the Item';
       }
-      ship_traits.basic.push(shipTraitObject);
-      this.props.modifyShipTraits(ship_traits);
+      if (points - shipTraitObject.basic > -1) {
+        ship_traits.basic.push(shipTraitObject);
+        this.props.modifyShipTraits(ship_traits);
+      }
     }
   }
 
