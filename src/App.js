@@ -8,7 +8,9 @@ import Opening from './routes/Opening';
 import Special from './routes/Special';
 import RaceAndAbilities from './routes/RaceAndAbilities';
 import ArmorAndWeapons from './routes/ArmorAndWeapons';
+import { Button } from '@material-ui/core';
 import Ship from './routes/Ship';
+import ChoicesModalWrapped from './components/ChoicesModal';
 import _ from 'lodash';
 
 class App extends Component {
@@ -25,14 +27,23 @@ class App extends Component {
         armor: [],
         armor_traits: [],
         weapons: [],
-        ship: {},
-        ship_style: {},
-        ship_traits: [],
+        ship: {
+          type: '',
+          traits: 0,
+        },
+        ship_style: {
+          type: '',
+        },
+        ship_traits: {
+          basic: [],
+          upgrade: [],
+        },
         team_members: [],
         boons: [],
         drawbacks: [],
         events: [],
         rewards: [],
+        extra_main_weapons: 0,
         section: 'Opening'
       },
       tally: {
@@ -45,6 +56,7 @@ class App extends Component {
         ship_traits: 0,
         team_members: 0,
       },
+      choicesModalOpen: false,
     };
     console.log(CYOAData);
   }
@@ -59,6 +71,7 @@ class App extends Component {
     this.setState({ user: user });
     this.modifyAbilities(this.state.user.abilities);
     this.modifyArmor(this.state.user.armor);
+    this.changeShip(this.state.user.ship);
   }
 
   changeRace(raceArray) {
@@ -68,6 +81,7 @@ class App extends Component {
     this.setState({ user: user });
     this.modifyMaxPoints(extra);
     this.modifyAbilities(this.state.user.abilities);
+    this.changeShipStyle(this.state.user.ship_style);
   }
 
   modifyAbilities(abilitiesArray) {
@@ -156,8 +170,51 @@ class App extends Component {
     const user = this.state.user;
     const tally = this.state.tally;
     user.ship = shipObject;
-    tally.ship_type = _.includes(_.map(this.state.user.special, specialObject => specialObject.special), 'Your Ship') ? shipObject.points / 2 : shipObject.points;
+    tally.ship_type = _.includes(_.map(this.state.user.special, specialObject => specialObject.special), 'Your Ship') ? shipObject.points !== undefined ? shipObject.points / 2 : 0 : shipObject.points;
     this.setState({ user: user, tally: tally });
+    this.changeShipStyle(this.state.user.ship_style);
+    this.modifyPoints();
+  }
+
+  changeShipStyle(shipStyleObject) {
+    const user = this.state.user;
+    const tally = this.state.tally;
+    user.ship_style = shipStyleObject;
+    tally.ship_style = _.includes(_.map(user.race, raceObject => raceObject.race), shipStyleObject.type) ? 0 : shipStyleObject.points;
+    this.setState({ user: user, tally: tally });
+    this.modifyShipTraits(this.state.user.ship_traits);
+    this.modifyPoints();
+  }
+
+  modifyShipTraits(shipTraitsObject) {
+    const user = this.state.user;
+    const tally = this.state.tally;
+    const basicNames = _.map(shipTraitsObject.basic, shipTrait => shipTrait.trait);
+    const upgradeNames = _.map(shipTraitsObject.upgrade, shipTrait => shipTrait.trait);
+    const specialNames = _.map(user.special, specialObject => specialObject.special);
+    const filteredBasic = _.filter(shipTraitsObject.basic, shipTrait => {
+      if (!shipTrait.require) {
+        return true;
+      }
+      return _.includes(_.concat(basicNames, upgradeNames, specialNames), shipTrait.require);
+    });
+    const filteredUpgrade = _.filter(shipTraitsObject.upgrade, shipTrait => {
+      if (!shipTrait.require) {
+        return true;
+      }
+      return _.includes(_.concat(basicNames, upgradeNames, specialNames), shipTrait.require);
+    });
+    console.log(filteredBasic, filteredUpgrade);
+    user.ship_traits = {
+      basic: filteredBasic,
+      upgrade: filteredUpgrade,
+    };
+    const basicPoints = _.sum(_.map(_.filter(filteredBasic, filteredObject => !_.isEqual(user.ship_style.type, filteredObject.free)), shipTrait => {
+      return shipTrait.trait !== 'Command Bridge' ? shipTrait.basic : (user.ship.type !== 'Frigate' && user.ship.type !== '') ? 0 : 1;
+    }));
+    const upgradePoints = _.sum(_.map(_.filter(filteredUpgrade, filteredObject => _.isEqual(user.ship_style.type, filteredObject.free)), shipTrait => shipTrait.basic + shipTrait.upgrade));
+    tally.ship_traits = basicPoints + upgradePoints;
+    this.setState({user: user, tally: tally});
     this.modifyPoints();
   }
 
@@ -178,38 +235,48 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <div>Defender of the Universe</div>
-            <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
-            <Route path="/" exact render={() => <Opening openingText={CYOAData.opening} />} />
-            <Route path="/special/" render={() => <Special
-            special={CYOAData.special}
-            user={this.state.user}
-            changeSpecial={this.changeSpecial.bind(this)} />} />
-            <Route path="/randa/" render={() => <RaceAndAbilities
-            user={this.state.user}
-            races={CYOAData.race}
-            abilities={CYOAData.abilities}
-            changeRace={this.changeRace.bind(this)}
-            modifyAbilities={this.modifyAbilities.bind(this)}
-            modifyPoints={this.modifyPoints.bind(this)}
-            />} />
-            <Route path="/arandw/" render={() => <ArmorAndWeapons
-            user={this.state.user}
-            armor={CYOAData.armor}
-            armor_traits={CYOAData.armor_traits}
-            weapons={CYOAData.weapons}
-            modifyWeapons={this.modifyWeapons.bind(this)}
-            modifyArmor={this.modifyArmor.bind(this)}
-            modifyArmorTraits={this.modifyArmorTraits.bind(this)}
-            />} />
-            <Route path="/ship/" render={() => <Ship
-            user={this.state.user}
-            ship={CYOAData.ship}
-            ship_style={CYOAData.ship_style}
-            ship_traits={CYOAData.ship_traits}
-            changeShip={this.changeShip.bind(this)}
-            />} />
+            <div>{`Defender of the Universe`}</div>
+            <div>
+              <Route path="/" exact render={() => <Opening openingText={CYOAData.opening} />} />
+              <Route path="/special/" render={() => <Special
+                special={CYOAData.special}
+                user={this.state.user}
+                changeSpecial={this.changeSpecial.bind(this)} />} />
+              <Route path="/randa/" render={() => <RaceAndAbilities
+                user={this.state.user}
+                races={CYOAData.race}
+                abilities={CYOAData.abilities}
+                changeRace={this.changeRace.bind(this)}
+                modifyAbilities={this.modifyAbilities.bind(this)}
+                modifyPoints={this.modifyPoints.bind(this)}
+              />} />
+              <Route path="/arandw/" render={() => <ArmorAndWeapons
+                user={this.state.user}
+                armor={CYOAData.armor}
+                armor_traits={CYOAData.armor_traits}
+                weapons={CYOAData.weapons}
+                modifyWeapons={this.modifyWeapons.bind(this)}
+                modifyArmor={this.modifyArmor.bind(this)}
+                modifyArmorTraits={this.modifyArmorTraits.bind(this)}
+              />} />
+              <Route path="/ship/" render={() => <Ship
+                user={this.state.user}
+                ship={CYOAData.ship}
+                ship_style={CYOAData.ship_style}
+                ship_traits={CYOAData.ship_traits}
+                changeShip={this.changeShip.bind(this)}
+                changeShipStyle={this.changeShipStyle.bind(this)}
+                modifyShipTraits={this.modifyShipTraits.bind(this)}
+              />} />
+            </div>
           </div>
+          <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}} onClick={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}>{this.state.user.points}</Button>
+          <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
+          <ChoicesModalWrapped
+          choicesModalOpen={this.state.choicesModalOpen}
+          onClose={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}
+          user={this.state.user}
+          />
         </Router>
       </div>
     );

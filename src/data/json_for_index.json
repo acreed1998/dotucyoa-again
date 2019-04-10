@@ -627,22 +627,26 @@
     "choices" : {
       "medical_bay": {
         "trait": "Medical Bay",
-        "points": 2,
+        "basic": 0,
+        "upgrade": 2,
         "text": "<b>Medical Bay</b><br> Has MRIs, medical scanners, automated surgery machines, and plenty of beds, as well as a stockpile of medication.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your medical center is 3x as big, and has organ cloners, stasis pods, and even accelerated healing pods."
       },
       "mess_hall": {
         "trait": "Mess Hall",
-        "points": 1,
+        "basic": 0,
+        "upgrade": 1,
         "text": "<b>Mess Hall</b><br> Has enough metal tables to seat everyone, and has a decently sized kitchen and storeroom.<br> <b>Upgrade (Cost: 1 Point)</b><br> Very fancy; tables are replaced with booths, there is now a bar. a large kitchen, and a 5-star chef."
       },
       "crew_quarters": {
         "trait": "Crew Quarters",
-        "points": 1,
+        "basic": 0,
+        "upgrade": 1,
         "text": "<b>Crew Quarters<br> Can house 4 Teammates</b><br> Your ship has a series of nice, single room cabins for your teammates, and two or three large communal rooms.<br> <b>Upgrade (Cost: 1 Point)<br> Can house 6 more Teammates</b><br> Everyone has their own small but luxurious room."
       },
       "recreational_rooms": {
         "trait": "Recreational Rooms",
-        "points": 2,
+        "basic": 0,
+        "upgrade": 2,
         "text": "<b>Recreational Rooms</b><br> You have a small library on board, as well as a rec room with movies, game tables, and video games.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your library is huge, housing thousands of paperbacks and tens of thousands of digital books.You also have a small movie theater on board."
       },
       "shields": {
@@ -651,13 +655,14 @@
           "0" : "Energy",
           "1" : "Kinetic"
         },
-        "points": 1,
+        "basic": 1,
         "upgrade" : 2,
         "text": "<b>Shields (Cost: 1 Point)</b><br> You gain one shield, choose between <b>Energy</b> or <b>Kinetic</b>.<br> Energy uses almost 2x as much power.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your shields are now layered.<br> Choose a second shield, you can have your second be the same shield as the first, if you want."
       },
       "hull": {
         "trait": "Hull",
-        "points": 2,
+        "basic": 0,
+        "upgrade": 2,
         "text": "<b>Hull</b><br> You have a tough, multi-layered hull, which protects against space dust, impacts, radiation, and heat. This includes a Whipple shield.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your main exterior hull is much more durable; made out of layered and pressed carbon nanotubes."
       },
       "defenses": {
@@ -668,178 +673,200 @@
           "3" : "Energy",
           "4" : "Laser"
         },
-        "points": 2,
+        "basic": 0,
+        "upgrade": 2,
         "text": "<b>Defenses</b><br> You gain two external point-defense turrets, and gain another two turrets for each ship size; Frigates get 2 total, etc.<br> Choose if Rail, Mass, Energy, or Laser.<br> <b>Upgrade (Cost: 2 Points)</b><br> You gain an additional four turrets total, plus a swarm of 10 combat drones, and a swarm of 8 repair drones."
       },
       "security": {
         "trait": "Security",
         "tpd" : 2,
-        "points": 1,
+        "basic": 1,
         "upgrade": 2,
         "text": "<b>Security (Cost: 1 Point)</b><br> You have two hidden turrets on each deck, and a team of 10 security officers.<br> Choose what races they are, you can choose Playable Races + Turian.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your security team is now heavily armed and armored, and you have at least 4 officers on each deck at all times."
       },
       "crew": {
         "trait": "Crew",
-        "points": 1,
+        "basic": 0,
+        "upgrade": 1,
         "text": "<b>Crew</b><br> You have a decently-sized crew of engineers, navigators, technicians, and maintenance. They are all your race.<br> <b>Upgrade (Cost: 1 Point)</b><br> All of your crew mates are ex-military or otherwise skilled.They are also diverse, choose the species distribution<br> (Can only be Playable Races)"
       },
       "engines": {
         "trait": "Engines",
-        "points": 2,
+        "basic": 0,
+        "upgrade": 2,
         "text": "<b>Engines</b><br> Your ship's thrusters push you through real space at thousands of miles an hour.<br> The exterior of your ship is covered in RCS thrusters for micro-adjustments.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your ship is now noticeably faster in real space, thanks to your upgraded thrusters."
       },
       "hangar_bay": {
         "trait": "Hangar Bay",
         "points": 1,
-        "upgrade" : 1,
+        "basic" : 1,
+        "upgrade": 1,
         "text": "<b>Hangar Bay (Cost: 1 Point)</b><br> You gain a single hanger bay.This can hold shuttles, fighters, and vehicles.Your ship’s hangar bay can house any ship that is smaller than your ship’s size.<br> <b>Upgrade (Cost: 1 Point)</b><br> You have multiple hangar bays, and you can hold twice as many shuttles and fighters."
       },
       "training": {
         "trait": "Training",
-        "points": 1,
+        "basic": 0,
+        "upgrade": 1,
         "text": "<b>Training</b><br> You have a decent-sized shooting gallery on board for your crew mates, and you have a small gym for crew.<br> <b>Upgrade (Cost: 1 Point)</b><br> You now have a holographic combat simulator that your crew mates can train in, and your gym is 2x larger."
       },
       "particle_beam_cannon": {
         "trait": "Particle Beam Cannon",
-        "points": 1,
+        "basic": 1,
         "weapon" : true,
+        "free":["Gray", "Android"],
         "text": "<b>Particle Beam Cannon<br> (Cost: 1 Point)</b><br> Main Weapon<br> Fires a high-intensity beam of atomic particles at near-light speeds.This weapon causes superheating in its targets and impacts with over 150 terajoules of kinetic energy.<br> Can fire once per minute."
       },
       "rail_gun": {
         "trait": "Rail Gun",
-        "points": 1,
+        "basic": 1,
         "weapon" : true,
+        "free":["Human"],
         "text": "<b>Rail Gun (Cost: 1 Point)</b><br> Main Weapon<br> Uses a long series of magnets to accelerate a large, human-sized slug of metal to several hundred times the speed of sound. Impacts with about 70 terajoules of energy, and penetrates even the toughest armors. Can only fire once every 30 seconds."
       },
       "mass_accelerator_cannon": {
         "trait": "Mass Accelerator Cannon",
-        "points": 1,
+        "basic": 1,
         "weapon":true,
+        "free":["Aquoid", "Asari"],
         "text": "<b>Mass Accelerator Cannon<br> (Cost: 1 Point)</b><br> Main Weapon<br> Uses Mass Alteration Fields to accelerate a soccer ball-sized slug of molten metal to a tiny fraction of the speed of light. Can fire every 12 seconds.<br> Has an impact yield in the low kilotons."
       },
       "casaba_howitzer": {
         "trait": "Casaba Howitzer",
-        "points": 1,
+        "basic": 1,
         "weapon":true,
+        "free": ["Qunari"],
         "text": "<b>Casaba Howitzer (Cost: 1 Point)</b><br> The Nuclear Spear, Main Weapon.<br> This directed weapon fires a beam of pure nuclear fire and radiation. It tears through and cooks unshielded ships, and is decently effective against ground targets. Cheap, easy to use, and has an explosive yield in the low kilotons.<br> Can fire every 15 seconds."
       },
       "armory": {
         "trait": "Armory",
-        "points": 1,
-        "upgrade":1,
+        "basic": 1,
+        "upgrade": 1,
         "text": "<b>Armory (Cost: 1 Point)</b><br> In the heart of your ship, you have a fortified room holding hundreds of advanced kinetic weapons, personal shield generators, and Space Suits.<br> <b>Upgrade (Cost: 1 Point)</b><br> Your armory now holds energy weapons, as well as 12 Power Armor Suits for Crew usage."
       },
       "stealth": {
         "trait": "Stealth",
-        "points": 1,
-        "upgrade":2,
+        "basic": 1,
+        "upgrade": 2,
         "text": "<b>Stealth (Cost: 1 Point)</b><br> Your ship is outfitted with systems that mask your heat emissions and hide you from radar.<br> Your ship is also much quieter now.<br> <b>Upgrade (Cost: 2 Points)</b><br> Your ship has a stealth field that renders it completely invisible."
       },
       "life_support": {
         "trait": "Life Support",
-        "points": 1,
+        "basic": 0,
+        "upgrade": 1,
         "text": "<b>Life Support</b><br> When in atmosphere, your ship takes in large amounts of oxygen and water for crew use and heat regulation. You also have a hydroponics garden.<br> <b>Upgrade (Cost: 1 Point)</b><br> Your hydroponics garden is 3x larger, and now grows fresh fruit and vegetables for your crew."
       },
       "observation_decks": {
         "trait": "Observation Decks",
-        "points": 1,
+        "basic": 1,
         "upgrade": 1,
         "text": "<b>Observation Decks (Cost: 1 Point)</b><br> Each deck of your ship has one room with a large, ceiling-to-floor window that looks out into space.Very tranquil.<br> <b>Upgrade (Cost: 1 Point)</b><br> You now have two rooms per deck, and exterior cameras allow a 360, real-time image to be projected through holograms."
       },
       "dropships": {
-        "req" : "Hangar Bay",
+        "require" : "Hangar Bay",
         "trait": "Dropships",
-        "points": 1,
+        "basic": 0,
+        "upgrade": 1,
         "text": "<b>Dropships (Requires Hangar Bay)</b><br> Your ship carries 2 state-of-the-art dropships that can carry up to 10 people, and have stealth and heavy weapons.<br> <b>Upgrade (Cost: 1 Point)</b><br> Frigates get 2 more dropships. Cruisers get 4 more. Battleships get 6 more, and Dreadnoughts get 8 more."
       },
       "fighter": {
-        "req" : "Hangar Bay",
+        "require" : "Hangar Bay",
         "trait": "Fighter",
-        "points": 1,
+        "basic": 1,
         "text": "<b>Fighter (Requires Hangar Bay)<br> (Cost: 1 Point)</b><br> This fighter can hold 3 people, and is very fast, lightly armored, has shields, and powerful weapons.These weapons are mini versions of your Main Weapon.<br> You gain 1 for Frigates, 4 for Cruisers, 8 for Battleships, and 12 for Dreadnoughts."
       },
       "apcs": {
         "trait": "APCs",
-        "req" : "Hangar Bay",
-        "points": 1,
-        "text": "<b>APCs (Requires Hangar Bay)<br> (Cost: 1 Point)</b> These armored, all-terrain APCs can carry up to 20 people, have shields, and have powerful anti-air guns and rocket launchers.<br> Frigates gain 2, Cruisers gain 5, Battleships gain 8, and Dreadnoughts gain 10."
+        "require" : "Hangar Bay",
+        "basic": 1,
+        "text": "<b>APCs (Requires Hangar Bay)<br> (Cost: 1 Point)</b><br> These armored, all-terrain APCs can carry up to 20 people, have shields, and have powerful anti-air guns and rocket launchers.<br> Frigates gain 2, Cruisers gain 5, Battleships gain 8, and Dreadnoughts gain 10."
       },
       "hover_tanks": {
-        "trait": "Hover Tanks",
-        "req" : "Hangar Bay",
-        "points": 2,
+        "trait": "Hover-Tanks",
+        "require" : "Hangar Bay",
+        "basic": 2,
         "text": "<b>Hover-Tanks (Requires Hangar Bay)<br> (Cost: 2 Points)</b><br> These AI controlled hover-tanks are fest over all terrains, armored, and carry missiles launchers, heavy mortars, machine guns, and shields.<br> You gain 2 for Frigates, and another 3 for each size, with Dreadnoughts receiving 11."
       },
       "ai": {
         "trait": "AI",
-        "points": 1,
+        "basic": 1,
         "text": "<b>AI (Cost: 1 Point)</b><br> You gain a standard, human-level intellect AI.This AI helps maintain your ship’s systems, and can remotely interact with and monitor your suit’s systems.This AI can act as a Co-Pilot but CANNOT entirely replace a pilot with a body.<br> A quantum AI could replace a pilot."
       },
       "cyberwarfare_suite": {
         "trait": "cyberwarfare_suite",
-        "points": 1,
+        "basic": 1,
         "text": "<b>Cyberwarfare Suite (Cost: 1 Point)</b><br> If you don’t have an AI, this is managed by a combination of auto systems and crew members.This suite helps defend your ship from hacking, and can hack into and disable missiles, enemy weapons, shields, and engines. A standard AI increases efficiency by 30%, a quantum AI increases it by 80%."
       },
       "drones": {
         "trait": "Drones",
-        "points": 1,
+        "basic": 1,
         "text": "<b>Drones (Cost: 1 Point)</b><br> Each level of ship gets +5 hover drones, with Frigates getting 5 and Dreadnoughts getting 20. Each drone has a gripping arm, a plasma torch, a kinetic shield, and storage space for up to 3 lbs of raw materials.These are used for dose-range attacks, gathering materials, and repairing your hull."
       },
       "command_bridge": {
-        "trait": "command_bridge",
-        "points": 0,
-        "text": "<b>Command Bridge (Cost: 1 Point for Frigates, free for all others)</b><br> Your ships cockpit is replaced with a command bridge, where you can view from your ship’s cameras and direct the entire crew.This is vital for larger ships, but more of a luxury for smaller ones."
+        "trait": "Command Bridge",
+        "basic": 1,
+        "notFree": "Frigate",
+        "text": "<b>Command Bridge <br>(Cost: 1 Point for Frigates, free for all others)</b><br> Your ships cockpit is replaced with a command bridge, where you can view from your ship’s cameras and direct the entire crew.This is vital for larger ships, but more of a luxury for smaller ones."
       },
       "built_to_last": {
         "trait": "Built to Last",
-        "points": 1,
+        "basic": 1,
+        "free": "Human",
         "text": "<b>Built to Last (Free with Human Style)<br> (Cost: 1 Point)</b><br> Your ship is sturdy, and tough as nails.Your ship’s parts last longer and break down less often, saving you money and time on replacements and repairs."
       },
       "skeleton_crew": {
         "trait": "Skeleton Crew",
         "extr_crew" : "1",
-        "points": 1,
+        "basic": 1,
+        "free": "Android",
         "text": "<b>Skeleton Crew (Free with Android Style)<br> (Cost: 1 Point)</b><br> Thanks to the skill and efficiency of android crewmates, the number of crew members that you need to run the ship is cut down by 1/4th with no loss in efficiency, freeing up space.Your ship can hold 1 more teammate."
       },
       "luxury": {
         "trait": "Luxury",
-        "points": 1,
+        "basic": 1,
+        "free": "Asari",
         "text": "<b>Luxury (Free with Asari Style)<br> (Cost: 1 Point)</b><br> Your ship is always sleek, clean, and luxurious.<br> The rooms and food feel more like you’re living in a 5-star hotel than a warship."
       },
       "grav_tech": {
         "trait": "Grav-Tech",
-        "points": 2,
+        "basic": 2,
+        "free": "Gray",
         "text": "<b>Grav-Tech (Free with Gray Style)<br> (Cost: 2 Points)</b><br> Your ship has powerful gravity systems that allow you to practically ignore powerful winds and storms, break free from strong gravity wells, and you have a tractor beam on board."
       },
       "atmospheres": {
         "trait": "Atmospheres",
-        "points": 1,
+        "basic": 1,
+        "free": "Aquoid",
         "text": "<b>Atmospheres (Free with Aquoid Style)<br> (Cost: 1 Point)</b><br> No matter what size your ship is; it’s fitted for travel in hostile, non-space environments.You can dive deep into the ocean, and your ship can survive higher amount of pressure and temperature."
       },
       "efficiency": {
         "trait": "Efficiency",
-        "points": 1,
+        "basic": 1,
+        "free": "Qunari",
         "text": "<b>Efficiency (Free with Qunari Style)</b><br> <b>(Cost: 1 Point)</b><br> Your ship and crew are streamlined and trained to maximize efficiency.You use far less resources in everything from life support to weaponry and your crew responds much fester to surprises and threats."
       },
       "hypernought": {
         "trait": "Hypernought",
-        "points": 6,
+        "basic": 6,
+        "require": "Your Ship",
         "text": "<b>Hypernought (Restriction: Ship)<br> (Cost: 6 Points)</b><br> Your ship is made up of a strange, alien metal that has never been seen before. It seems to be some form of Hypermatter. Your hull can block immense amounts of heat and radiation, and can endure huge amounts of damage. If the hull is ever breached, the hypermatter will repair itself within a day, with no need for any input of mass or energy."
       },
       "superluminal": {
         "trait": "Superluminal",
-        "points": 6,
+        "require": "Your Ship",
+        "basic": 6,
         "text": "<b>Superluminal (Restriction: Ship)<br> (Cost: 6 Points)</b><br> Your ship’s FTL drive is upgraded as well; your ship can fly at around 3x the FTL speed that all other ships of your class and style fly at.Your ship is also equipped with a wormhole gate, which are huge space stations that allow travel to other galaxies, but yours is small enough to fit on your ship."
       },
       "superweapon": {
         "trait": "Superweapon",
+        "require": "Your Ship",
         "extr_weapons" : 2,
-        "points": 6,
+        "basic": 6,
         "text": "<b>Superweapon (Restriction: Ship)<br> (Cost: 6 Points)</b><br> Your weapons are upgraded immensely.<br> Now your main weapon(s) yield is increased to somewhere in the upper megatons/petajoules.<br> Your main weapon is also now smaller, with no loss in power, so you can now pick a 2nd or even 3rd main weapon."
       },
       "deus_ex_machina": {
         "trait": "Deus Ex Machina",
-        "points": 5,
+        "require": "Your Ship",
+        "basic": 5,
         "text": "<b>Deus Ex Machina (Restriction: Ship)<br> (Cost: 5 Points)</b><br> Your ship is inhabited and controlled by an immensely powerful quantum AI named Eve. She is truly unique. She can make tens of decillions of calculations in seconds, and her thoughts move faster than any organic, and most other Als as well. She is curious, inquisitive, loyal, quick-witted, and has a soothing voice.<br> She can project a hardlight form."
       }
     }
