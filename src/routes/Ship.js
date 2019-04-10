@@ -75,52 +75,26 @@ export default class Ship extends Component {
     const ship_traits = user.ship_traits;
     const points = user.points;
     const ship = user.ship;
-    if (boru === 'basic') {
-      if (!_.includes(ship_traits.basic, shipTraitObject)) {
-        if (points - shipTraitObject.basic > -1) {
-          if (shipTraitObject.weapon) {
-            if (ship.main_weapons - _.filter(ship_traits.basic, trait => trait.weapon === true).length - 1 > -1) {
-              ship_traits.basic.push(shipTraitObject);
-              this.props.modifyShipTraits(ship_traits);
-            } else {
-              if (ship.main_weapons === 1) {
-                _.remove(ship_traits.basic, trait => trait.weapon === true);
-                ship_traits.basic.push(shipTraitObject);
-                this.props.modifyShipTraits(ship_traits);
-              }
-            }
-          } else {
-            ship_traits.basic.push(shipTraitObject);
-            this.props.modifyShipTraits(ship_traits);
-          }
-        }
-      } else {
+    if (boru === 'upgrade') {
+      if (_.includes(ship_traits.basic, shipTraitObject)) {
         _.pullAt(ship_traits.basic, _.indexOf(ship_traits.basic, shipTraitObject));
-        this.props.modifyShipTraits(ship_traits);
-      }
-    } else {
-      if (!_.includes(ship_traits.upgrade, shipTraitObject)) {
-        if (points - (shipTraitObject.basic + shipTraitObject.upgrade) > -1) {
-          if (shipTraitObject.weapon) {
-            if (ship.main_weapons - _.filter(ship_traits.upgrade, trait => trait.weapon === true).length - 1 > -1) {
-              ship_traits.upgrade.push(shipTraitObject);
-              this.props.modifyShipTraits(ship_traits);
-            } else {
-              if (ship.main_weapons === 1) {
-                _.remove(ship_traits.upgrade, trait => trait.weapon === true);
-                ship_traits.upgrade.push(shipTraitObject);
-                this.props.modifyShipTraits(ship_traits);
-              }
-            }
-          } else {
-            ship_traits.upgrade.push(shipTraitObject);
-            this.props.modifyShipTraits(ship_traits);
-          }
-        }
-      } else {
+      } else if (_.includes(ship_traits.upgrade, shipTraitObject)) {
         _.pullAt(ship_traits.upgrade, _.indexOf(ship_traits.upgrade, shipTraitObject));
         this.props.modifyShipTraits(ship_traits);
+        return 'Removed the Item';
       }
+      ship_traits.upgrade.push(shipTraitObject);
+      this.props.modifyShipTraits(ship_traits);
+    } else if (boru === 'basic') {
+      if (_.includes(ship_traits.upgrade, shipTraitObject)) {
+        _.pullAt(ship_traits.upgrade, _.indexOf(ship_traits.upgrade, shipTraitObject));
+      } else if (_.includes(ship_traits.basic, shipTraitObject)) {
+        _.pullAt(ship_traits.basic, _.indexOf(ship_traits.basic, shipTraitObject));
+        this.props.modifyShipTraits(ship_traits);
+        return 'Removed the Item';
+      }
+      ship_traits.basic.push(shipTraitObject);
+      this.props.modifyShipTraits(ship_traits);
     }
   }
 
