@@ -12,6 +12,7 @@ import { Button } from '@material-ui/core';
 import Ship from './routes/Ship';
 import ChoicesModalWrapped from './components/ChoicesModal';
 import _ from 'lodash';
+import Team from './routes/Team';
 
 class App extends Component {
   constructor(props) {
@@ -267,6 +268,9 @@ class App extends Component {
                 changeShip={this.changeShip.bind(this)}
                 changeShipStyle={this.changeShipStyle.bind(this)}
                 modifyShipTraits={this.modifyShipTraits.bind(this)}
+              />} />
+              <Route path="/team/" render={() => <Team
+                user={this.state.user}
               />} />
             </div>
           </div>
