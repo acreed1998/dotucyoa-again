@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CYOAData from './data/json_for_index.json';
 import BottomNavigation from './components/BottomNavigation';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Opening from './routes/Opening';
 import Special from './routes/Special';
 import RaceAndAbilities from './routes/RaceAndAbilities';
@@ -271,6 +271,7 @@ class App extends Component {
               />} />
               <Route path="/team/" render={() => <Team
                 user={this.state.user}
+                team={CYOAData.team}
               />} />
             </div>
           </div>
