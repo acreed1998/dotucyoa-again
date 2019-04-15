@@ -1309,7 +1309,7 @@
       "daisy_bell": {
         "name": "Daisy Bell",
         "text": "<b>Daisy Bell (Requires an AI)</b><br> Your ship’s AI will be..., off.<br> It will be overly protective, invasive, and have little respect for your privacy. It will react negatively, maybe even violently, at any attempt to remove it or change it. It occasionally disobeys orders.",
-        "requires" : "A.I."
+        "requires" : ["A.I."]
       },
       "superstar": {
         "name": "Superstar",
@@ -1333,7 +1333,7 @@
       "overload": {
         "name": "Overload",
         "text": "<b>Overload (Requires Psionics)</b><br> With constant psionic use and the passage of time, you will slowly become paranoid, your psionics will start flaring up when you become emotional, and eventually, after a few decades, using your powers will cause you physical pain.",
-        "requires" : "Psionics"
+        "requires" : ["Psionics"]
       },
       "bitter_rivalry": {
         "name": "Bitter Rivalry",

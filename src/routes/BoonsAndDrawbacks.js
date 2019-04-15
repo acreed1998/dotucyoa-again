@@ -23,6 +23,14 @@ export default class BoonsAndDrawbacks extends Component {
 
   modifyDrawbacks(drawbackObject) {
     const user = this.props.user;
+    const drawbacks = user.drawbacks;
+    if (!_.includes(drawbacks, drawbackObject)) {
+      drawbacks.push(drawbackObject);
+      this.props.modifyDrawbacks(drawbacks);
+    } else {
+      _.pullAt(drawbacks, _.indexOf(drawbacks, drawbackObject));
+      this.props.modifyDrawbacks(drawbacks);
+    }
   }
 
   render() {

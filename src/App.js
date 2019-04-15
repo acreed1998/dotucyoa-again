@@ -57,6 +57,7 @@ class App extends Component {
         ship_style: 0,
         ship_traits: 0,
         team_members: 0,
+        drawbacks: 0,
       },
       choicesModalOpen: false,
     };
@@ -110,6 +111,7 @@ class App extends Component {
     tally.abilities = points;
     this.setState({ user: user, tally: tally });
     this.modifyPoints();
+    this.modifyDrawbacks(this.state.user.drawbacks);
   }
 
   modifyArmor(armorArray) {
@@ -223,6 +225,7 @@ class App extends Component {
     tally.ship_traits = basicPoints + upgradePoints;
     this.setState({user: user, tally: tally});
     this.modifyPoints();
+    this.modifyDrawbacks(this.state.user.drawbacks);
   }
 
   modifyTeam(teamMembersArray) {
@@ -238,6 +241,33 @@ class App extends Component {
     });
     user.team_members = filteredMembers;
     tally.team_members = _.sum(_.map(filteredMembers, memberObject => memberObject.points));
+    this.setState({user: user, tally: tally});
+    this.modifyPoints();
+  };
+
+  modifyDrawbacks(drawbacksArray) {
+    const user = this.state.user;
+    const tally = this.state.tally;
+    const abilitiyNames = _.map(user.abilities, ability => ability.ability);
+    const shipTraitNames = _.map(user.ship_traits.basic, shipTraitsObject => shipTraitsObject.trait);
+    const combo = _.concat(abilitiyNames, shipTraitNames);
+    const requires = user.boons.length !== 0 ? _.sum(_.map(user.boons, boonObject => boonObject.drawbacks)) : 0;
+    const filteredDrawbacks = _.filter(drawbacksArray, drawbackObject => {
+      if (drawbackObject.requires) {
+        for (let i = 0; i < drawbackObject.requires.length; i++) {
+          if (_.includes(combo)) {
+            return true;
+          }
+        }
+        return false;
+      } else if (drawbackObject.no) {
+        return !_.includes(abilitiyNames, drawbackObject.no);
+      } else {
+        return true;
+      }
+    });
+    user.drawbacks = filteredDrawbacks;
+    tally.drawbacks = -(filteredDrawbacks.length - requires) * 3;
     this.setState({user: user, tally: tally});
     this.modifyPoints();
   };
@@ -301,7 +331,7 @@ class App extends Component {
                 user={this.state.user}
                 boons={CYOAData.boons}
                 drawbacks={CYOAData.drawbacks}
-                modifyTeam={this.modifyTeam.bind(this)}
+                modifyDrawbacks={this.modifyDrawbacks.bind(this)}
               />} />
             </div>
           </div>
