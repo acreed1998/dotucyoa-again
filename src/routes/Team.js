@@ -13,6 +13,22 @@ export default class Team extends Component {
     this.state = {
 
     };
+    this.chooseMember = this.chooseMember.bind(this);
+  }
+
+  chooseMember(teamMemberObject) {
+    const user = this.props.user;
+    const teammates = user.team_members;
+    const points = user.points;
+    if (!_.includes(user.team_members, teamMemberObject)) {
+      if (points - teamMemberObject.points > -1) {
+          teammates.push(teamMemberObject);
+          this.props.modifyTeam(teammates);
+      }
+    } else {
+      _.pullAt(teammates, _.indexOf(teammates, teamMemberObject));
+      this.props.modifyTeam(teammates);
+    }
   }
 
   render() {

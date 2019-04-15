@@ -219,6 +219,12 @@ class App extends Component {
     this.modifyPoints();
   }
 
+  modifyTeam(teamMembersArray) {
+    const user = this.state.user;
+    user.team_members = teamMembersArray;
+    this.setState({user: user});
+  };
+
   modifyMaxPoints(points) {
     const user = this.state.user;
     user.maxPoints = 75 + points;
@@ -272,6 +278,7 @@ class App extends Component {
               <Route path="/team/" render={() => <Team
                 user={this.state.user}
                 team={CYOAData.team}
+                modifyTeam={this.modifyTeam.bind(this)}
               />} />
             </div>
           </div>
