@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CYOAData from './data/json_for_index.json';
 import BottomNavigation from './components/BottomNavigation';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Opening from './routes/Opening';
 import Special from './routes/Special';
 import RaceAndAbilities from './routes/RaceAndAbilities';
@@ -12,6 +12,7 @@ import { Button } from '@material-ui/core';
 import Ship from './routes/Ship';
 import ChoicesModalWrapped from './components/ChoicesModal';
 import _ from 'lodash';
+import Team from './routes/Team';
 
 class App extends Component {
   constructor(props) {
@@ -72,6 +73,7 @@ class App extends Component {
     this.modifyAbilities(this.state.user.abilities);
     this.modifyArmor(this.state.user.armor);
     this.changeShip(this.state.user.ship);
+    this.modifyTeam(this.state.user.team_members);
   }
 
   changeRace(raceArray) {
@@ -81,7 +83,11 @@ class App extends Component {
     this.setState({ user: user });
     this.modifyMaxPoints(extra);
     this.modifyAbilities(this.state.user.abilities);
+    this.modifyArmor(this.state.user.armor);
+    this.modifyArmorTraits(this.state.user.armor_traits);
+    this.modifyWeapons(this.state.user.weapons);
     this.changeShipStyle(this.state.user.ship_style);
+    this.modifyTeam(this.state.user.team_members);
   }
 
   modifyAbilities(abilitiesArray) {
@@ -212,11 +218,28 @@ class App extends Component {
     const basicPoints = _.sum(_.map(_.filter(filteredBasic, filteredObject => !_.isEqual(user.ship_style.type, filteredObject.free)), shipTrait => {
       return shipTrait.trait !== 'Command Bridge' ? shipTrait.basic : (user.ship.type !== 'Frigate' && user.ship.type !== '') ? 0 : 1;
     }));
-    const upgradePoints = _.sum(_.map(_.filter(filteredUpgrade, filteredObject => _.isEqual(user.ship_style.type, filteredObject.free)), shipTrait => shipTrait.basic + shipTrait.upgrade));
+    const upgradePoints = _.sum(_.map(filteredUpgrade, shipTrait => shipTrait.basic + shipTrait.upgrade));
     tally.ship_traits = basicPoints + upgradePoints;
     this.setState({user: user, tally: tally});
     this.modifyPoints();
   }
+
+  modifyTeam(teamMembersArray) {
+    const user = this.state.user;
+    const tally = this.state.tally;
+    const specialNames = _.map(user.special, specialObject => specialObject.special);
+    const filteredMembers = _.filter(teamMembersArray, memberObject => {
+      if (memberObject.restriction) {
+        return _.includes(specialNames, memberObject.restriction);
+      } else {
+        return true;
+      }
+    });
+    user.team_members = filteredMembers;
+    tally.team_members = _.sum(_.map(filteredMembers, memberObject => memberObject.points));
+    this.setState({user: user, tally: tally});
+    this.modifyPoints();
+  };
 
   modifyMaxPoints(points) {
     const user = this.state.user;
@@ -267,6 +290,11 @@ class App extends Component {
                 changeShip={this.changeShip.bind(this)}
                 changeShipStyle={this.changeShipStyle.bind(this)}
                 modifyShipTraits={this.modifyShipTraits.bind(this)}
+              />} />
+              <Route path="/team/" render={() => <Team
+                user={this.state.user}
+                team={CYOAData.team}
+                modifyTeam={this.modifyTeam.bind(this)}
               />} />
             </div>
           </div>

@@ -4,7 +4,6 @@ import ChoiceCard from '../components/ChoiceCard';
 import _ from 'lodash';
 import GridItem from '@material-ui/core/Grid';
 import UpgradeCard from "../components/UpgradeCard";
-import { array } from "prop-types";
 // import MultiChoiceCard from '../components/MultiChoiceCard';
 
 export default class Ship extends Component {
@@ -75,7 +74,6 @@ export default class Ship extends Component {
     const ship_traits = user.ship_traits;
     const numOfCurrentTrits = ship_traits.upgrade.length + _.filter(ship_traits.basic, traitObject => traitObject.basic > 0).length;
     const points = user.points;
-    const ship = user.ship;
     if (boru === 'upgrade') {
       if (_.includes(ship_traits.basic, shipTraitObject)) {
         _.pullAt(ship_traits.basic, _.indexOf(ship_traits.basic, shipTraitObject));
