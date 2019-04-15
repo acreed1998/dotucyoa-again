@@ -1220,7 +1220,7 @@
         },
         "abilities": ["combat_training", "beautiful", "special_ops", "diplomatic", "peak_physical_fitness", "enhanced_senses", "precision", "super_soldier"],
         "points": 6,
-        "restriction" : "team",
+        "restriction" : "Your Team",
         "text": "<b>Miki (Restriction:Team)<br> (Cost: 6 Points)</b><br> Miki is not just a Kitsune; who by all means are very rare, she is also a Kitsune Super Solider.<br> On top of being able to shapeshift to become identical to humans, asari, gray, aquoids, and qunari, she can also lift over 6000 lbs, run at over 50 mph, her reflexes, regeneration, and accuracy are all enhanced, and she has clearly gone through rigorous combat training. It’s clear that she’s an agent for the Kitsune government, and she was upfront about that. She’s been assigned to keep you safe and to assist you in your adventures.The Kitsune are very interested in you and your capabilities, and wish to have you as an ally in the future, rather than an enemy. Miki herself seems honest, and she’s a sweetheart. She loves poker and gambling games, and she’s occasionally flirty.<br> Miki carries an Über Blade, a Panther, and a PUMA.<br> Her Suit has Jump Jets, an Energy Shield, Smart Armor, and Survivalist.<br> She has Combat Training, Beautiful, Special Ops, Diplomatic, Peak Physical Fitness, Enhanced Senses, Precision, and Super Soldier."
       },
       "nebula": {
@@ -1232,7 +1232,7 @@
         },
         "abilities": ["beautiful", "diplomatic", "psionics", "precision", "superhuman"],
         "points": 6,
-        "restriction" : "team",
+        "restriction" : "Your Team",
         "text": "<b>Nebula (Restriction:Team)<br> (Cost: 6 Points)</b><br> Nebula is a Celestial, one of the very few outside the Crescent Veil, which is the enormous nebula that the Celestials call home. Nebulas body is made up of space gas that she has solidified into a tangible body with her psionic powers. She can shift between a gaseous form and a solid form at will. Nebula is a young Celestial, only 4 or 5 hundred years old, and she grew restless in the Veil. She left to see and explore, and grew sad upon discovering the suffering of innocents. She has decided to temporarily renounce her pacifism, and has joined with you to help others. Nebula is a very curious, bubbly person. She tends to ask many, many questions, but when she’s not doing that, she's floating in front of a large window, meditating. She has no need for a Space Suit, as she does not need to breathe. She can fly through a vacuum under her own power. She also does not need weapons, thanks to her immense psionic powers.When she gets emotional, she disrupts gravity around her. It is unknown if she can die.<br> She has Beautiful, Diplomatic, Psionics, Precision, and Superhuman."
       },
       "lup": {
@@ -1244,7 +1244,7 @@
         },
         "abilities": ["intelligence", "enhanced_senses", "beautiful", "tech_skills", "combat_training", "psionics", "rage", "psionic_enhacement", "superhuman"],
         "points": 6,
-        "restriction" : "team",
+        "restriction" : "Your Team",
         "text": "<b>Lup (Restriction: Team)<br> (Cost: 6 Points)</b><br> Lup is an Altean, roughly around 160 years old. Lup and her twin brother are extremely powerful psionics. but whereas Lup got advanced degrees in theoretical physics, aerospace engineering, and biotechnology, her brother became a famous chef instead. Lup is every bit the chef that he is, she just had different goals in mind. After obtaining her degrees, Lup joined the Altean Navy at the age of 70 ( 19 in human terms), and quickly ascended the ranks. However, after numerous engagements and awards, she became upset with the Altean s policy of non-interference when possible, so she left, and travels around helping others where she can.<br> Lup is fascinated with human culture, especially Punk-Rock culture.<br> Lup has powers over Fire, and can both generate and withstand fires of up to 2000 Celsius. She can hurl blasts of fire, propel herself, and even coat her entire body in flame.<br> Lup's Space Suit has an Energy Shield, Survivalist, a Cyberwarfare Suite, and Firepower.<br> Lup has Intelligence, Enhanced Senses, Beautiful, Tech Skills, Combat Training, Psionics (Fire), Rage, Psionic Enhancement and Superhuman (Fire)."
       },
       "eve": {
@@ -1256,7 +1256,7 @@
         },
         "abilities": ["combat_training", "intelligence", "tech_skills", "piloting", "enhanced_senses", "beautiful", "special_ops", "peak_physical_fitness", "armored", "cybernetics_x4"],
         "points": 5,
-        "restriction" : "ship",
+        "restriction" : "Your Ship",
         "text": "<b>Eve (Restriction: Ship)<br> (Cost: 5 Points)</b><br> The advanced quantum Artificial Intelligence that inhabits your ship has it’s own advanced android platform.The fact that it can inhabit both at the same time is unprecedented. All other Als in existence are relegated to a single platform, be that a ship or an android body. As long as the ship is within I AU of the body. Eve can operate at maximum efficiency in both her ship form and her android form. Any further and she experiences a drop in efficiency. Her android form is resistant to high temperatures, small arms fire, and blunt force trauma. She is equipped with a Kinetic Shield generator and an Energy Shield generator, and she has multiple clusters of alien nanobots that work constantly to keep her android form in top shape. In addition to that, she is a master of cyberwarfare, hacking through enemies defenses within minutes, if not seconds. She is incredibly agile and flexible, moving with the grace of a ballerina, or a master infiltrator. Her android body is also incredibly lifelike. Eve has Com bat Training. Intelligence.Tech Skills, Piloting, Enhanced Senses, Beautiful, Special Ops, Peak Physical Fitness, Cybernetics (x4), and Armored."
       }
     }
