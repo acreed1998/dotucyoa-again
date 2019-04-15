@@ -13,6 +13,7 @@ import Ship from './routes/Ship';
 import ChoicesModalWrapped from './components/ChoicesModal';
 import _ from 'lodash';
 import Team from './routes/Team';
+import BoonsAndDrawbacks from './routes/BoonsAndDrawbacks';
 
 class App extends Component {
   constructor(props) {
@@ -294,6 +295,12 @@ class App extends Component {
               <Route path="/team/" render={() => <Team
                 user={this.state.user}
                 team={CYOAData.team}
+                modifyTeam={this.modifyTeam.bind(this)}
+              />} />
+              <Route path="/bandd/" render={() => <BoonsAndDrawbacks
+                user={this.state.user}
+                boons={CYOAData.boons}
+                drawbacks={CYOAData.drawbacks}
                 modifyTeam={this.modifyTeam.bind(this)}
               />} />
             </div>
