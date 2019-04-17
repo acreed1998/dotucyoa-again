@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import { GiBookCover, GiRoundStar, GiChecklist, GiSwordsEmblem, GiRocket, GiThreeFriends } from "react-icons/gi";
+import { GiBookCover, GiRoundStar, GiChecklist, GiSwordsEmblem, GiRocket, GiThreeFriends, GiDualityMask } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 class SimpleBottomNavigation extends React.Component {
@@ -38,6 +38,7 @@ class SimpleBottomNavigation extends React.Component {
         <BottomNavigationAction label={"Armor & Weapons"} icon={<GiSwordsEmblem size={'2em'} />} component={Link} to={"/arandw/"} />
         <BottomNavigationAction label={"Ship"} icon={<GiRocket size={'2em'} />} component={Link} to={"/ship/"} />
         <BottomNavigationAction label={"Team"} icon={<GiThreeFriends size={'2em'} />} component={Link} to={"/team/"} />
+        <BottomNavigationAction label={"Boons & Drawbacks"} icon={<GiDualityMask size={'2em'} />} component={Link} to={"/bandd/"} />
       </BottomNavigation>
     );
   }
