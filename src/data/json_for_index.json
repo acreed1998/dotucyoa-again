@@ -924,6 +924,7 @@
       "morgan_yu": {
         "member_name": "Dr. Morgan Yu",
         "race" : "human",
+        "gender": "female",
         "armor": {
           "type": "space_suit",
           "traits": ["jump_jets", "dr_armor", "survivalist", "smart_armor"]
@@ -935,6 +936,7 @@
       "rick_jordan": {
         "member_name": "Rick 'Robocop' Jordan",
         "race": "andoroid",
+        "gender": "male",
         "armor": {
           "type": "body",
           "traits": ["kinetic_shield", "hardlight_shield", "nanobots", "survivalist"]
@@ -946,6 +948,7 @@
       "amelia_oxton": {
         "member_name": "Flight Lt. Amelia Oxton",
         "race": "human",
+        "gender":"female",
         "armor": {
           "type": "space_suit",
           "traits": ["jump_jets", "kinetic_shield", "kinetic_gauntlets", "dr_armor"]
@@ -957,6 +960,7 @@
       "josef_kateb": {
         "member_name": "Dr. Josef Kateb",
         "race": "android",
+        "gender":"male",
         "armor": {
           "type": "body",
           "traits": ["energy_shield", "tentacle", "survivalist", "elemental_gauntlents"]
@@ -971,6 +975,7 @@
       "kim_song": {
         "member_name": "Kim 'Kitty' Song",
         "race": "human",
+        "gender":"female",
         "armor": {
           "type": "power_armor",
           "traits": ["jump_jets", "energy_shield", "nanobots", "firepower", "enhanced_servos", "enhanced_shell", "energy_systems", "dr_armor"]
@@ -985,6 +990,7 @@
       "faezi_perev": {
         "member_name": "Faezi Perev",
         "race": "asari",
+        "gender":"female",
         "weapon" : ["panther", "uber_blade"], 
         "armor": {
           "type": "space_suit",
@@ -997,6 +1003,7 @@
       "kayvorah endeavor": {
         "member_name": "Kay'Vorah vas Endeavor",
         "race": "quarian",
+        "gender":"female",
         "weapon" : ["falcon_sniper_rifle", "tiger_sharks"], 
         "armor": {
           "type": "space_suit",
@@ -1009,6 +1016,7 @@
       "refaxamin_guyya": {
         "member_name": "Refa'Xamin vas Gyya",
         "race": "quarian",
+        "gender":"female",
         "armor": {
           "type": "none",
           "traits": []
@@ -1023,6 +1031,7 @@
       "yonera": {
         "member_name": "Yonera",
         "race": "qunari",
+        "gender": "female",
         "weapon" : ["mono_molecular_blade", "mag"],
         "armor": {
           "type": "space_suit",
@@ -1035,6 +1044,7 @@
       "bulwark": {
         "member_name": "Bulwark",
         "race": "qunari",
+        "gender":"male",
         "weapon" : ["energy_blade", "minigun"],
         "armor": {
           "type": "space_suit",
@@ -1047,6 +1057,7 @@
       "doz_brutal": {
         "member_name": "Doz the Brutal",
         "race": "gray",
+        "gender":"female",
         "weapon" : ["laser_rifle"],
         "armor": {
           "type": "space_suit",
@@ -1059,6 +1070,7 @@
       "harnld": {
         "member_name": "Harnld",
         "race": "gray",
+        "gender":"male",
         "armor": {
           "type": "space_suit",
           "traits": ["dr_armor", "survivalist", "tentacle", "energy_shield"]
@@ -1070,6 +1082,7 @@
       "esora_teanus": {
         "member_name": "Esora T'eanus",
         "race": "asari",
+        "gender":"female",
         "armor": {
           "type": "space_suit",
           "traits": ["jump_jets", "survivalist", "dr_armor", "kinetic_shield"]
@@ -1081,6 +1094,7 @@
       "aquila": {
         "member_name": "Aquila",
         "race": "asari",
+        "gender":"female",
         "armor": {
           "type": "space_suit",
           "traits": ["kinetic_shield", "survivalist", "enhanced_servos", "smart_armor"]
@@ -1092,6 +1106,7 @@
       "rio": {
         "member_name": "Rio",
         "race": "aquoid",
+        "gender":"female",
         "armor": {
           "type": "space_suit",
           "traits": ["survivalist", "energy_gauntlets", "jump_jets"]
@@ -1103,6 +1118,7 @@
       "charlie": {
         "member_name": "Charlie",
         "race": "aquoid",
+        "gender":"male",
         "weapon" : ["tiger_sharks", "hardlight_blade"],
         "armor": {
           "type": "space_suit",
@@ -1115,6 +1131,7 @@
       "julea_victolus": {
         "member_name": "Julea Victolus",
         "race": "turian",
+        "gender":"female",
         "armor": {
           "type": "space_suit",
           "traits": ["jump_jets", "survivalist", "energy_shield", "stealth"]
@@ -1126,6 +1143,7 @@
       "hunter": {
         "member_name": "The Hunter",
         "race": "unknown",
+        "gender":"male",
         "weapon" : ["gauss_rifle", "mono_molecular_blade"],
         "armor": {
           "type": "space_suit",
@@ -1138,6 +1156,7 @@
       "kayla_ghost": {
         "member_name": "Kayla the Ghost",
         "race": "human",
+        "gender":"female",
         "weapon" : ["anti_material_rifle", "hardlight_blade"],
         "armor": {
           "type": "space_suit",
@@ -1150,6 +1169,7 @@
       "iris_brauner": {
         "member_name": "Iris Brauner",
         "race": "human",
+        "gender":"female",
         "weapon" : ["tiger_sharks"],
         "armor": {
           "type": "mech",
@@ -1162,6 +1182,7 @@
       "sky_tulach": {
         "member_name": "Sky Tulach",
         "race": "human",
+        "gender":"female",
         "weapon" : ["magnum", "kinetic_staff"],
         "armor": {
           "type": "space_suit",
@@ -1174,6 +1195,7 @@
       "sten": {
         "member_name": "Sten",
         "race": "qunari",
+        "gender":"male",
         "weapon" : ["kinetic_warhammer", "flamethrower"],
         "armor": {
           "type": "space_suit",
@@ -1186,6 +1208,7 @@
       "sun": {
         "member_name": "Sun",
         "race": "human",
+        "gender":"female",
         "weapon" : ["shotgun"],
         "armor": {
           "type": "space_suit",
@@ -1201,6 +1224,7 @@
       "sumia_valmaer": {
         "member_name": "Sumia Valmaer",
         "race": "altean",
+        "gender":"female",
         "weapon" : ["plasma_blade", "pulse_pistols"],
         "armor": {
           "type": "space_suit",
@@ -1213,6 +1237,7 @@
       "miki": {
         "member_name": "Miki",
         "race": "kitsune",
+        "gender":"female",
         "weapon" : ["uber_blade", "panther", "puma"],
         "armor": {
           "type": "space_suit",
@@ -1226,6 +1251,7 @@
       "nebula": {
         "member_name": "Nebula",
         "race": "celestial",
+        "gender":"female",
         "armor": {
           "type": "not_applicable",
           "traits": "not_applicable"
@@ -1238,6 +1264,7 @@
       "lup": {
         "member_name": "Lup",
         "race": "altean",
+        "gender":"female",
         "armor": {
           "type": "space_suit",
           "traits": ["energy_shield", "survivalist", "cyberwarfare_suite", "firepower"]
@@ -1250,6 +1277,7 @@
       "eve": {
         "member_name": "Eve",
         "race": "android",
+        "gender":"female",
         "armor": {
           "type": "body",
           "traits": ["kinetic_shield", "energy_shield", "nanobots", "cyberwarfare_suite"]

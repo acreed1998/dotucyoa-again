@@ -18,7 +18,15 @@ export default class BoonsAndDrawbacks extends Component {
   }
 
   modifyBoons(boonObject) {
-
+    const user = this.props.user;
+    const boons = user.boons;
+    if (!_.includes(boons, boonObject)) {
+      boons.push(boonObject);
+      this.props.modifyBoons(boons);
+    } else {
+      _.pullAt(boons, _.indexOf(boons, boonObject));
+      this.props.modifyBoons(boons);
+    }
   }
 
   modifyDrawbacks(drawbackObject) {
@@ -58,7 +66,7 @@ export default class BoonsAndDrawbacks extends Component {
                 <ChoiceCard
                   cardText={choice.text}
                   special={index}
-                  picked={_.includes(this.props.user.boons, choice)}
+                  picked={_.includes(this.props.user.drawbacks, choice)}
                   onClick={() => { this.modifyDrawbacks(choice) }} />
               </GridItem>
             );

@@ -49,6 +49,7 @@ class App extends Component {
         section: 'Opening'
       },
       tally: {
+        race: 0,
         abilities: 0,
         armor: 0,
         armor_traits: 0,
@@ -79,11 +80,12 @@ class App extends Component {
   }
 
   changeRace(raceArray) {
-    const extra = _.sum(_.map(raceArray, race => race.extra_points === undefined ? 0 : race.extra_points));
+    const raceNames = _.map(raceArray, raceObject => raceObject.race);
     const user = this.state.user;
+    const tally = this.state.tally;
+    tally.race = _.includes(raceNames, 'Human') ? -5 : 0;
     user.race = raceArray;
-    this.setState({ user: user });
-    this.modifyMaxPoints(extra);
+    this.setState({ user: user, tally: tally });
     this.modifyAbilities(this.state.user.abilities);
     this.modifyArmor(this.state.user.armor);
     this.modifyArmorTraits(this.state.user.armor_traits);
@@ -231,6 +233,7 @@ class App extends Component {
   modifyTeam(teamMembersArray) {
     const user = this.state.user;
     const tally = this.state.tally;
+    const boonNames = _.map(user.boons, boonObject => boonObject.name);
     const specialNames = _.map(user.special, specialObject => specialObject.special);
     const filteredMembers = _.filter(teamMembersArray, memberObject => {
       if (memberObject.restriction) {
@@ -240,10 +243,19 @@ class App extends Component {
       }
     });
     user.team_members = filteredMembers;
-    tally.team_members = _.sum(_.map(filteredMembers, memberObject => memberObject.points));
+    tally.team_members = _.sum(_.map(filteredMembers, memberObject => {
+      return !(memberObject.gender === 'female' && _.includes(boonNames, 'Hello Ladies...')) ? memberObject.points : memberObject.points - 1 < 1 ? 1 : memberObject.points - 1;
+    }));
     this.setState({user: user, tally: tally});
     this.modifyPoints();
   };
+
+  modifyBoons(boonsArray) {
+    const user = this.state.user;
+    user.boons = boonsArray;
+    this.setState({user: user});
+    this.modifyDrawbacks(this.state.user.drawbacks);
+  }
 
   modifyDrawbacks(drawbacksArray) {
     const user = this.state.user;
@@ -267,7 +279,7 @@ class App extends Component {
       }
     });
     user.drawbacks = filteredDrawbacks;
-    tally.drawbacks = -(filteredDrawbacks.length - requires) * 3;
+    tally.drawbacks = filteredDrawbacks.length - requires > 0 ? -(filteredDrawbacks.length - requires) * 3 : 0;
     this.setState({user: user, tally: tally});
     this.modifyPoints();
   };
@@ -280,7 +292,7 @@ class App extends Component {
 
   modifyPoints() {
     const user = this.state.user;
-    user.points = user.maxPoints - _.sum(_.map(this.state.tally, (value) => value));
+    user.points = 75 - _.sum(_.map(this.state.tally, (value) => value));
     this.setState({user: user});
   }
 
@@ -332,6 +344,7 @@ class App extends Component {
                 boons={CYOAData.boons}
                 drawbacks={CYOAData.drawbacks}
                 modifyDrawbacks={this.modifyDrawbacks.bind(this)}
+                modifyBoons={this.modifyBoons.bind(this)}
               />} />
             </div>
           </div>
