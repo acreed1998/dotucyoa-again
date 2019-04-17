@@ -1305,11 +1305,13 @@
       "time": {
         "name": "Time",
         "drawbacks": 1,
+        "points": 8,
         "text": "<b>Time (Take I Drawback)</b><br> You're not young anymore, you’re closer to being middle aged than anything else, but you've had a lot of time to improve yourself, to go through school and learn.<br> Gain an extra 8 points to be used in the Abilities and Team sections."
       },
       "luck_of_the_draw": {
         "name": "Luck of the Draw",
         "drawbacks": 1,
+        "points": 10,
         "text": "<b>Luck of the Draw<br> (Take I Drawback)</b><br> You were born into a wealth/ family, and you have far more resources than most.<br><br> Gain an extra 10 points to be used in the Armor, Weapons, and Ship sections."
       },
       "born_this_way": {

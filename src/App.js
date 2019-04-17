@@ -23,6 +23,8 @@ class App extends Component {
       user: {
         maxPoints: 75,
         points: 75,
+        lotd_points: 0,
+        time_points: 0,
         special: [],
         race: [],
         abilities: [],
@@ -52,6 +54,20 @@ class App extends Component {
         race: 0,
         abilities: 0,
         armor: 0,
+        time: {
+          extra: 0,
+          abilities: 0,
+          team_members: 0,
+        },
+        lotd: {
+          extra: 0,
+          armor: 0,
+          armor_traits: 0,
+          weapons: 0,
+          ship_type: 0,
+          ship_style: 0,
+          ship_traits: 0,
+        },
         armor_traits: 0,
         weapons: 0,
         ship_type: 0,
@@ -59,6 +75,7 @@ class App extends Component {
         ship_traits: 0,
         team_members: 0,
         drawbacks: 0,
+        boons: 0,
       },
       choicesModalOpen: false,
     };
@@ -252,8 +269,12 @@ class App extends Component {
 
   modifyBoons(boonsArray) {
     const user = this.state.user;
+    const tally = this.state.tally;
+    const boonNames = _.map(boonsArray, boonObject => boonObject.name);
     user.boons = boonsArray;
-    this.setState({user: user});
+    tally.time.extra = _.includes(boonNames, 'Time') ? 8 : 0;
+    tally.lotd.extra = _.includes(boonNames, 'Luck of the Draw') ? 10 : 0;    
+    this.setState({user: user, tally: tally});
     this.modifyDrawbacks(this.state.user.drawbacks);
   }
 
@@ -292,7 +313,16 @@ class App extends Component {
 
   modifyPoints() {
     const user = this.state.user;
-    user.points = 75 - _.sum(_.map(this.state.tally, (value) => value));
+    user.points = 75 - _.sum(_.map(this.state.tally, (value) => {
+      if (typeof value === 'object') {
+        const cost = _.sum(_.map(value, (subValue, key) => {
+          return subValue;
+        }));
+        return cost > 0 ? cost : 0;
+      } else {
+        return value;
+      }
+    }));
     this.setState({user: user});
   }
 
@@ -348,7 +378,15 @@ class App extends Component {
               />} />
             </div>
           </div>
-          <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}} onClick={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}>{this.state.user.points}</Button>
+          <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}} onClick={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}>
+            <div>
+              {this.state.user.points}
+              <br />
+              {this.state.tally.time.extra}
+              <br />
+              {this.state.tally.lotd.extra}
+            </div>
+          </Button>
           <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
           <ChoicesModalWrapped
           choicesModalOpen={this.state.choicesModalOpen}

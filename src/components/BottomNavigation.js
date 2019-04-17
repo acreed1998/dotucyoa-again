@@ -11,7 +11,7 @@ class SimpleBottomNavigation extends React.Component {
     super(props);
     this.state = {
       value: 0,
-      sections: ['Opening', 'Special', 'Race & Abilitiess', 'Armor & Weapons', 'Ship'], 
+      sections: ['Opening', 'Special', 'Race & Abilitiess', 'Armor & Weapons', 'Ship', 'Team', 'Boons & Drawbacks'], 
     }
   }
 
