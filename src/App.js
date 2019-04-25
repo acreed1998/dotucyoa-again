@@ -23,6 +23,8 @@ class App extends Component {
       user: {
         maxPoints: 75,
         points: 75,
+        lotd_points: 0,
+        time_points: 0,
         special: [],
         race: [],
         abilities: [],
@@ -52,6 +54,20 @@ class App extends Component {
         race: 0,
         abilities: 0,
         armor: 0,
+        time: {
+          extra: 0,
+          abilities: 0,
+          team_members: 0,
+        },
+        lotd: {
+          extra: 0,
+          armor: 0,
+          armor_traits: 0,
+          weapons: 0,
+          ship_type: 0,
+          ship_style: 0,
+          ship_traits: 0,
+        },
         armor_traits: 0,
         weapons: 0,
         ship_type: 0,
@@ -59,6 +75,11 @@ class App extends Component {
         ship_traits: 0,
         team_members: 0,
         drawbacks: 0,
+        boons: 0,
+      },
+      leftover: {
+        lotd: 0,
+        time: 0,
       },
       choicesModalOpen: false,
     };
@@ -110,7 +131,7 @@ class App extends Component {
     const user = this.state.user;
     user.abilities = abiltiyCheck;
     const points = _.sum(_.map(_.filter(abiltiyCheck, ability => !_.includes(_.concat(userRaces, specialNames), ability.free)), filteredAbility => filteredAbility.points));
-    tally.abilities = points;
+    tally.time.abilities = points;
     this.setState({ user: user, tally: tally });
     this.modifyPoints();
     this.modifyDrawbacks(this.state.user.drawbacks);
@@ -126,7 +147,7 @@ class App extends Component {
         user.armor_traits = _.slice(user.armor_traits, 0, user.armor[user.armor.length - 1].traits);
       }
     }
-    tally.armor = _.sum(_.map(_.filter(user.armor, armorTraitObject => !_.includes(specialNames, armorTraitObject.free)), armor => {
+    tally.lotd.armor = _.sum(_.map(_.filter(user.armor, armorTraitObject => !_.includes(specialNames, armorTraitObject.free)), armor => {
       if (!armor.half) {
         return armor.points
       } else {
@@ -162,7 +183,7 @@ class App extends Component {
       }
     });
     user.armor_traits = armorTraitsCheck;
-    tally.armor_traits = _.sum(_.map(armorTraitsCheck, filteredAbility => filteredAbility.points));
+    tally.lotd.armor_traits = _.sum(_.map(armorTraitsCheck, filteredAbility => filteredAbility.points));
     this.setState({ user: user, tally: tally });
     this.modifyPoints();
   }
@@ -172,7 +193,7 @@ class App extends Component {
     const tally = this.state.tally;
     user.weapons = weaponsArray;
     const points = _.sum(_.map(weaponsArray, weapon => weapon.points));
-    tally.weapons = points;
+    tally.lotd.weapons = points;
     this.setState({ user: user, tally: tally });
     this.modifyPoints();
   }
@@ -181,7 +202,7 @@ class App extends Component {
     const user = this.state.user;
     const tally = this.state.tally;
     user.ship = shipObject;
-    tally.ship_type = _.includes(_.map(this.state.user.special, specialObject => specialObject.special), 'Your Ship') ? shipObject.points !== undefined ? shipObject.points / 2 : 0 : shipObject.points;
+    tally.lotd.ship_type = _.includes(_.map(this.state.user.special, specialObject => specialObject.special), 'Your Ship') ? shipObject.points !== undefined ? shipObject.points / 2 : 0 : shipObject.points;
     this.setState({ user: user, tally: tally });
     this.changeShipStyle(this.state.user.ship_style);
     this.modifyPoints();
@@ -191,7 +212,7 @@ class App extends Component {
     const user = this.state.user;
     const tally = this.state.tally;
     user.ship_style = shipStyleObject;
-    tally.ship_style = _.includes(_.map(user.race, raceObject => raceObject.race), shipStyleObject.type) ? 0 : shipStyleObject.points;
+    tally.lotd.ship_style = _.includes(_.map(user.race, raceObject => raceObject.race), shipStyleObject.type) ? 0 : shipStyleObject.points;
     this.setState({ user: user, tally: tally });
     this.modifyShipTraits(this.state.user.ship_traits);
     this.modifyPoints();
@@ -224,7 +245,7 @@ class App extends Component {
       return shipTrait.trait !== 'Command Bridge' ? shipTrait.basic : (user.ship.type !== 'Frigate' && user.ship.type !== '') ? 0 : 1;
     }));
     const upgradePoints = _.sum(_.map(filteredUpgrade, shipTrait => shipTrait.basic + shipTrait.upgrade));
-    tally.ship_traits = basicPoints + upgradePoints;
+    tally.lotd.ship_traits = basicPoints + upgradePoints;
     this.setState({user: user, tally: tally});
     this.modifyPoints();
     this.modifyDrawbacks(this.state.user.drawbacks);
@@ -243,7 +264,7 @@ class App extends Component {
       }
     });
     user.team_members = filteredMembers;
-    tally.team_members = _.sum(_.map(filteredMembers, memberObject => {
+    tally.time.team_members = _.sum(_.map(filteredMembers, memberObject => {
       return !(memberObject.gender === 'female' && _.includes(boonNames, 'Hello Ladies...')) ? memberObject.points : memberObject.points - 1 < 1 ? 1 : memberObject.points - 1;
     }));
     this.setState({user: user, tally: tally});
@@ -252,8 +273,12 @@ class App extends Component {
 
   modifyBoons(boonsArray) {
     const user = this.state.user;
+    const tally = this.state.tally;
+    const boonNames = _.map(boonsArray, boonObject => boonObject.name);
     user.boons = boonsArray;
-    this.setState({user: user});
+    tally.time.extra = _.includes(boonNames, 'Time') ? -8 : 0;
+    tally.lotd.extra = _.includes(boonNames, 'Luck of the Draw') ? -10 : 0;    
+    this.setState({user: user, tally: tally});
     this.modifyDrawbacks(this.state.user.drawbacks);
   }
 
@@ -292,11 +317,26 @@ class App extends Component {
 
   modifyPoints() {
     const user = this.state.user;
-    user.points = 75 - _.sum(_.map(this.state.tally, (value) => value));
+    user.points = 75 - _.sum(_.map(this.state.tally, (value) => {
+      if (typeof value === 'object') {
+        const cost = _.sum(_.map(value, (subValue, key) => {
+          return subValue;
+        }));
+        return cost > 0 ? cost : 0;
+      } else {
+        return value;
+      }
+    }));
     this.setState({user: user});
   }
 
   render() {
+    const lotdPoints = Math.abs(this.state.tally.lotd.extra) - _.sum(_.map(this.state.tally.lotd, (num, key) => {
+      return key !== 'extra' ? num : 0;
+    }));
+    const timePoints = Math.abs(this.state.tally.time.extra) - _.sum(_.map(this.state.tally.time, (num, key) => {
+      return key !== 'extra' ? num : 0;
+    }));
     return (
       <div className="App">
         <Router>
@@ -348,7 +388,15 @@ class App extends Component {
               />} />
             </div>
           </div>
-          <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}} onClick={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}>{this.state.user.points}</Button>
+          <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}} onClick={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}>
+            <div>
+              {this.state.user.points}
+              <br />
+              {timePoints > 0 ? timePoints : 0}
+              <br />
+              {lotdPoints > 0 ? lotdPoints : 0}
+            </div>
+          </Button>
           <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />
           <ChoicesModalWrapped
           choicesModalOpen={this.state.choicesModalOpen}
