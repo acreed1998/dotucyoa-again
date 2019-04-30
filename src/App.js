@@ -14,6 +14,7 @@ import ChoicesModalWrapped from './components/ChoicesModal';
 import _ from 'lodash';
 import Team from './routes/Team';
 import BoonsAndDrawbacks from './routes/BoonsAndDrawbacks';
+import EventsAndRewards from './routes/EventsAndRewards';
 
 class App extends Component {
   constructor(props) {
@@ -243,7 +244,6 @@ class App extends Component {
 
   modifyShipTraits(shipTraitsObject) {
     const user = this.state.user;
-    const ship = user.ship;
     const tally = this.state.tally;
     const basicNames = _.map(shipTraitsObject.basic, shipTrait => shipTrait.trait);
     const upgradeNames = _.map(shipTraitsObject.upgrade, shipTrait => shipTrait.trait);
@@ -380,7 +380,9 @@ class App extends Component {
           <div>
             <div>{`Defender of the Universe`}</div>
             <div>
-              <Route path="/" exact render={() => <Opening openingText={CYOAData.opening} />} />
+              <Route path="/" exact render={() => <Opening
+                openingText={CYOAData.opening}
+                nonPlayableRaces={CYOAData.non_playable_characters} />} />
               <Route path="/special/" render={() => <Special
                 special={CYOAData.special}
                 user={this.state.user}
@@ -390,6 +392,7 @@ class App extends Component {
                 races={CYOAData.race}
                 abilities={CYOAData.abilities}
                 changeRace={this.changeRace.bind(this)}
+                nonPlayableRaces={CYOAData.non_playable_characters}
                 modifyAbilities={this.modifyAbilities.bind(this)}
                 modifyPoints={this.modifyPoints.bind(this)}
               />} />
@@ -423,6 +426,11 @@ class App extends Component {
                 drawbacks={CYOAData.drawbacks}
                 modifyDrawbacks={this.modifyDrawbacks.bind(this)}
                 modifyBoons={this.modifyBoons.bind(this)}
+              />} />
+              <Route path="/eandw/" render={() => <EventsAndRewards
+                user={this.state.user}
+                events={CYOAData.events}
+                rewards={CYOAData.unique_rewards}
               />} />
             </div>
           </div>

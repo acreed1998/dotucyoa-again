@@ -84,6 +84,21 @@ export default class RaceAndAbilities extends Component {
             );
           })}
         </GridItem>
+        <NoChoiceCard cardText={this.props.nonPlayableRaces.opening} />
+        <GridItem container spacing={24} justify='space-evenly'>
+          {_.map(this.props.nonPlayableRaces.choices, (choice, index) => {
+            return (
+              <GridItem key={`race-grid-${index}`} item xs>
+                <ChoiceCard
+                  cardText={choice.text}
+                  special={index}
+                  changeRace={this.props.changeRace}
+                  picked={_.includes(this.props.user.race, choice)}
+                  onClick={() => { this.changeRace(choice) }} />
+              </GridItem>
+            );
+          })}
+        </GridItem>
         <NoChoiceCard cardText={this.props.abilities.opening} />
         <GridItem container spacing={24} justify='space-evenly'>
           {_.map(this.props.abilities.choices, (choice, index) => {
