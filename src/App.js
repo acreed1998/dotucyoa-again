@@ -236,7 +236,6 @@ class App extends Component {
       }
       return _.includes(_.concat(basicNames, upgradeNames, specialNames), shipTrait.require);
     });
-    console.log(filteredBasic, filteredUpgrade);
     user.ship_traits = {
       basic: filteredBasic,
       upgrade: filteredUpgrade,
@@ -264,9 +263,21 @@ class App extends Component {
       }
     });
     user.team_members = filteredMembers;
-    tally.time.team_members = _.sum(_.map(filteredMembers, memberObject => {
-      return !(memberObject.gender === 'female' && _.includes(boonNames, 'Hello Ladies...')) ? memberObject.points : memberObject.points - 1 < 1 ? 1 : memberObject.points - 1;
-    }));
+    if (_.includes(specialNames, 'Your Team')) {
+      const restrictedMembers = _.filter(filteredMembers, memberObject => memberObject.restriction !== undefined);
+      const unrestrictedMembers = _.filter(filteredMembers, memberObject => memberObject.restriction === undefined);
+      const umMappedPointValues = _.map(unrestrictedMembers, memberObject => {
+        return !(memberObject.gender === 'female' && _.includes(boonNames, 'Hello Ladies...')) ? memberObject.points : memberObject.points - 1 < 1 ? 1 : memberObject.points - 1;
+      }).sort();
+      const rmMappedPointValues = _.map(restrictedMembers, memberObject => {
+        return !(memberObject.gender === 'female' && _.includes(boonNames, 'Hello Ladies...')) ? memberObject.points : memberObject.points - 1 < 1 ? 1 : memberObject.points - 1;
+      });
+      tally.time.team_members = _.sum(_.slice(umMappedPointValues, 0, umMappedPointValues.length - 2)) + _.sum(rmMappedPointValues);
+    } else {
+      tally.time.team_members = _.sum(_.map(filteredMembers, memberObject => {
+        return !(memberObject.gender === 'female' && _.includes(boonNames, 'Hello Ladies...')) ? memberObject.points : memberObject.points - 1 < 1 ? 1 : memberObject.points - 1;
+      }));
+    }
     this.setState({user: user, tally: tally});
     this.modifyPoints();
   };
@@ -390,11 +401,11 @@ class App extends Component {
           </div>
           <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}} onClick={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}>
             <div>
-              {this.state.user.points}
+              {`Main: ${this.state.user.points}`}
               <br />
-              {timePoints > 0 ? timePoints : 0}
+              {`Time: ${timePoints > 0 ? timePoints : 0}`}
               <br />
-              {lotdPoints > 0 ? lotdPoints : 0}
+              {`LOTD: ${lotdPoints > 0 ? lotdPoints : 0}`}
             </div>
           </Button>
           <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />

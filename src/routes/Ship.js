@@ -45,6 +45,7 @@ export default class Ship extends Component {
     const ship_traits = user.ship_traits;
     const points = user.points;
     const ship = user.ship;
+    const numOfCurrentTrits = ship_traits.upgrade.length + _.filter(ship_traits.basic, traitObject => traitObject.basic > 0 && traitObject.weapon !== true).length;
     if (!_.includes(ship_traits.basic, shipTraitObject)) {
       if (points - shipTraitObject.basic > -1) {
         if (shipTraitObject.weapon) {
@@ -59,8 +60,10 @@ export default class Ship extends Component {
             }
           }
         } else {
-          ship_traits.basic.push(shipTraitObject);
-          this.props.modifyShipTraits(ship_traits);
+          if (user.ship.traits - (numOfCurrentTrits + 1) > -1) {
+            ship_traits.basic.push(shipTraitObject);
+            this.props.modifyShipTraits(ship_traits);
+          }
         }
       }
     } else {
@@ -72,7 +75,7 @@ export default class Ship extends Component {
   basicOrUpgrade(shipTraitObject, boru) {
     const user = this.props.user;
     const ship_traits = user.ship_traits;
-    const numOfCurrentTrits = ship_traits.upgrade.length + _.filter(ship_traits.basic, traitObject => traitObject.basic > 0).length;
+    const numOfCurrentTrits = ship_traits.upgrade.length + _.filter(ship_traits.basic, traitObject => traitObject.basic > 0 && traitObject.weapon !== true).length;
     const points = user.points;
     if (boru === 'upgrade') {
       if (_.includes(ship_traits.basic, shipTraitObject)) {
