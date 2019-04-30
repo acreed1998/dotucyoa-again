@@ -13,7 +13,7 @@
       },
       "your_ship" : {
         "special": "Your Ship",
-        "text": "<p><b>Your Ship</b></p><p>Your ship truly is something else; no one you've ever brought it to has ever seen anything like it before. It's nigh-indestructible, faster than any other ship of its class, and it's inhabited by the most powerful A.I. ever found or made.<br><br>-All ship class costs are cut in half<br>-All Restriction:Team options are unlocked</p>"
+        "text": "<p><b>Your Ship</b></p><p>Your ship truly is something else; no one you've ever brought it to has ever seen anything like it before. It's nigh-indestructible, faster than any other ship of its class, and it's inhabited by the most powerful A.I. ever found or made.<br><br>-All ship class costs are cut in half<br>-All Restriction:Ship options are unlocked</p>"
       },
       "you" : {
         "special": "You",

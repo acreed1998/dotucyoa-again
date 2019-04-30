@@ -69,6 +69,7 @@ class App extends Component {
           ship_type: 0,
           ship_style: 0,
           ship_traits: 0,
+          ship_weapons: 0,
         },
         armor_traits: 0,
         weapons: 0,
@@ -221,7 +222,23 @@ class App extends Component {
   }
 
   modifyShipWeapons(weaponsArray) {
-    console.log(weaponsArray);
+    const user = this.state.user;
+    const tally = this.state.tally;
+    const ship_style = user.ship_style.type;
+    const traitNames = _.map(user.ship_traits.basic, shipTraitObject => shipTraitObject.trait);
+    console.log(user.ship, weaponsArray);
+    const maxWeapons = _.includes(traitNames, 'Superweapon') ? user.ship.main_weapons + 1 : user.ship.main_weapons;
+    const noExtraWeapons = weaponsArray.length > maxWeapons ? _.slice(weaponsArray, 0, weaponsArray.length - 1) : weaponsArray;
+    const pointValues = _.map(noExtraWeapons, weaponObject => {
+      if (_.includes(weaponObject.free, ship_style)) {
+        return 0;
+      }
+      return weaponObject.basic;
+    });
+    user.ship_weapons = noExtraWeapons;
+    tally.lotd.ship_weapons = _.sum(pointValues);
+    this.setState({user: user, tally: tally});
+    this.modifyPoints();
   }
 
   modifyShipTraits(shipTraitsObject) {
@@ -259,6 +276,7 @@ class App extends Component {
     tally.lotd.ship_traits = basicPoints + upgradePoints;
     this.setState({user: user, tally: tally});
     this.modifyPoints();
+    this.modifyShipWeapons(this.state.user.ship_weapons);
     this.modifyDrawbacks(this.state.user.drawbacks);
   }
 

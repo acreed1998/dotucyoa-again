@@ -116,16 +116,18 @@ export default class Ship extends Component {
     const ship_traits = user.ship_traits;
     const currentWeapons = user.ship_weapons;
     const traitNames = _.map(ship_traits.basic, shipTraitObject => shipTraitObject.trait);
+    console.log(ship);
     const maxWeapons = _.includes(traitNames, 'Superweapon') ? ship.main_weapons + 1 : ship.main_weapons;
     if (!_.includes(currentWeapons, shipWeaponObject)) {
       if (points - shipWeaponObject.basic > -1) {
-        if (maxWeapons - (currentWeapons + 1) > -1) {
+        if (maxWeapons - (currentWeapons.length + 1) > -1) {
           currentWeapons.push(shipWeaponObject);
           this.props.modifyShipWeapons(currentWeapons);
         }
       }
     } else {
       _.pullAt(currentWeapons, _.indexOf(currentWeapons, shipWeaponObject));
+      this.props.modifyShipWeapons(currentWeapons);
     }
   }
 
