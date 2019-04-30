@@ -110,7 +110,23 @@ export default class Ship extends Component {
   }
 
   chooseWeapon(shipWeaponObject) {
-    
+    const user = this.props.user;
+    const points = user.points;
+    const ship = user.ship;
+    const ship_traits = user.ship_traits;
+    const currentWeapons = user.ship_weapons;
+    const traitNames = _.map(ship_traits.basic, shipTraitObject => shipTraitObject.trait);
+    const maxWeapons = _.includes(traitNames, 'Superweapon') ? ship.main_weapons + 1 : ship.main_weapons;
+    if (!_.includes(currentWeapons, shipWeaponObject)) {
+      if (points - shipWeaponObject.basic > -1) {
+        if (maxWeapons - (currentWeapons + 1) > -1) {
+          currentWeapons.push(shipWeaponObject);
+          this.props.modifyShipWeapons(currentWeapons);
+        }
+      }
+    } else {
+      _.pullAt(currentWeapons, _.indexOf(currentWeapons, shipWeaponObject));
+    }
   }
 
   render() {
@@ -166,7 +182,7 @@ export default class Ship extends Component {
                     cardText={choice.text}
                     special={index}
                     picked={_.includes(this.props.user.ship_weapons, choice)}
-                    onClick={() => { this.basicOrUpgrade(choice, 'basic') }}
+                    onClick={() => { this.chooseWeapon(choice) }}
                   />
                 </GridItem>
               );

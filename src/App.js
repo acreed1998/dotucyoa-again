@@ -220,6 +220,10 @@ class App extends Component {
     this.modifyPoints();
   }
 
+  modifyShipWeapons(weaponsArray) {
+    console.log(weaponsArray);
+  }
+
   modifyShipTraits(shipTraitsObject) {
     const user = this.state.user;
     const ship = user.ship;
@@ -392,6 +396,7 @@ class App extends Component {
                 changeShip={this.changeShip.bind(this)}
                 changeShipStyle={this.changeShipStyle.bind(this)}
                 modifyShipTraits={this.modifyShipTraits.bind(this)}
+                modifyShipWeapons={this.modifyShipWeapons.bind(this)}
               />} />
               <Route path="/team/" render={() => <Team
                 user={this.state.user}
