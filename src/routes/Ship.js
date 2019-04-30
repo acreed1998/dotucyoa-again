@@ -16,6 +16,7 @@ export default class Ship extends Component {
     this.chooseShipStyle = this.chooseShipStyle.bind(this);
     this.chooseBasicShipTrait = this.chooseBasicShipTrait.bind(this);
     this.basicOrUpgrade = this.basicOrUpgrade.bind(this);
+    this.chooseWeapon = this.chooseWeapon.bind(this);
   }
 
   chooseShip(shipObject) {
@@ -108,6 +109,10 @@ export default class Ship extends Component {
     }
   }
 
+  chooseWeapon(shipWeaponObject) {
+    
+  }
+
   render() {
     return (
       <div>
@@ -152,6 +157,17 @@ export default class Ship extends Component {
                     basic={() => { this.basicOrUpgrade(choice, 'basic') }}
                     upgrade={() => { this.basicOrUpgrade(choice, 'upgrade') }}
                     />
+                </GridItem>
+              );
+            } else if (choice.weapon) {
+              return (
+                <GridItem key={`ship_traits-grid-${index}`} item xs>
+                  <ChoiceCard
+                    cardText={choice.text}
+                    special={index}
+                    picked={_.includes(this.props.user.ship_weapons, choice)}
+                    onClick={() => { this.basicOrUpgrade(choice, 'basic') }}
+                  />
                 </GridItem>
               );
             } else {

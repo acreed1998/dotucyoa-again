@@ -34,6 +34,7 @@ class App extends Component {
         ship: {
           type: '',
           traits: 0,
+          main_weapons: 0,
         },
         ship_style: {
           type: '',
@@ -42,6 +43,7 @@ class App extends Component {
           basic: [],
           upgrade: [],
         },
+        ship_weapons: [],
         team_members: [],
         boons: [],
         drawbacks: [],
@@ -220,8 +222,14 @@ class App extends Component {
 
   modifyShipTraits(shipTraitsObject) {
     const user = this.state.user;
+    const ship = user.ship;
     const tally = this.state.tally;
+    let weapons = _.filter(shipTraitsObject.basic, shipTrait => shipTrait.weapon === true);
     const basicNames = _.map(shipTraitsObject.basic, shipTrait => shipTrait.trait);
+    console.log(weapons);
+    if (ship.main_weapons - weapons.length < 0) {
+      _.pullAt(shipTraitsObject.basic, _.indexOf(shipTraitsObject.basic, weapons[weapons.length - 1]));
+    }
     const upgradeNames = _.map(shipTraitsObject.upgrade, shipTrait => shipTrait.trait);
     const specialNames = _.map(user.special, specialObject => specialObject.special);
     const filteredBasic = _.filter(shipTraitsObject.basic, shipTrait => {
