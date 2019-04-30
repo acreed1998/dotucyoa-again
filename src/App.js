@@ -14,6 +14,7 @@ import ChoicesModalWrapped from './components/ChoicesModal';
 import _ from 'lodash';
 import Team from './routes/Team';
 import BoonsAndDrawbacks from './routes/BoonsAndDrawbacks';
+import EventsAndRewards from './routes/EventsAndRewards';
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class App extends Component {
         ship: {
           type: '',
           traits: 0,
+          main_weapons: 0,
         },
         ship_style: {
           type: '',
@@ -42,6 +44,7 @@ class App extends Component {
           basic: [],
           upgrade: [],
         },
+        ship_weapons: [],
         team_members: [],
         boons: [],
         drawbacks: [],
@@ -67,6 +70,7 @@ class App extends Component {
           ship_type: 0,
           ship_style: 0,
           ship_traits: 0,
+          ship_weapons: 0,
         },
         armor_traits: 0,
         weapons: 0,
@@ -218,6 +222,26 @@ class App extends Component {
     this.modifyPoints();
   }
 
+  modifyShipWeapons(weaponsArray) {
+    const user = this.state.user;
+    const tally = this.state.tally;
+    const ship_style = user.ship_style.type;
+    const traitNames = _.map(user.ship_traits.basic, shipTraitObject => shipTraitObject.trait);
+    console.log(user.ship, weaponsArray);
+    const maxWeapons = _.includes(traitNames, 'Superweapon') ? user.ship.main_weapons + 1 : user.ship.main_weapons;
+    const noExtraWeapons = weaponsArray.length > maxWeapons ? _.slice(weaponsArray, 0, weaponsArray.length - 1) : weaponsArray;
+    const pointValues = _.map(noExtraWeapons, weaponObject => {
+      if (_.includes(weaponObject.free, ship_style)) {
+        return 0;
+      }
+      return weaponObject.basic;
+    });
+    user.ship_weapons = noExtraWeapons;
+    tally.lotd.ship_weapons = _.sum(pointValues);
+    this.setState({user: user, tally: tally});
+    this.modifyPoints();
+  }
+
   modifyShipTraits(shipTraitsObject) {
     const user = this.state.user;
     const tally = this.state.tally;
@@ -236,7 +260,6 @@ class App extends Component {
       }
       return _.includes(_.concat(basicNames, upgradeNames, specialNames), shipTrait.require);
     });
-    console.log(filteredBasic, filteredUpgrade);
     user.ship_traits = {
       basic: filteredBasic,
       upgrade: filteredUpgrade,
@@ -248,6 +271,7 @@ class App extends Component {
     tally.lotd.ship_traits = basicPoints + upgradePoints;
     this.setState({user: user, tally: tally});
     this.modifyPoints();
+    this.modifyShipWeapons(this.state.user.ship_weapons);
     this.modifyDrawbacks(this.state.user.drawbacks);
   }
 
@@ -264,9 +288,21 @@ class App extends Component {
       }
     });
     user.team_members = filteredMembers;
-    tally.time.team_members = _.sum(_.map(filteredMembers, memberObject => {
-      return !(memberObject.gender === 'female' && _.includes(boonNames, 'Hello Ladies...')) ? memberObject.points : memberObject.points - 1 < 1 ? 1 : memberObject.points - 1;
-    }));
+    if (_.includes(specialNames, 'Your Team')) {
+      const restrictedMembers = _.filter(filteredMembers, memberObject => memberObject.restriction !== undefined);
+      const unrestrictedMembers = _.filter(filteredMembers, memberObject => memberObject.restriction === undefined);
+      const umMappedPointValues = _.map(unrestrictedMembers, memberObject => {
+        return !(memberObject.gender === 'female' && _.includes(boonNames, 'Hello Ladies...')) ? memberObject.points : memberObject.points - 1 < 1 ? 1 : memberObject.points - 1;
+      }).sort();
+      const rmMappedPointValues = _.map(restrictedMembers, memberObject => {
+        return !(memberObject.gender === 'female' && _.includes(boonNames, 'Hello Ladies...')) ? memberObject.points : memberObject.points - 1 < 1 ? 1 : memberObject.points - 1;
+      });
+      tally.time.team_members = _.sum(_.slice(umMappedPointValues, 0, umMappedPointValues.length - 2)) + _.sum(rmMappedPointValues);
+    } else {
+      tally.time.team_members = _.sum(_.map(filteredMembers, memberObject => {
+        return !(memberObject.gender === 'female' && _.includes(boonNames, 'Hello Ladies...')) ? memberObject.points : memberObject.points - 1 < 1 ? 1 : memberObject.points - 1;
+      }));
+    }
     this.setState({user: user, tally: tally});
     this.modifyPoints();
   };
@@ -280,6 +316,7 @@ class App extends Component {
     tally.lotd.extra = _.includes(boonNames, 'Luck of the Draw') ? -10 : 0;    
     this.setState({user: user, tally: tally});
     this.modifyDrawbacks(this.state.user.drawbacks);
+    this.modifyTeam(this.state.user.team_members);
   }
 
   modifyDrawbacks(drawbacksArray) {
@@ -292,7 +329,7 @@ class App extends Component {
     const filteredDrawbacks = _.filter(drawbacksArray, drawbackObject => {
       if (drawbackObject.requires) {
         for (let i = 0; i < drawbackObject.requires.length; i++) {
-          if (_.includes(combo)) {
+          if (_.includes(combo, drawbackObject.requires[i])) {
             return true;
           }
         }
@@ -343,7 +380,9 @@ class App extends Component {
           <div>
             <div>{`Defender of the Universe`}</div>
             <div>
-              <Route path="/" exact render={() => <Opening openingText={CYOAData.opening} />} />
+              <Route path="/" exact render={() => <Opening
+                openingText={CYOAData.opening}
+                nonPlayableRaces={CYOAData.non_playable_characters} />} />
               <Route path="/special/" render={() => <Special
                 special={CYOAData.special}
                 user={this.state.user}
@@ -353,6 +392,7 @@ class App extends Component {
                 races={CYOAData.race}
                 abilities={CYOAData.abilities}
                 changeRace={this.changeRace.bind(this)}
+                nonPlayableRaces={CYOAData.non_playable_characters}
                 modifyAbilities={this.modifyAbilities.bind(this)}
                 modifyPoints={this.modifyPoints.bind(this)}
               />} />
@@ -373,6 +413,7 @@ class App extends Component {
                 changeShip={this.changeShip.bind(this)}
                 changeShipStyle={this.changeShipStyle.bind(this)}
                 modifyShipTraits={this.modifyShipTraits.bind(this)}
+                modifyShipWeapons={this.modifyShipWeapons.bind(this)}
               />} />
               <Route path="/team/" render={() => <Team
                 user={this.state.user}
@@ -386,15 +427,20 @@ class App extends Component {
                 modifyDrawbacks={this.modifyDrawbacks.bind(this)}
                 modifyBoons={this.modifyBoons.bind(this)}
               />} />
+              <Route path="/eandw/" render={() => <EventsAndRewards
+                user={this.state.user}
+                events={CYOAData.events}
+                rewards={CYOAData.unique_rewards}
+              />} />
             </div>
           </div>
           <Button style={{position: 'fixed', top: 0, left: 0, backgroundColor: 'blue'}} onClick={() => {this.setState({choicesModalOpen: !this.state.choicesModalOpen})}}>
             <div>
-              {this.state.user.points}
+              {`Main: ${this.state.user.points}`}
               <br />
-              {timePoints > 0 ? timePoints : 0}
+              {`Time: ${timePoints > 0 ? timePoints : 0}`}
               <br />
-              {lotdPoints > 0 ? lotdPoints : 0}
+              {`LOTD: ${lotdPoints > 0 ? lotdPoints : 0}`}
             </div>
           </Button>
           <BottomNavigation setBottomTab={this.setBottomTab.bind(this)} />

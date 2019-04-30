@@ -13,7 +13,7 @@
       },
       "your_ship" : {
         "special": "Your Ship",
-        "text": "<p><b>Your Ship</b></p><p>Your ship truly is something else; no one you've ever brought it to has ever seen anything like it before. It's nigh-indestructible, faster than any other ship of its class, and it's inhabited by the most powerful A.I. ever found or made.<br><br>-All ship class costs are cut in half<br>-All Restriction:Team options are unlocked</p>"
+        "text": "<p><b>Your Ship</b></p><p>Your ship truly is something else; no one you've ever brought it to has ever seen anything like it before. It's nigh-indestructible, faster than any other ship of its class, and it's inhabited by the most powerful A.I. ever found or made.<br><br>-All ship class costs are cut in half<br>-All Restriction:Ship options are unlocked</p>"
       },
       "you" : {
         "special": "You",
@@ -1089,7 +1089,7 @@
         },
         "abilities": ["beautiful", "intelligence", "combat_training", "psionics", "piloting"],
         "points": 2,
-        "text": "<b>EsoraT'eanus (Cost: 2 Points)</b><br> Adventurer, explorer, archaeologist, and pilot. Esora really loves to move and get around. She’s been pretty much everywhere; if you want a pilot who’s going to know the ins and outs of most populated star systems, you’re going to want Esora. She tends to be very unprofessional, both in dress and in speech. She’ll often flirt with you and other teammates that she finds attractive. She's a damn good pilot, however. Esora’s more than capable of piloting any ship you could have, and she has a knack for getting out of tight spots, and surviving against nigh-impossible odds.<br> She always carries a Magnum and a Hardlight Blade.<br> Her Suit has Jump Jets, Survivalist, Dr. Armor, and a Kinetic Shield.<br> She has Beautiful, Intelligence, Combat Training, Psionics, and Piloting."
+        "text": "<b>Esora T'eanus (Cost: 2 Points)</b><br> Adventurer, explorer, archaeologist, and pilot. Esora really loves to move and get around. She’s been pretty much everywhere; if you want a pilot who’s going to know the ins and outs of most populated star systems, you’re going to want Esora. She tends to be very unprofessional, both in dress and in speech. She’ll often flirt with you and other teammates that she finds attractive. She's a damn good pilot, however. Esora’s more than capable of piloting any ship you could have, and she has a knack for getting out of tight spots, and surviving against nigh-impossible odds.<br> She always carries a Magnum and a Hardlight Blade.<br> Her Suit has Jump Jets, Survivalist, Dr. Armor, and a Kinetic Shield.<br> She has Beautiful, Intelligence, Combat Training, Psionics, and Piloting."
       },
       "aquila": {
         "member_name": "Aquila",
@@ -1190,7 +1190,7 @@
         },
         "abilities": ["beautiful", "beloved", "combat_training", "immune", "precision", "rage", "diplomatic", "special_ops"],
         "points": 2,
-        "text": "<b>SkyTulach (Cost: 2 Points)</b><br> Once a powerful gang leader and crime boss, when her crew was engaged by a law enforcement fleet, she fled the battle to escape capture, and her escape pod was picked up by a large group of slavers who put her to work. Within a week, all of those slavers were working for her, and then she killed off all of the ones who refused to stop slaving.This experience has opened her eyes, and she has decided to put her skills to good use, helping you. Sky is very cunning, persuasive, and charismatic. She has a strong distaste for slavery, drug running, and needless brutality. She is beloved for her fairness, ethics, and empathy.<br> She carries a Magnum and a Kinetic Staff.<br> Her Suit is just a space mask and an Energy Shield.<br> She has Beautiful, Beloved, Combat Training, Immune, Precision, Rage, Diplomatic, and Special Ops."
+        "text": "<b>Sky Tulach (Cost: 2 Points)</b><br> Once a powerful gang leader and crime boss, when her crew was engaged by a law enforcement fleet, she fled the battle to escape capture, and her escape pod was picked up by a large group of slavers who put her to work. Within a week, all of those slavers were working for her, and then she killed off all of the ones who refused to stop slaving.This experience has opened her eyes, and she has decided to put her skills to good use, helping you. Sky is very cunning, persuasive, and charismatic. She has a strong distaste for slavery, drug running, and needless brutality. She is beloved for her fairness, ethics, and empathy.<br> She carries a Magnum and a Kinetic Staff.<br> Her Suit is just a space mask and an Energy Shield.<br> She has Beautiful, Beloved, Combat Training, Immune, Precision, Rage, Diplomatic, and Special Ops."
       },
       "sten": {
         "member_name": "Sten",

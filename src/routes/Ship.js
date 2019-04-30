@@ -16,6 +16,7 @@ export default class Ship extends Component {
     this.chooseShipStyle = this.chooseShipStyle.bind(this);
     this.chooseBasicShipTrait = this.chooseBasicShipTrait.bind(this);
     this.basicOrUpgrade = this.basicOrUpgrade.bind(this);
+    this.chooseWeapon = this.chooseWeapon.bind(this);
   }
 
   chooseShip(shipObject) {
@@ -45,6 +46,7 @@ export default class Ship extends Component {
     const ship_traits = user.ship_traits;
     const points = user.points;
     const ship = user.ship;
+    const numOfCurrentTrits = ship_traits.upgrade.length + _.filter(ship_traits.basic, traitObject => traitObject.basic > 0 && traitObject.weapon !== true).length;
     if (!_.includes(ship_traits.basic, shipTraitObject)) {
       if (points - shipTraitObject.basic > -1) {
         if (shipTraitObject.weapon) {
@@ -59,8 +61,10 @@ export default class Ship extends Component {
             }
           }
         } else {
-          ship_traits.basic.push(shipTraitObject);
-          this.props.modifyShipTraits(ship_traits);
+          if (user.ship.traits - (numOfCurrentTrits + 1) > -1) {
+            ship_traits.basic.push(shipTraitObject);
+            this.props.modifyShipTraits(ship_traits);
+          }
         }
       }
     } else {
@@ -72,7 +76,7 @@ export default class Ship extends Component {
   basicOrUpgrade(shipTraitObject, boru) {
     const user = this.props.user;
     const ship_traits = user.ship_traits;
-    const numOfCurrentTrits = ship_traits.upgrade.length + _.filter(ship_traits.basic, traitObject => traitObject.basic > 0).length;
+    const numOfCurrentTrits = ship_traits.upgrade.length + _.filter(ship_traits.basic, traitObject => traitObject.basic > 0 && traitObject.weapon !== true).length;
     const points = user.points;
     if (boru === 'upgrade') {
       if (_.includes(ship_traits.basic, shipTraitObject)) {
@@ -102,6 +106,28 @@ export default class Ship extends Component {
           this.props.modifyShipTraits(ship_traits);
         }
       }
+    }
+  }
+
+  chooseWeapon(shipWeaponObject) {
+    const user = this.props.user;
+    const points = user.points;
+    const ship = user.ship;
+    const ship_traits = user.ship_traits;
+    const currentWeapons = user.ship_weapons;
+    const traitNames = _.map(ship_traits.basic, shipTraitObject => shipTraitObject.trait);
+    console.log(ship);
+    const maxWeapons = _.includes(traitNames, 'Superweapon') ? ship.main_weapons + 1 : ship.main_weapons;
+    if (!_.includes(currentWeapons, shipWeaponObject)) {
+      if (points - shipWeaponObject.basic > -1) {
+        if (maxWeapons - (currentWeapons.length + 1) > -1) {
+          currentWeapons.push(shipWeaponObject);
+          this.props.modifyShipWeapons(currentWeapons);
+        }
+      }
+    } else {
+      _.pullAt(currentWeapons, _.indexOf(currentWeapons, shipWeaponObject));
+      this.props.modifyShipWeapons(currentWeapons);
     }
   }
 
@@ -149,6 +175,17 @@ export default class Ship extends Component {
                     basic={() => { this.basicOrUpgrade(choice, 'basic') }}
                     upgrade={() => { this.basicOrUpgrade(choice, 'upgrade') }}
                     />
+                </GridItem>
+              );
+            } else if (choice.weapon) {
+              return (
+                <GridItem key={`ship_traits-grid-${index}`} item xs>
+                  <ChoiceCard
+                    cardText={choice.text}
+                    special={index}
+                    picked={_.includes(this.props.user.ship_weapons, choice)}
+                    onClick={() => { this.chooseWeapon(choice) }}
+                  />
                 </GridItem>
               );
             } else {
