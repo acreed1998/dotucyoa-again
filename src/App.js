@@ -245,12 +245,7 @@ class App extends Component {
     const user = this.state.user;
     const ship = user.ship;
     const tally = this.state.tally;
-    let weapons = _.filter(shipTraitsObject.basic, shipTrait => shipTrait.weapon === true);
     const basicNames = _.map(shipTraitsObject.basic, shipTrait => shipTrait.trait);
-    console.log(weapons);
-    if (ship.main_weapons - weapons.length < 0) {
-      _.pullAt(shipTraitsObject.basic, _.indexOf(shipTraitsObject.basic, weapons[weapons.length - 1]));
-    }
     const upgradeNames = _.map(shipTraitsObject.upgrade, shipTrait => shipTrait.trait);
     const specialNames = _.map(user.special, specialObject => specialObject.special);
     const filteredBasic = _.filter(shipTraitsObject.basic, shipTrait => {
@@ -321,6 +316,7 @@ class App extends Component {
     tally.lotd.extra = _.includes(boonNames, 'Luck of the Draw') ? -10 : 0;    
     this.setState({user: user, tally: tally});
     this.modifyDrawbacks(this.state.user.drawbacks);
+    this.modifyTeam(this.state.user.team_members);
   }
 
   modifyDrawbacks(drawbacksArray) {
@@ -333,7 +329,7 @@ class App extends Component {
     const filteredDrawbacks = _.filter(drawbacksArray, drawbackObject => {
       if (drawbackObject.requires) {
         for (let i = 0; i < drawbackObject.requires.length; i++) {
-          if (_.includes(combo)) {
+          if (_.includes(combo, drawbackObject.requires[i])) {
             return true;
           }
         }
