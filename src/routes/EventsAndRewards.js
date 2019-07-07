@@ -27,7 +27,8 @@ export default class EventsAndRewards extends Component {
                   cardText={choice.text}
                   special={index}
                   picked={_.includes(this.props.user.boons, choice)}
-                  onClick={() => { this.modifyBoons(choice) }} />
+                  // onClick={() => { this.modifyBoons(choice) }}
+                />
               </GridItem>
             );
           })}
@@ -41,7 +42,8 @@ export default class EventsAndRewards extends Component {
                   cardText={choice.text}
                   special={index}
                   picked={_.includes(this.props.user.boons, choice)}
-                  onClick={() => { this.modifyBoons(choice) }} />
+                  // onClick={() => { this.modifyBoons(choice) }} 
+                />
               </GridItem>
             );
           })}
