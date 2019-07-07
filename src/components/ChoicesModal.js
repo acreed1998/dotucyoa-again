@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import Modal from '@material-ui/core/Modal';
 import _ from 'lodash';
 
@@ -40,14 +41,20 @@ class ChoicesModal extends React.Component {
         onBackdropClick={this.props.onClose}
         onClose={this.props.onClose}
       >
-        <div className={classes.paper}>
+        <Grid className={classes.paper}>
           <Typography variant="h6" id="modal-title">
-            {`Special: ${_.map(this.props.user.special, specialObject => specialObject.special)}`}
+            {`Special: ${_.map(this.props.user.special, specialObject => specialObject.special).join(', ')}`}
           </Typography>
-          <Typography variant="subtitle1" id="simple-modal-description">
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          <Typography variant="h6" id="modal-title2">
+            {`Race: ${_.map(this.props.user.race, raceObject => raceObject.race).join(', ')}`}
           </Typography>
-        </div>
+          <Typography variant="h6" id="modal-title3">
+            {`Armor: ${_.map(this.props.user.armor, armorObject => armorObject.type).join(', ')}`}
+          </Typography>
+          <Typography variant="h6" id="modal-title3">
+            {`Ship: ${this.props.user.ship.type}`}
+          </Typography>
+        </Grid>
       </Modal>
     );
   }

@@ -39,7 +39,7 @@ function ChoiceCard(props) {
 
   return (
     <Card className={classes.card}
-    onClick={() => {props.onClick()}}
+    onClick={() => {return props.onClick ? props.onClick() : true}}
     raised={!props.picked}
     style={{backgroundColor: props.picked === false ? 'white' : 'lime'}}>
       <CardContent>
